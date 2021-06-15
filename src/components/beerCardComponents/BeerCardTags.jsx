@@ -5,16 +5,16 @@ import styles from './beerCardTags.css';
 
 const BeerCardTags = ({ tagline }) => (
   <span className={styles['beer-card__tags']}>
-    {tagline.join(', ')}
+    {tagline}
   </span>
 );
 
 BeerCardTags.propTypes = {
-  tagline: PropTypes.arrayOf(PropTypes.string),
+  tagline: PropTypes.string,
 };
 
 BeerCardTags.defaultProps = {
-  tagline: [],
+  tagline: undefined,
 };
 
 export default BeerCardTags;

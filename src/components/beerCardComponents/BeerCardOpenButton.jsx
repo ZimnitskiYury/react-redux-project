@@ -1,6 +1,7 @@
 import React from 'react';
-import * as Router from 'react-router-dom';
 
-const BeerCardOpenButton = () =>(
-    <button type='button'>Open</button>
-)
+const BeerCardOpenButton = () => (
+  <button type="button">Open</button>
+);
+
+export default BeerCardOpenButton;

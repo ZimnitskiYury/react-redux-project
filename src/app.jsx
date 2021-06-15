@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Header from './components/headerComponents/Header';
-import SearchBox from './components/search-box';
+import MainPage from './components/mainPageComponents/MainPage';
 
-const Main = () => (
+const App = () => (
   <>
     <Header />
-    <SearchBox />
+    <MainPage />
   </>
 );
 
-render(<Main />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
