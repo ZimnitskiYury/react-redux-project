@@ -1,0 +1,30 @@
+.beer-card {
+    display: flex;
+    flex-direction: column;
+
+    width: 22%;
+    height: 360px;
+    margin-bottom: 25px;
+    padding: 10px;
+
+    background-color: gray;
+
+    justify-content: space-between;
+}
+.beer-card__photo {
+    height: 250px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.beer-card__title {
+    color: white;
+
+    font-size: 16px;
+}
+.beer-card__tags {
+    color: white;
+
+    font-size: 10px;
+}

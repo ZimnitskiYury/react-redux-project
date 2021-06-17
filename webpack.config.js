@@ -20,6 +20,18 @@ module.exports = {
         },
       },
       {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              titleProp: true,
+            },
+          },
+          'file-loader',
+        ],
+      },
+      {
         test: /\.css$/,
         use: [
           'style-loader',
@@ -30,6 +42,16 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(?:ico|png|jpg|jpeg|gif)$/,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'assets/images',
+          name() {
+            return '[name].[hash].[ext]';
+          },
+        },
       },
     ],
   },
