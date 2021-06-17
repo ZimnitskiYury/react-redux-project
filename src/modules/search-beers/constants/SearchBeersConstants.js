@@ -1,0 +1,2 @@
+export const INITIAL = 'BEERS/INITIAL';
+export const REQUESTBEERS = 'BEERS/REQUESTBEERS';

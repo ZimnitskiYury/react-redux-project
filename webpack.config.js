@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './src/app.jsx',
+  entry: ['babel-regenerator-runtime', './src/app.jsx'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',

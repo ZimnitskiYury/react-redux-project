@@ -1,25 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { initBeers } from '../../modules/search-beers/actions/SearchBeersActions';
+
 import BeerCard from '../beerCardComponents/BeerCard';
 
-const test = [{
-  name: 'beeeeeeer',
-  imageUrl: 'https://images.punkapi.com/v2/192.png',
-  tagline: 'Post Modern Classic. Spiky. Tropical. Hoppy.',
-}];
-const SearchResults = () => (
-  <div>
-    Search Results
-    { test.map((beer) => <BeerCard beer={beer} key={beer.name}/>)}
-  </div>
-);
-
-SearchResults.propTypes = {
-  searchResults: PropTypes.arrayOf(PropTypes.shape),
-};
-
-SearchResults.defaultProps = {
-  searchResults: [],
+const SearchResults = () => {
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const beers = useSelector((state) => state.searchResults.beers);
+  if (!beers.length) {
+    dispatch(initBeers());
+  }
+  return (
+    <div>
+      { beers.map((beer) => <BeerCard beer={beer} key={beer.name} />)}
+    </div>
+  );
 };
 
 export default SearchResults;

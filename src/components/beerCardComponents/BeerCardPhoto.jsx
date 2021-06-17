@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './beerCardPhoto.css';
 
 const BeerCardPhoto = ({ imageUrl }) => (
   <div>
-    <img src={imageUrl} alt={imageUrl} />
+    <img className={styles['beer-card__photo']} src={imageUrl} alt={imageUrl} />
   </div>
 );
 
