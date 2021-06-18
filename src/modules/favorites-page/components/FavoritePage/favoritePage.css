@@ -1,0 +1,11 @@
+.favorite-page {
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+
+    align-items: center;
+}
+.favorite-page__list {
+    row-gap: 25px;
+}

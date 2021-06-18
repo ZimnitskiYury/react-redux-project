@@ -1,7 +1,8 @@
 import React from 'react';
+import ToggleFavoriteButton from '/src/features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
 
 import styles from './beerCard.css';
-import BeerCardAddFavoriteButton from './BeerCardAddFavoriteButton';
+
 import BeerCardOpenButton from './BeerCardOpenButton';
 
 const BeerCard = ({ beer }) => (
@@ -15,7 +16,7 @@ const BeerCard = ({ beer }) => (
     </span>
     <div>
       <BeerCardOpenButton />
-      <BeerCardAddFavoriteButton beer={beer} />
+      <ToggleFavoriteButton beer={beer} />
     </div>
   </div>
 );

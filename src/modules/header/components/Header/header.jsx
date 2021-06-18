@@ -12,6 +12,9 @@ function Header() {
       <Link to="/">
         <span className={styles.header__title}>Beer Catalog</span>
       </Link>
+      <Link to="/favorites">
+        <span className={styles.header__title}>Favorites</span>
+      </Link>
       <div className={styles.header__kebab}>
         <img src={kebabIcon} alt="kebabMenuButton.svg" />
       </div>

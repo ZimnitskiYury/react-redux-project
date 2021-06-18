@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addFavorite, removeFavorite } from '../../../favorites-page/actions/favoritesActions';
+import { addFavorite, removeFavorite } from '/src/modules/favorites-page/actions/favoritesActions';
 
-const BeerCardAddFavoriteButton = ({ beer }) => {
+const ToggleFavoriteButton = ({ beer }) => {
   const store = useSelector((state) => state.favoritesStore.favorites);
   const dispatch = useDispatch();
   const isFavorite = store.filter((favorite) => favorite.id === beer.id).length;
@@ -14,4 +14,4 @@ const BeerCardAddFavoriteButton = ({ beer }) => {
   );
 };
 
-export default BeerCardAddFavoriteButton;
+export default ToggleFavoriteButton;
