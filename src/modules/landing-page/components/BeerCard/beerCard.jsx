@@ -15,7 +15,7 @@ const BeerCard = ({ beer }) => (
     </span>
     <div>
       <BeerCardOpenButton />
-      <BeerCardAddFavoriteButton />
+      <BeerCardAddFavoriteButton beer={beer} />
     </div>
   </div>
 );

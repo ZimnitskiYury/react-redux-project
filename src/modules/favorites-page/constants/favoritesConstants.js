@@ -1,0 +1,2 @@
+export const ADD_FAVORITE = 'FAVORITES/ADD';
+export const REMOVE_FAVORITE = 'FAVORITES/REMOVE';
