@@ -1,1 +1,3 @@
-export const TOGGLE = "SIDEBAR/TOGGLE";
+const TOGGLE = 'SIDEBAR/TOGGLE';
+
+export default { TOGGLE };

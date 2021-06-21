@@ -1,8 +1,8 @@
 // @ts-nocheck
 import React from 'react';
 import { Link } from 'react-router-dom';
-import HeaderBurgerSwitcher from '../BurgerButton/burgerButton';
-import kebabIcon from '/src/resources/svg/kebabMenuButton.svg';
+import HeaderBurgerSwitcher from 'Layout/header/components/BurgerButton/burgerButton';
+import kebabIcon from 'Resources/svg/kebabMenuButton.svg';
 import styles from './header.css';
 
 function Header() {

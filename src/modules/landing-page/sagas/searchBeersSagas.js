@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from '@redux-saga/core/effects';
-import getData from '../../../common/connects/connect';
+import getData from '../../../services/connect';
 import { INITIAL, REQUESTBEERS } from '../constants/searchBeersConstants';
 
 function* sagaWorker() {

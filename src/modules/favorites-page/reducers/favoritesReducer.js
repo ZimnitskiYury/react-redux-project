@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, REMOVE_FAVORITE } from '../constants/favoritesConstants';
+import { ADD_FAVORITE, REMOVE_FAVORITE } from 'Modules/favorites-page/constants/favoritesConstants';
 
 const initialState = {
   favorites: [],

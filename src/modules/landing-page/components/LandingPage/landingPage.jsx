@@ -1,6 +1,8 @@
 import React from 'react';
-import SearchResults from '../SearchResults/searchResults';
-import SearchBox from '../SearchBox/searchBox';
+
+import SearchResults from 'Modules/landing-page/components/SearchResults/searchResults';
+import SearchBox from 'Modules/landing-page/components/SearchBox/searchBox';
+
 import styles from './landingPage.css';
 
 const LandingPage = () => (

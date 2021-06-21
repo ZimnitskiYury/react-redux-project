@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addFavorite, removeFavorite } from '/src/modules/favorites-page/actions/favoritesActions';
+import { addFavorite, removeFavorite } from 'Modules/favorites-page/actions/favoritesActions';
 
 const ToggleFavoriteButton = ({ beer }) => {
   const store = useSelector((state) => state.favoritesStore.favorites);

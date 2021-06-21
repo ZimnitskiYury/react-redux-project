@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+      "target":"es2020",
+      "baseUrl": ".",
+      "paths": {
+        "Modules/": ["./src/modules/"],
+        "Features/": ["./src/features/"],
+        "Resources/": ["./src/resources/"],
+        "Layout/": ["./src/layout/"],
+      }
+    },
+  "exclude": ["node_modules", "dist"],
+}

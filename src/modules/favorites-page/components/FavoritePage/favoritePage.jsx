@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import FavoriteBeer from "/src/modules/favorites-page/components/FavoriteBeer/favoriteBeer";
+import FavoriteBeer from 'Modules/favorites-page/components/FavoriteBeer/favoriteBeer';
 import styles from './favoritePage.css';
 
 const FavoritePage = () => {

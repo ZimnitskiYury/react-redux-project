@@ -1,5 +1,5 @@
 import React from 'react';
-import ToggleFavoriteButton from '/src/features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
+import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
 
 import styles from './beerCard.css';
 

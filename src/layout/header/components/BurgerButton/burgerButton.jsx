@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import toggleMenu from '/src/modules/sidebar/actions/sideBarActions';
-import { ReactComponent as BurgerIcon } from '/src/resources/svg/burgerMenuButton.svg';
+
+import toggleMenu from 'Modules/sidebar/actions/sideBarActions';
+
+import { ReactComponent as BurgerIcon } from 'Resources/svg/burgerMenuButton.svg';
 
 const BurgerMenu = () => {
   const dispatch = useDispatch();

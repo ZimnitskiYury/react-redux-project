@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: ['babel-regenerator-runtime', './src/app.jsx'],
+  entry: ['babel-regenerator-runtime', './src/app/app.jsx'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -55,6 +55,15 @@ module.exports = {
         },
       },
     ],
+  },
+  resolve: {
+    alias: {
+      Modules: path.resolve(__dirname, 'src/modules/'),
+      Features: path.resolve(__dirname, 'src/features/'),
+      Resources: path.resolve(__dirname, 'src/resources/'),
+      Layout: path.resolve(__dirname, 'src/layout/'),
+      Styles: path.resolve(__dirname, 'src/styles/'),
+    },
   },
   devtool: 'eval-source-map',
   devServer: {

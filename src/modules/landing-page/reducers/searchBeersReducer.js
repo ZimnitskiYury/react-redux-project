@@ -1,4 +1,4 @@
-import { INITIAL } from '../constants/searchBeersConstants';
+import { INITIAL } from 'Modules/landing-page/constants/searchBeersConstants';
 
 const initialState = {
   beers: [],

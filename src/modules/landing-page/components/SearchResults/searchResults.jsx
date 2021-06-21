@@ -1,8 +1,10 @@
 import React from 'react';
-import styles from './searchResults.css';
 import { useDispatch, useSelector } from 'react-redux';
-import BeerCard from '../BeerCard/beerCard';
-import { initBeers } from '/src/modules/landing-page/actions/searchBeersActions';
+
+import { initBeers } from 'Modules/landing-page/actions/searchBeersActions';
+import BeerCard from 'Modules/landing-page/components/BeerCard/beerCard';
+
+import styles from './searchResults.css';
 
 const SearchResults = () => {
   const dispatch = useDispatch();
