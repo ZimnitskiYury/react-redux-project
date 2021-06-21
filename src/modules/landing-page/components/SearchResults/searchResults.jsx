@@ -6,7 +6,7 @@ import BeerCard from 'Modules/landing-page/components/BeerCard/beerCard';
 
 import styles from './searchResults.css';
 
-const SearchResults = () => {
+function SearchResults() {
   const dispatch = useDispatch();
   // @ts-ignore
   const beers = useSelector((state) => state.searchResults.beers);

@@ -4,14 +4,16 @@ import styles from './searchBox.css';
 
 const tag = 'searchBox';
 
-const SearchBox = () => (
-  <form action="/" method="get" className={styles['landing-page__search']}>
-    <label htmlFor={tag}>
-      Search:
-      <input id={tag} type="text" name="searchQuery" placeholder="Search beers..." />
-    </label>
-    <SearchIcon />
-  </form>
-);
+function SearchBox() {
+  return (
+    <form action="/" method="get" className={styles['landing-page__search']}>
+      <label htmlFor={tag}>
+        Search:
+        <input id={tag} type="text" name="searchQuery" placeholder="Search beers..." />
+      </label>
+      <SearchIcon />
+    </form>
+  );
+}
 
 export default SearchBox;

@@ -1,7 +1,9 @@
 import React from 'react';
 
-const BeerCardOpenButton = () => (
-  <button type="button">Open</button>
-);
+function BeerCardOpenButton() {
+  return (
+    <button type="button">Open</button>
+  );
+}
 
 export default BeerCardOpenButton;

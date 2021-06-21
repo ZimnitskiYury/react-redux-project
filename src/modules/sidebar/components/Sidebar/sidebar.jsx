@@ -6,7 +6,7 @@ import StarIcon from '@material-ui/icons/Star';
 
 import styles from './sidebar.css';
 
-const Sidebar = () => {
+function Sidebar() {
   const isOpen = useSelector((state) => state.sidebar.isOpen);
   return (
     <div className={isOpen ? `${styles.sidebar} ${styles.sidebar_open}` : styles.sidebar}>
@@ -22,6 +22,6 @@ const Sidebar = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default Sidebar;

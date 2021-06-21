@@ -1,12 +1,14 @@
 import { call, put, takeEvery } from '@redux-saga/core/effects';
-import getData from '../../../services/connect';
-import { INITIAL, REQUESTBEERS } from '../constants/searchBeersConstants';
+import { INITIAL, REQUESTBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
+import getData from 'Services/connect';
 
-function* sagaWorker() {
+export function* sagaWorker() {
   const payload = yield call(getData);
   yield put({ type: INITIAL, payload });
 }
 
-export default function* sagaWatcher() {
+export function* sagaWatcher() {
   yield takeEvery(REQUESTBEERS, sagaWorker);
 }
+
+export default { sagaWorker, sagaWatcher };

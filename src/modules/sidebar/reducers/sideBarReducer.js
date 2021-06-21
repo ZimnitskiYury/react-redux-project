@@ -6,12 +6,12 @@ const initialState = {
 
 };
 
-const sidebarReducer = (state = initialState, action) => {
+function sidebarReducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE: return { ...state, isOpen: !(state.isOpen) };
 
     default: return state;
   }
-};
+}
 
 export default sidebarReducer;

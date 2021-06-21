@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import FavoriteBeer from 'Modules/favorites-page/components/FavoriteBeer/favoriteBeer';
 import styles from './favoritePage.css';
 
-const FavoritePage = () => {
+function FavoritePage() {
   const beers = useSelector((state) => state.favoritesStore.favorites);
 
   return (
@@ -14,6 +14,6 @@ const FavoritePage = () => {
       </div>
     </>
   );
-};
+}
 
 export default FavoritePage;

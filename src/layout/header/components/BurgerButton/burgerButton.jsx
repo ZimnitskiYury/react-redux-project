@@ -5,7 +5,7 @@ import toggleMenu from 'Modules/sidebar/actions/sideBarActions';
 
 import { ReactComponent as BurgerIcon } from 'Resources/svg/burgerMenuButton.svg';
 
-const BurgerMenu = () => {
+function BurgerMenu() {
   const dispatch = useDispatch();
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -17,5 +17,6 @@ const BurgerMenu = () => {
       <BurgerIcon fill="#FFFFFF" />
     </div>
   );
-};
+}
+
 export default BurgerMenu;

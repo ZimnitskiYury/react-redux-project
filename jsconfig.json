@@ -3,10 +3,12 @@
       "target":"es2020",
       "baseUrl": ".",
       "paths": {
-        "Modules/": ["./src/modules/"],
-        "Features/": ["./src/features/"],
-        "Resources/": ["./src/resources/"],
-        "Layout/": ["./src/layout/"],
+        "Modules/*": ["./src/modules/*"],
+        "Features/*": ["./src/features/*"],
+        "Resources/*": ["./src/resources/*"],
+        "Layout/*": ["./src/layout/*"],
+        "Services/*": ["./src/services/*"],
+        "State/*": ["./src/state/*"],
       }
     },
   "exclude": ["node_modules", "dist"],

@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import searchResultsReducer from 'Modules/landing-page/reducers/searchBeersReducer';
 import sideBarReducer from 'Modules/sidebar/reducers/sideBarReducer';
 import favoritesReducer from 'Modules/favorites-page/reducers/favoritesReducer';
-import sagaWatcher from 'Modules/landing-page/sagas/searchBeersSagas';
+import { sagaWatcher } from 'Modules/landing-page/sagas/searchBeersSagas';
 
 const rootReducer = combineReducers(
 

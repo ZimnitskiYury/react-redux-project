@@ -62,6 +62,8 @@ module.exports = {
       Features: path.resolve(__dirname, 'src/features/'),
       Resources: path.resolve(__dirname, 'src/resources/'),
       Layout: path.resolve(__dirname, 'src/layout/'),
+      State: path.resolve(__dirname, 'src/state/'),
+      Services: path.resolve(__dirname, 'src/services/'),
       Styles: path.resolve(__dirname, 'src/styles/'),
     },
   },
