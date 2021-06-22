@@ -8,7 +8,7 @@ import {
 import Header from 'Layout/header/components/Header/header';
 
 import LandingPage from 'Modules/landing-page/components/LandingPage/landingPage';
-import Sidebar from 'Modules/sidebar/components/Sidebar/sidebar';
+import Sidebar from 'Layout/sidebar/components/Sidebar/sidebar';
 import FavoritePage from 'Modules/favorites-page/components/FavoritePage/favoritePage';
 import store from 'State/store';
 

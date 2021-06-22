@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, REMOVE_FAVORITE } from 'Modules/favorites-page/constants/favoritesConstants';
+import { ADD_FAVORITE, REMOVE_FAVORITE } from 'Features/favorites/constants/favoritesConstants';
 
 export function addFavorite(beer) {
   return {

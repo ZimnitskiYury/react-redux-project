@@ -1,4 +1,4 @@
-import { TOGGLE } from 'Modules/sidebar/constants/sidebarConstants';
+import { TOGGLE } from 'Layout/sidebar/constants/sidebarConstants';
 
 const initialState = {
 
