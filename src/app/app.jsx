@@ -1,19 +1,19 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import {
-  BrowserRouter, Route, Switch,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from 'Layout/header/components/Header/header';
-
 import LandingPage from 'Modules/landing-page/components/LandingPage/landingPage';
 import Sidebar from 'Layout/sidebar/components/Sidebar/sidebar';
 import FavoritePage from 'Modules/favorites-page/components/FavoritePage/favoritePage';
+
 import store from 'State/store';
 
 import 'Styles/reset.css';
+import 'Styles/sliders.css';
 import styles from './app.css';
+
 
 function App() {
   return (

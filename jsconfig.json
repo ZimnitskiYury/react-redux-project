@@ -9,6 +9,7 @@
         "Layout/*": ["./src/layout/*"],
         "Services/*": ["./src/services/*"],
         "State/*": ["./src/state/*"],
+        "Styles/*": ["./src/styles/*"],
       }
     },
   "exclude": ["node_modules", "dist"],

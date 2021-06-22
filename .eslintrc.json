@@ -19,6 +19,8 @@
     ],
     "rules": {
         "linebreak-style": ["error", "windows"],
-        "import/no-unresolved": "off"
+        "import/no-unresolved": "off",
+        "import/newline-after-import": ["error", { "count": 2 }],
+        "no-multiple-empty-lines": ["error", { "max": 2 }]
     }
 }
