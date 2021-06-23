@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import useInput from 'Modules/landing-page/hooks/searchInputHook';
 
-import { Slider } from 'Modules/landing-page/components/Slider/slider';
+import { Slider } from 'Common/components/Slider/slider';
 
 import styles from './searchBox.css';
 
