@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -16,12 +16,13 @@ import styles from './app.css';
 
 
 function App() {
+  const [isOpen, toggleSidebar] = useState(false);
   return (
     <BrowserRouter>
       <Provider store={store}>
         <>
-          <Sidebar />
-          <Header />
+          <Sidebar isOpen={isOpen} />
+          <Header sidebarHandler={() => toggleSidebar((state) => !state)} />
           <div className={styles.container}>
             <Switch>
               <Route exact path="/" component={LandingPage} />

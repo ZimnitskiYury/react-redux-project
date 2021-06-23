@@ -1,5 +1,6 @@
-import { all, call, takeEvery } from '@redux-saga/core/effects';
+import { all, takeEvery } from '@redux-saga/core/effects';
 import { ADD_FAVORITE, REMOVE_FAVORITE } from '../constants/favoritesConstants';
+
 
 const getLocalStorage = () => {
   const data = localStorage.getItem('favoriteBeers');

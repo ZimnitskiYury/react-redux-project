@@ -1,14 +1,10 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addFavorite, removeFavorite } from 'Features/favorites/actions/favoritesActions';
+import PropTypes from 'prop-types';
 
 
-function ToggleFavoriteButton({ beer }) {
-  const store = useSelector((state) => state.favoritesStore.favorites);
-  const dispatch = useDispatch();
-  const isFavorite = store.filter((favorite) => favorite.id === beer.id).length;
+function ToggleFavoriteButton({ isFavorite, handler }) {
   return (
-    <button type="button" onClick={() => (isFavorite ? dispatch(removeFavorite(beer)) : dispatch(addFavorite(beer)))}>
+    <button type="button" onClick={handler}>
       {isFavorite ? 'Remove ' : 'Add '}
       Favorite
     </button>
@@ -16,3 +12,12 @@ function ToggleFavoriteButton({ beer }) {
 }
 
 export default ToggleFavoriteButton;
+
+ToggleFavoriteButton.propTypes = {
+  isFavorite: PropTypes.bool,
+  handler: PropTypes.func.isRequired,
+};
+
+ToggleFavoriteButton.defaultProps = {
+  isFavorite: false,
+};

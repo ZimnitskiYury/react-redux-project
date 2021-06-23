@@ -29,9 +29,9 @@ export default Slider;
 Slider.propTypes = {
   tag: PropTypes.string.isRequired,
   name: PropTypes.string,
-  min: PropTypes.number,
-  max: PropTypes.number,
-  step: PropTypes.number,
+  min: PropTypes.string,
+  max: PropTypes.string,
+  step: PropTypes.string,
   sliderValue: PropTypes.number,
   sliderOnChange: PropTypes.func.isRequired,
 };

@@ -1,26 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
+import BeerCardOpenButton from './BeerCardOpenButton';
 
 import styles from './beerCard.css';
 
-import BeerCardOpenButton from './BeerCardOpenButton';
 
-function BeerCard({ beer }) {
+function BeerCard({
+  name, tagline, imageUrl, isFavorite, handler,
+}) {
   return (
     <div className={styles['beer-card']}>
-      <div className={styles['beer-card__photo']} style={{ backgroundImage: `url(${beer.image_url})` }} />
+      <div className={styles['beer-card__photo']} style={{ backgroundImage: `url(${imageUrl})` }} />
       <h1 className={styles['beer-card__title']}>
-        {beer.name}
+        {name}
       </h1>
       <span className={styles['beer-card__tags']}>
-        {beer.tagline}
+        {tagline}
       </span>
       <div>
         <BeerCardOpenButton />
-        <ToggleFavoriteButton beer={beer} />
+        <ToggleFavoriteButton isFavorite={isFavorite} handler={handler} />
       </div>
     </div>
   );
 }
 
 export default BeerCard;
+
+BeerCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  tagline: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  handler: PropTypes.func.isRequired,
+};

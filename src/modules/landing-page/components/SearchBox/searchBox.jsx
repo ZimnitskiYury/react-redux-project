@@ -1,31 +1,36 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import SearchIcon from '@material-ui/icons/Search';
 import useInput from 'Modules/landing-page/hooks/searchInputHook';
-
 import { Slider } from 'Common/components/Slider/slider';
-
 import { searchBeers } from 'Modules/landing-page/actions/searchBeersActions';
-import { useDispatch } from 'react-redux';
+
 import styles from './searchBox.css';
 
 
 function SearchBox() {
   const dispatch = useDispatch();
   const tag = 'searchBox';
+
   const [IsShownFilters, setShowFilters] = useState(false);
   const { value, reset, onChange } = useInput('');
+
   const [alcoValue, setAlcoValue] = useState('2');
   const alcoHandler = (event) => {
     setAlcoValue(event.target.value);
   };
+
   const [ibuValue, setIBUValue] = useState('0');
   const ibuHandler = (event) => {
     setIBUValue(event.target.value);
   };
+
   const [colorValue, setColorValue] = useState('4');
   const colorHandler = (event) => {
     setColorValue(event.target.value);
   };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(searchBeers(value, alcoValue, ibuValue, colorValue));
@@ -46,7 +51,7 @@ function SearchBox() {
         Search:
         <input id={tag} type="text" name="searchQuery" placeholder="Search beers..." value={value} onChange={onChange} onFocus={() => setShowFilters(true)} />
       </label>
-      {IsShownFilters ? sliders : (<span> Start to type your search</span>)}
+      {IsShownFilters ? sliders : (<p> Start to type your search</p>)}
       <button type="submit">
         <SearchIcon />
         {' '}

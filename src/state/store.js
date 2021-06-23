@@ -4,7 +4,6 @@ import createSagaMiddleware from 'redux-saga';
 import { all } from '@redux-saga/core/effects';
 
 import searchResultsReducer from 'Modules/landing-page/reducers/searchBeersReducer';
-import sideBarReducer from 'Layout/sidebar/reducers/sideBarReducer';
 import favoritesReducer from 'Features/favorites/reducers/favoritesReducer';
 import searchSagas from 'Modules/landing-page/sagas/searchBeersSagas';
 import favoriteSagas from 'Features/favorites/sagas/favoritesSagas';
@@ -13,7 +12,6 @@ import favoriteSagas from 'Features/favorites/sagas/favoritesSagas';
 const rootReducer = combineReducers(
   {
     searchResults: searchResultsReducer,
-    sidebar: sideBarReducer,
     favoritesStore: favoritesReducer,
   },
 );
@@ -23,9 +21,6 @@ const favoritesFromLocal = JSON.parse(localStorage.getItem('favoriteBeers'));
 const initialState = {
   searchResults: {
     beers: [],
-  },
-  sidebar: {
-    isOpen: false,
   },
   favoritesStore: {
     favorites: favoritesFromLocal || [],

@@ -1,5 +1,6 @@
 import { ADD_FAVORITE, REMOVE_FAVORITE } from 'Features/favorites/constants/favoritesConstants';
 
+
 export function addFavorite(beer) {
   return {
     type: ADD_FAVORITE,
