@@ -1,4 +1,5 @@
 export const INITIAL = 'BEERS/INITIAL';
 export const REQUESTBEERS = 'BEERS/REQUESTBEERS';
+export const SEARCHBEERS = 'BEERS/SEARCHBEERS';
 
-export default { INITIAL, REQUESTBEERS };
+export default { INITIAL, REQUESTBEERS, SEARCHBEERS };

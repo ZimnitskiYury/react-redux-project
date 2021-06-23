@@ -6,8 +6,9 @@ import { all } from '@redux-saga/core/effects';
 import searchResultsReducer from 'Modules/landing-page/reducers/searchBeersReducer';
 import sideBarReducer from 'Layout/sidebar/reducers/sideBarReducer';
 import favoritesReducer from 'Features/favorites/reducers/favoritesReducer';
-import { sagaWatcher } from 'Modules/landing-page/sagas/searchBeersSagas';
+import searchSagas from 'Modules/landing-page/sagas/searchBeersSagas';
 import favoriteSagas from 'Features/favorites/sagas/favoritesSagas';
+
 
 const rootReducer = combineReducers(
   {
@@ -33,7 +34,7 @@ const initialState = {
 
 const rootSagas = function* rootSagas() {
   yield all(
-    [sagaWatcher(), favoriteSagas()],
+    [searchSagas(), favoriteSagas()],
   );
 };
 

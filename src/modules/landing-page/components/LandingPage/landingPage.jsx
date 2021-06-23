@@ -5,6 +5,7 @@ import SearchBox from 'Modules/landing-page/components/SearchBox/searchBox';
 
 import styles from './landingPage.css';
 
+
 function LandingPage() {
   return (
     <div className={styles['landing-page']}>

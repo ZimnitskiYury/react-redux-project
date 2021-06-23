@@ -4,10 +4,13 @@ import useInput from 'Modules/landing-page/hooks/searchInputHook';
 
 import { Slider } from 'Common/components/Slider/slider';
 
+import { searchBeers } from 'Modules/landing-page/actions/searchBeersActions';
+import { useDispatch } from 'react-redux';
 import styles from './searchBox.css';
 
 
 function SearchBox() {
+  const dispatch = useDispatch();
   const tag = 'searchBox';
   const [IsShownFilters, setShowFilters] = useState(false);
   const { value, reset, onChange } = useInput('');
@@ -25,6 +28,7 @@ function SearchBox() {
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    dispatch(searchBeers(value, alcoValue, ibuValue, colorValue));
     reset();
   };
 

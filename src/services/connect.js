@@ -1,3 +1,11 @@
+import { URL_PUNKAPI } from './connectConstants';
+
+
+const initial = new Map([
+  ['page', 1],
+  ['per_page', 16],
+]);
+
 async function getDataXML() {
   const xhr = new XMLHttpRequest();
   xhr.responseType = 'json';
@@ -16,10 +24,15 @@ async function getDataXML() {
   });
 }
 
-async function getData() {
-  const response = await fetch('https://api.punkapi.com/v2/beers/');
+async function getData(searchParams) {
+  const url = URL_PUNKAPI;
+  initial.forEach((value, key) => url.searchParams.set(key, value));
+  if (searchParams) {
+    searchParams.forEach((value, key) => url.searchParams.set(key, value));
+  }
+  const response = await fetch(url);
   const data = await response.json();
   return data;
 }
 
-export default getDataXML;
+export default getData;
