@@ -28,3 +28,9 @@
 
     font-size: 10px;
 }
+.beer-card__buttons {
+    display: flex;
+
+    column-gap: 10px;
+    justify-content: space-evenly;
+}

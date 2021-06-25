@@ -11,14 +11,30 @@
     padding: 8px 12px;
 
     color: white;
-    background-color: #106cc8;
+    background-color: #004297;
 
     align-items: center;
     justify-content: space-between;
 }
 .header__title {
     padding: 0 10px;
+
+    text-transform: uppercase;
 }
 .header__kebab {
     margin-left: auto;
+}
+.header > a {
+    text-decoration: none;
+
+    color: white;
+}
+.header > a:hover {
+    color: #ffb46a;
+}
+.header svg {
+    fill: white;
+}
+.header svg:hover {
+    fill: #ffb46a;
 }

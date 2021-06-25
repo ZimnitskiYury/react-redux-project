@@ -5,6 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import useInput from 'Modules/landing-page/hooks/searchInputHook';
 import { Slider } from 'Common/components/Slider/slider';
 import { searchBeers } from 'Modules/landing-page/actions/searchBeersActions';
+import useSlider from 'Modules/landing-page/hooks/sliderHook';
 
 import styles from './searchBox.css';
 
@@ -16,24 +17,20 @@ function SearchBox() {
   const [IsShownFilters, setShowFilters] = useState(false);
   const { value, reset, onChange } = useInput('');
 
-  const [alcoValue, setAlcoValue] = useState('2');
-  const alcoHandler = (event) => {
-    setAlcoValue(event.target.value);
-  };
+  const { value: alcoValue, isChanged: isChangedAlco, onChange: alcoHandler } = useSlider('2');
 
-  const [ibuValue, setIBUValue] = useState('0');
-  const ibuHandler = (event) => {
-    setIBUValue(event.target.value);
-  };
+  const { value: ibuValue, isChanged: isChangedIbu, onChange: ibuHandler } = useSlider('0');
 
-  const [colorValue, setColorValue] = useState('4');
-  const colorHandler = (event) => {
-    setColorValue(event.target.value);
-  };
+  const { value: ebcValue, isChanged: isChangedEbc, onChange: ebcHandler } = useSlider('4');
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(searchBeers(value, alcoValue, ibuValue, colorValue));
+    if (value) {
+      dispatch(searchBeers(value,
+        isChangedAlco && alcoValue,
+        isChangedIbu && ibuValue,
+        isChangedEbc && ebcValue));
+    }
     reset();
   };
 
@@ -41,7 +38,7 @@ function SearchBox() {
     <>
       <Slider tag="Alcohol" name="Alcohol" min="2" max="14" sliderValue={alcoValue} sliderOnChange={alcoHandler} />
       <Slider tag="IBU" name="IBU" min="0" max="120" sliderValue={ibuValue} sliderOnChange={ibuHandler} />
-      <Slider tag="ColorEBC" name="ColorEBC" min="4" max="80" sliderValue={colorValue} sliderOnChange={colorHandler} />
+      <Slider tag="ColorEBC" name="ColorEBC" min="4" max="80" sliderValue={ebcValue} sliderOnChange={ebcHandler} />
     </>
   );
 

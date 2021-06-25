@@ -16,9 +16,6 @@ function Header({ sidebarHandler }) {
       <Link to="/">
         <span className={styles.header__title}>Beer Catalog</span>
       </Link>
-      <Link to="/favorites">
-        <span className={styles.header__title}>Favorites</span>
-      </Link>
       <div className={styles.header__kebab}>
         <img src={kebabIcon} alt="KebabIcon" />
       </div>

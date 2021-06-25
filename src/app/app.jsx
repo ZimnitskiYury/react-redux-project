@@ -7,6 +7,7 @@ import Header from 'Layout/header/components/Header/header';
 import LandingPage from 'Modules/landing-page/components/LandingPage/landingPage';
 import Sidebar from 'Layout/sidebar/components/Sidebar/sidebar';
 import FavoritePage from 'Modules/favorites-page/components/FavoritePage/favoritePage';
+import BeerDetailsPage from 'Modules/beer-details-page/components/beerDetailsPage';
 
 import store from 'State/store';
 
@@ -27,6 +28,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route path="/favorites" component={FavoritePage} />
+              <Route path="/beer/:id" component={BeerDetailsPage} />
             </Switch>
           </div>
         </>

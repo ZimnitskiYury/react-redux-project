@@ -32,6 +32,7 @@ function SearchResults() {
     <div className={styles['search-results']}>
       { beers.map((beer) => (
         <BeerCard
+          id={beer.id}
           key={beer.name}
           name={beer.name}
           tagline={beer.tagline}

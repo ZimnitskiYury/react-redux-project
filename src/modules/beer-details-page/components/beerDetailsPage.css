@@ -1,0 +1,36 @@
+.beer-page {
+    display: flex;
+    flex-direction: column;
+
+    color: black;
+
+    justify-content: stretch;
+}
+.beer-page__header {
+    display: flex;
+}
+.beer-page__header-info {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+}
+.beer-page__header-title {
+    font-size: 40px;
+}
+.beer-page__header-tags {
+    opacity: 0.5;
+
+    font-size: 22px;
+}
+.beer-page__header-description {
+    font-size: 32px;
+}
+.beer-page__header-photo {
+    width: 30%;
+
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

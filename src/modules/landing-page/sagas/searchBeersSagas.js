@@ -2,7 +2,7 @@ import {
   call, put, takeEvery, all,
 } from '@redux-saga/core/effects';
 import { INITIAL, REQUESTBEERS, SEARCHBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
-import getData from 'Services/connect';
+import { getData } from 'Services/connect';
 
 
 export function* initBeerWorker() {

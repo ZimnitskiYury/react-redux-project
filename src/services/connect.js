@@ -24,8 +24,8 @@ async function getDataXML() {
   });
 }
 
-async function getData(searchParams) {
-  const url = URL_PUNKAPI;
+export async function getData(searchParams) {
+  const url = new URL(URL_PUNKAPI);
   initial.forEach((value, key) => url.searchParams.set(key, value));
   if (searchParams) {
     searchParams.forEach((value, key) => url.searchParams.set(key, value));
@@ -35,4 +35,11 @@ async function getData(searchParams) {
   return data;
 }
 
-export default getData;
+export async function getDataById(id) {
+  const url = new URL(`${URL_PUNKAPI}/${id}`);
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
+
+export default { getData, getDataById };

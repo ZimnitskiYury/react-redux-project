@@ -1,8 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './beerCardOpenButton.css';
 
-function BeerCardOpenButton() {
+
+function BeerCardOpenButton({ id }) {
   return (
-    <button type="button">Open</button>
+    <Link
+      className={styles['open-button']}
+      type="button"
+      to={`/beer/${id}`}
+    >
+      Open
+    </Link>
   );
 }
 

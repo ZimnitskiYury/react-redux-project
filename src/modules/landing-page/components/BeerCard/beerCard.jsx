@@ -8,7 +8,7 @@ import styles from './beerCard.css';
 
 
 function BeerCard({
-  name, tagline, imageUrl, isFavorite, handler,
+  id, name, tagline, imageUrl, isFavorite, handler,
 }) {
   return (
     <div className={styles['beer-card']}>
@@ -19,8 +19,8 @@ function BeerCard({
       <span className={styles['beer-card__tags']}>
         {tagline}
       </span>
-      <div>
-        <BeerCardOpenButton />
+      <div className={styles['beer-card__buttons']}>
+        <BeerCardOpenButton id={id} />
         <ToggleFavoriteButton isFavorite={isFavorite} handler={handler} />
       </div>
     </div>

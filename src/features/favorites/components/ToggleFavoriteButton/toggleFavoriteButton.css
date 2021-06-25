@@ -1,0 +1,25 @@
+.favorite-button {
+    display: flex;
+
+    box-sizing: border-box;
+    height: auto;
+    padding: 5px 20px;
+
+    transition: background-color 0.2s ease-in-out;
+    text-transform: uppercase;
+
+    color: black;
+    border: none;
+    border-radius: 2px;
+    background-color: #ff9066;
+
+    font-size: 18px;
+
+    align-items: center;
+    column-gap: 10px;
+    justify-content: center;
+}
+
+.favorite-button:hover {
+    background-color: #e25f3a ;
+}
