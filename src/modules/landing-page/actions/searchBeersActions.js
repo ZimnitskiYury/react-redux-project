@@ -9,18 +9,17 @@ export function initBeers() {
 
 export function searchBeers(name, alcohol, ibu, ebc) {
   const payload = new Map();
-  payload.set('beer_name', name);
+  if (name) {
+    payload.set('beer_name', name);
+  }
   if (alcohol) {
-    payload.set('abv_gt', (alcohol) - 1)
-      .set('abv_lt', (alcohol) + 1);
+    payload.set('abv_lt', alcohol);
   }
   if (ibu) {
-    payload.set('ibu_gt', (ibu) - 1)
-      .set('ibu_lt', (ibu) + 1);
+    payload.set('ibu_lt', ibu);
   }
   if (ebc) {
-    payload.set('ebc_gt', (ebc) - 1)
-      .set('ebc_lt', (ebc) + 1);
+    payload.set('ebc_lt', ebc);
   }
   return {
     type: SEARCHBEERS,

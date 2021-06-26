@@ -17,28 +17,26 @@ function SearchBox() {
   const [IsShownFilters, setShowFilters] = useState(false);
   const { value, reset, onChange } = useInput('');
 
-  const { value: alcoValue, isChanged: isChangedAlco, onChange: alcoHandler } = useSlider('2');
+  const { value: alcoValue, onChange: alcoHandler } = useSlider(14);
 
-  const { value: ibuValue, isChanged: isChangedIbu, onChange: ibuHandler } = useSlider('0');
+  const { value: ibuValue, onChange: ibuHandler } = useSlider(120);
 
-  const { value: ebcValue, isChanged: isChangedEbc, onChange: ebcHandler } = useSlider('4');
+  const { value: ebcValue, onChange: ebcHandler } = useSlider(80);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (value) {
-      dispatch(searchBeers(value,
-        isChangedAlco && alcoValue,
-        isChangedIbu && ibuValue,
-        isChangedEbc && ebcValue));
-    }
+    dispatch(searchBeers(value,
+      alcoValue,
+      ibuValue,
+      ebcValue));
     reset();
   };
 
   const sliders = (
     <>
-      <Slider tag="Alcohol" name="Alcohol" min="2" max="14" sliderValue={alcoValue} sliderOnChange={alcoHandler} />
-      <Slider tag="IBU" name="IBU" min="0" max="120" sliderValue={ibuValue} sliderOnChange={ibuHandler} />
-      <Slider tag="ColorEBC" name="ColorEBC" min="4" max="80" sliderValue={ebcValue} sliderOnChange={ebcHandler} />
+      <Slider tag="Alcohol" name="Alcohol" min={2} max={14} sliderValue={alcoValue} sliderOnChange={alcoHandler} />
+      <Slider tag="IBU" name="IBU" min={0} max={120} sliderValue={ibuValue} sliderOnChange={ibuHandler} />
+      <Slider tag="ColorEBC" name="ColorEBC" min={4} max={80} sliderValue={ebcValue} sliderOnChange={ebcHandler} />
     </>
   );
 

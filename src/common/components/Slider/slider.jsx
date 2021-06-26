@@ -30,8 +30,8 @@ Slider.propTypes = {
   tag: PropTypes.string.isRequired,
   name: PropTypes.string,
   min: PropTypes.number,
-  max: PropTypes.string,
-  step: PropTypes.string,
+  max: PropTypes.number,
+  step: PropTypes.number,
   sliderValue: PropTypes.number,
   sliderOnChange: PropTypes.func.isRequired,
 };

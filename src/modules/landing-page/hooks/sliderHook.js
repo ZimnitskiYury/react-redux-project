@@ -7,10 +7,8 @@ export const useSlider = (initialValue) => {
   return {
     value,
     setValue,
-    isChanged: false,
     onChange(event) {
       setValue(event.target.value);
-      this.isChanged = true;
     },
   };
 };

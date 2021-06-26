@@ -21,8 +21,8 @@ function SearchResults() {
   };
   const favHandler = (beer) => {
     if (isFavorite(beer)) {
-      dispatch(removeFavorite(beer));
-    } else { dispatch(addFavorite(beer)); }
+      return () => (dispatch(removeFavorite(beer)));
+    } return () => (dispatch(addFavorite(beer)));
   };
 
   if (!beers.length) {
@@ -38,7 +38,7 @@ function SearchResults() {
           tagline={beer.tagline}
           imageUrl={beer.image_url}
           isFavorite={isFavorite(beer)}
-          handler={() => favHandler(beer)}
+          handler={favHandler(beer)}
         />
       ))}
     </div>

@@ -34,3 +34,9 @@
     background-position: center;
     background-size: contain;
 }
+
+.beer-page__container {
+    display: flex;
+
+    justify-content: space-evenly;
+}

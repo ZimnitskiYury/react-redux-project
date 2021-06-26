@@ -14,7 +14,7 @@ const addToLocalStorage = (beer) => {
 
 const removeFromLocalStorage = (beer) => {
   const data = getLocalStorage();
-  localStorage.setItem('favoriteBeers', JSON.stringify(data.filter((item) => item !== beer)));
+  localStorage.setItem('favoriteBeers', JSON.stringify(data.filter((item) => item.id !== beer.id)));
 };
 
 export function* addFavoriteWorker(action) {
