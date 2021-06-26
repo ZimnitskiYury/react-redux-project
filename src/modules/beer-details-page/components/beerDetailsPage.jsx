@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getDataById } from 'Services/connect';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-
+import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
+import { removeFavorite, addFavorite } from 'Features/favorites/actions/favoritesActions';
 import styles from './beerDetailsPage.css';
 
 
 function BeerDetailsPage() {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favoritesStore.favorites);
+
   const [beer, setBeer] = useState();
   const { id } = useParams();
 
@@ -20,6 +25,19 @@ function BeerDetailsPage() {
     getData();
   }, []);
 
+  const isFavorite = function isFavorite() {
+    if (favorites.filter((fav) => fav.id === beer.id).length) {
+      return true;
+    }
+    return false;
+  };
+
+  const favHandler = () => {
+    if (isFavorite(beer)) {
+      return () => (dispatch(removeFavorite(beer)));
+    } return () => (dispatch(addFavorite(beer)));
+  };
+
   if (beer) {
     return (
       <div className={styles['beer-page']}>
@@ -31,6 +49,7 @@ function BeerDetailsPage() {
             <span className={styles['beer-page__header-tags']}>
               {beer.tagline}
             </span>
+            <ToggleFavoriteButton isFavorite={isFavorite()} handler={favHandler()} />
             <p className={styles['beer-page__header-description']}>
               {beer.description}
             </p>
@@ -38,7 +57,7 @@ function BeerDetailsPage() {
           <div className={styles['beer-page__header-photo']} style={{ backgroundImage: `url(${beer.image_url})` }} />
         </div>
         <div className={styles['beer-page__container']}>
-          <div>
+          <div className={styles['beer-page__container_half']}>
             <h2 className={styles['beer-page__container-header']}>Properties</h2>
             <ul className={styles['beer-page__properties']}>
               <li className={styles['beer-page__prop']}>
@@ -64,7 +83,7 @@ function BeerDetailsPage() {
               </li>
             </ul>
           </div>
-          <div>
+          <div className={styles['beer-page__container_half']}>
             <h2 className={styles['beer-page__container-header']}>Food Pairing</h2>
             <ul className={styles['beer-page__food-pairing']}>
               {beer.food_pairing.map((element, index) => (<li className={styles['beer-page__food']} key={index}>{element}</li>))}
@@ -75,7 +94,7 @@ function BeerDetailsPage() {
           <p>{beer.brewers_tips}</p>
         </div>
         <div className={styles['beer-page__container']}>
-          <div>
+          <div className={styles['beer-page__container_half']}>
             <h2 className={styles['beer-page__container-header']}>Ingredients</h2>
             <ul className={styles['beer-page__ingredients']}>
               { Object.keys(beer.ingredients).map((element, index) => {
@@ -83,7 +102,7 @@ function BeerDetailsPage() {
                   return (
                     <li className={styles['beer-page__ingredients-cat']} key={index}>
                       <p>{element}</p>
-                      <ul className={styles['beer-page__ingredients-cat-list']}>
+                      <ul>
                         {beer.ingredients[element].map((ing, ind) => (<li className={styles['beer-page__ingredients-cat-item']} key={ind}>{`${ing.name} - ${ing.amount.value} ${ing.amount.unit}`}</li>))}
                       </ul>
                     </li>
@@ -98,7 +117,7 @@ function BeerDetailsPage() {
               })}
             </ul>
           </div>
-          <div>
+          <div className={styles['beer-page__container_half']}>
             <h2 className={styles['beer-page__container-header']}>Method</h2>
             <ul className={styles['beer-page__method']}>
               <li className={styles['beer-page__method-prop']}>

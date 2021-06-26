@@ -2,16 +2,17 @@
     display: flex;
 
     box-sizing: border-box;
+    max-width: 250px;
     height: auto;
     padding: 5px 20px;
 
-    transition: background-color 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     text-transform: uppercase;
 
     color: black;
-    border: none;
+    border: 1px solid #ffb46a;
     border-radius: 2px;
-    background-color: #ff9066;
+    background-color: white;
 
     font-size: 18px;
 
@@ -21,5 +22,13 @@
 }
 
 .favorite-button:hover {
-    background-color: #e25f3a ;
+    color: white;
+    background-color: #ffb46a ;
+}
+.favorite-button_remove {
+    color: white;
+    background-color: #e0843c;
+}
+.favorite-button_remove:hover {
+    background-color: #ffb46a;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './slider.css';
+import styles from './slider.css';
 
 
 export function Slider({
@@ -13,14 +13,13 @@ export function Slider({
   sliderOnChange,
 }) {
   return (
-
-    <label htmlFor={tag}>
-
+    <label htmlFor={tag} className={styles.slider}>
+      <p className={styles.slider__title}>
+        {`${tag}:`}
+      </p>
+      <p className={styles.slider__value}>{sliderValue}</p>
       <input id={tag} type="range" name={name} min={min} max={max} value={sliderValue} onChange={sliderOnChange} step={step} />
-      <div>{sliderValue}</div>
-
     </label>
-
   );
 }
 

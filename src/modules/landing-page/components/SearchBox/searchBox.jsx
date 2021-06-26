@@ -33,25 +33,36 @@ function SearchBox() {
   };
 
   const sliders = (
-    <>
-      <Slider tag="Alcohol" name="Alcohol" min={2} max={14} sliderValue={alcoValue} sliderOnChange={alcoHandler} />
+    <div className={styles['landing-page__sliders-box']}>
+      <p className={styles['landing-page__sliders-box-header']}>Additional filters</p>
+      <Slider tag="ABV" name="Alcohol" min={2} max={14} sliderValue={alcoValue} sliderOnChange={alcoHandler} />
       <Slider tag="IBU" name="IBU" min={0} max={120} sliderValue={ibuValue} sliderOnChange={ibuHandler} />
-      <Slider tag="ColorEBC" name="ColorEBC" min={4} max={80} sliderValue={ebcValue} sliderOnChange={ebcHandler} />
-    </>
+      <Slider tag="EBC" name="ColorEBC" min={4} max={80} sliderValue={ebcValue} sliderOnChange={ebcHandler} />
+    </div>
   );
 
   return (
     <form action="/" method="get" className={styles['landing-page__search']} onSubmit={handleSubmit}>
-      <label htmlFor={tag}>
-        Search:
-        <input id={tag} type="text" name="searchQuery" placeholder="Search beers..." value={value} onChange={onChange} onFocus={() => setShowFilters(true)} />
-      </label>
-      {IsShownFilters ? sliders : (<p> Start to type your search</p>)}
-      <button type="submit">
-        <SearchIcon />
-        {' '}
-        Search
-      </button>
+      <div className={styles['landing-page__search-box']}>
+        <label htmlFor={tag}>
+          <input
+            className={styles['landing-page__search-input']}
+            id={tag}
+            type="text"
+            name="searchQuery"
+            placeholder="Search beers..."
+            value={value}
+            onChange={onChange}
+            onFocus={() => setShowFilters(true)}
+          />
+        </label>
+        <button type="submit" className={styles['landing-page__search-button']}>
+          <SearchIcon className={styles['landing-page_search-icon']} />
+          Search
+        </button>
+      </div>
+      {IsShownFilters && sliders}
+
     </form>
   );
 }

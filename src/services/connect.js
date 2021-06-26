@@ -3,7 +3,7 @@ import { URL_PUNKAPI } from './connectConstants';
 
 const initial = new Map([
   ['page', 1],
-  ['per_page', 16],
+  ['per_page', 15],
 ]);
 
 async function getDataXML() {
