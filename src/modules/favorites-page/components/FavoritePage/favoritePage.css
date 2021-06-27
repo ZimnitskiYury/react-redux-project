@@ -2,10 +2,15 @@
     display: flex;
     flex-direction: column;
 
+    box-sizing: border-box;
     height: auto;
+    padding: 20px 0;
 
     align-items: center;
 }
 .favorite-page__list {
-    row-gap: 25px;
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 20px;
 }

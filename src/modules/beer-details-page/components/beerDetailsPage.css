@@ -81,6 +81,7 @@
 
     text-align: center;
 
+    color: white;
     border-radius: 10px;
     background-color: #e0843c;
 }
@@ -133,4 +134,29 @@
     padding: 0 10px;
 
     font-size: 18px;
+}
+.beer-page__prop-info-tooltip {
+    height: 24px;
+}
+.beer-page__prop-info-tooltip p {
+    display: none;
+
+    box-sizing: border-box;
+    width: 200px;
+    padding: 5px 10px;
+
+    color: black;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 8px 12px rgba(94, 154, 252, 0.6);
+}
+.beer-page__prop-info-tooltip:hover p {
+    position: absolute;
+
+    display: block;
+
+    transform: translateY(-165px);
+}
+.beer-page__prop-info-tooltip:hover svg {
+    fill: #ffb46a;
 }

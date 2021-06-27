@@ -3,6 +3,6 @@
 
     width: 100%;
 
-    column-gap: 4%;
     flex-wrap: wrap;
+    justify-content: space-between;
 }

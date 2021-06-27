@@ -62,21 +62,44 @@ function BeerDetailsPage() {
             <ul className={styles['beer-page__properties']}>
               <li className={styles['beer-page__prop']}>
                 <span className={styles['beer-page__prop-title']}>ABV</span>
-                <InfoOutlinedIcon />
+                <div className={styles['beer-page__prop-info-tooltip']}>
+                  <InfoOutlinedIcon />
+                  <p>
+                    ABV, or alcohol by volume,
+                    is the standard measurement,
+                    used worldwide, to assess the
+                    strength of a particular beer.
+                  </p>
+                </div>
                 <span className={styles['beer-page__prop-value']}>
                   {beer.abv}
                 </span>
               </li>
               <li className={styles['beer-page__prop']}>
                 <span className={styles['beer-page__prop-title']}>IBU</span>
-                <InfoOutlinedIcon />
+                <div className={styles['beer-page__prop-info-tooltip']}>
+                  <InfoOutlinedIcon />
+                  <p>
+                    IBU, or international bittering unit,
+                    measures the bitterness levels in beer
+                    (based on the amount of hops added).
+                  </p>
+                </div>
                 <span className={styles['beer-page__prop-value']}>
                   {beer.ibu}
                 </span>
               </li>
               <li className={styles['beer-page__prop']}>
                 <span className={styles['beer-page__prop-title']}>EBC</span>
-                <InfoOutlinedIcon />
+                <div className={styles['beer-page__prop-info-tooltip']}>
+                  <InfoOutlinedIcon />
+                  <p>
+                    Color Units Ebc
+                    (European Brewery Convention)
+                    refer to the color of a beer measured
+                    in a technical manner.
+                  </p>
+                </div>
                 <span className={styles['beer-page__prop-value']}>
                   {beer.ebc}
                 </span>

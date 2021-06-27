@@ -22,8 +22,10 @@ input[type=range]::-webkit-slider-thumb {
 
     cursor: pointer;
 
+    border: 1px solid #e0843c;
     border-radius: 50%;
-    background: #a9560a;
+    background: white;
+    box-shadow: 0 2px 5px rgba(226, 95, 58, 0.4);
 
     -webkit-appearance: none;
 }
@@ -45,8 +47,10 @@ input[type=range]::-moz-range-thumb {
 
     cursor: pointer;
 
+    border: 1px solid #e0843c;
     border-radius: 50%;
-    background: #a9560a;
+    background: white;
+    box-shadow: 0 2px 5px rgba(226, 95, 58, 0.4);
 }
 .slider {
     display: flex;

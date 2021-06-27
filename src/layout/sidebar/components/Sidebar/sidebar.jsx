@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import InboxIcon from '@material-ui/icons/Inbox';
-import StarIcon from '@material-ui/icons/Star';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import styles from './sidebar.css';
 
@@ -11,13 +12,17 @@ function Sidebar({ isOpen }) {
   return (
     <div className={isOpen ? `${styles.sidebar} ${styles.sidebar_open}` : styles.sidebar}>
       <ul className={styles.sidebar__nav}>
-        <li className={styles['sidebar__nav-element']}>
-          <InboxIcon />
-          <span>Home</span>
+        <li>
+          <Link className={styles['sidebar__nav-element']} to="/">
+            <InboxIcon />
+            <span>Home</span>
+          </Link>
         </li>
-        <li className={styles['sidebar__nav-element']}>
-          <StarIcon />
-          <span>Favorites</span>
+        <li>
+          <Link className={styles['sidebar__nav-element']} to="/favorites">
+            <FavoriteIcon />
+            <span>Favorites</span>
+          </Link>
         </li>
       </ul>
     </div>

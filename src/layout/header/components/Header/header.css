@@ -1,5 +1,6 @@
 .header {
     position: fixed;
+    z-index: 1;
     top: 0;
     right: 0;
 
@@ -10,8 +11,8 @@
     height: 64px;
     padding: 8px 12px;
 
-    color: white;
-    background-color: #004297;
+    color: black;
+    background-color: #5e9afc;
 
     align-items: center;
     justify-content: space-between;
@@ -27,14 +28,14 @@
 .header > a {
     text-decoration: none;
 
-    color: white;
+    color: black;
 }
 .header > a:hover {
-    color: #ffb46a;
+    color: white;
 }
 .header svg {
-    fill: white;
+    fill: black;
 }
 .header svg:hover {
-    fill: #ffb46a;
+    fill: #ffffff;
 }
