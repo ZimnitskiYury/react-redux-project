@@ -1,9 +1,20 @@
-import { INITIAL, SEARCHBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
+import { INITIAL, LOADNEXT, SEARCHBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
 
 
 export function initBeers() {
   return {
     type: INITIAL,
+  };
+}
+
+export function loadNextBeers(pageNumber) {
+  const payload = new Map();
+  if (pageNumber) {
+    payload.set('page', pageNumber);
+  }
+  return {
+    type: LOADNEXT,
+    payload,
   };
 }
 
