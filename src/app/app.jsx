@@ -17,7 +17,11 @@ import styles from './app.css';
 
 
 function App() {
-  const [isOpen, toggleSidebar] = useState(false);
+  const [
+    isOpen,
+    toggleSidebar,
+  ] = useState(false);
+
   return (
     <BrowserRouter>
       <Provider store={store}>
@@ -26,9 +30,19 @@ function App() {
           <Header sidebarHandler={() => toggleSidebar((state) => !state)} />
           <div className={styles.container}>
             <Switch>
-              <Route exact path="/" component={LandingPage} />
-              <Route path="/favorites" component={FavoritePage} />
-              <Route path="/beer/:id" component={BeerDetailsPage} />
+              <Route
+                exact
+                path="/"
+                component={LandingPage}
+              />
+              <Route
+                path="/favorites"
+                component={FavoritePage}
+              />
+              <Route
+                path="/beer/:id"
+                component={BeerDetailsPage}
+              />
             </Switch>
           </div>
         </>
@@ -37,4 +51,7 @@ function App() {
   );
 }
 
-render(<App />, document.getElementById('root'));
+render(
+  <App />,
+  document.getElementById('root'),
+);

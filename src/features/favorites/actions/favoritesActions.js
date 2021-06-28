@@ -15,4 +15,7 @@ export function removeFavorite(beer) {
   };
 }
 
-export default { addFavorite, removeFavorite };
+export default {
+  addFavorite,
+  removeFavorite,
+};

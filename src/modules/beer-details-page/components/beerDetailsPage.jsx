@@ -14,30 +14,40 @@ function BeerDetailsPage() {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favoritesStore.favorites);
 
-  const [beer, setBeer] = useState();
+  const [
+    beer,
+    setBeer,
+  ] = useState();
   const { id } = useParams();
 
-  useEffect(() => {
-    const getData = async () => {
-      const result = await getDataById(id);
+  useEffect(
+    () => {
+      const getData = async () => {
+        const result = await getDataById(id);
 
-      setBeer(...result);
-    };
+        setBeer(...result);
+      };
 
-    getData();
-  }, []);
+      getData();
+    },
+    [
+    ],
+  );
 
   const isFavorite = function isFavorite() {
     if (favorites.filter((fav) => fav.id === beer.id).length) {
       return true;
     }
+
     return false;
   };
 
   const favHandler = () => {
     if (isFavorite(beer)) {
       return () => (dispatch(removeFavorite(beer)));
-    } return () => (dispatch(addFavorite(beer)));
+    }
+
+    return () => (dispatch(addFavorite(beer)));
   };
 
   if (beer) {
@@ -51,12 +61,18 @@ function BeerDetailsPage() {
             <span className={styles['beer-page__header-tags']}>
               {beer.tagline}
             </span>
-            <ToggleFavoriteButton isFavorite={isFavorite()} handler={favHandler()} />
+            <ToggleFavoriteButton
+              isFavorite={isFavorite()}
+              handler={favHandler()}
+            />
             <p className={styles['beer-page__header-description']}>
               {beer.description}
             </p>
           </div>
-          <div className={styles['beer-page__header-photo']} style={{ backgroundImage: `url(${beer.image_url})` }} />
+          <div
+            className={styles['beer-page__header-photo']}
+            style={{ backgroundImage: `url(${beer.image_url})` }}
+          />
         </div>
         <div className={styles['beer-page__container']}>
           <div className={styles['beer-page__container_half']}>
@@ -111,7 +127,16 @@ function BeerDetailsPage() {
           <div className={styles['beer-page__container_half']}>
             <h2 className={styles['beer-page__container-header']}>Food Pairing</h2>
             <ul className={styles['beer-page__food-pairing']}>
-              {beer.food_pairing.map((element, index) => (<li className={styles['beer-page__food']} key={index}>{element}</li>))}
+              {beer.food_pairing.map((
+                element, index,
+              ) => (
+                <li
+                  className={styles['beer-page__food']}
+                  key={index}
+                >
+                  {element}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -122,19 +147,37 @@ function BeerDetailsPage() {
           <div className={styles['beer-page__container_half']}>
             <h2 className={styles['beer-page__container-header']}>Ingredients</h2>
             <ul className={styles['beer-page__ingredients']}>
-              { Object.keys(beer.ingredients).map((element, index) => {
+              { Object.keys(beer.ingredients).map((
+                element, index,
+              ) => {
                 if (Array.isArray(beer.ingredients[element])) {
                   return (
-                    <li className={styles['beer-page__ingredients-cat']} key={index}>
+                    <li
+                      className={styles['beer-page__ingredients-cat']}
+                      key={index}
+                    >
                       <p>{element}</p>
                       <ul>
-                        {beer.ingredients[element].map((ing, ind) => (<li className={styles['beer-page__ingredients-cat-item']} key={ind}>{`${ing.name} - ${ing.amount.value} ${ing.amount.unit}`}</li>))}
+                        {beer.ingredients[element].map((
+                          ing, ind,
+                        ) => (
+                          <li
+                            className={styles['beer-page__ingredients-cat-item']}
+                            key={ind}
+                          >
+                            {`${ing.name} - ${ing.amount.value} ${ing.amount.unit}`}
+                          </li>
+                        ))}
                       </ul>
                     </li>
                   );
                 }
+
                 return (
-                  <li className={styles['beer-page__ingredients-cat']} key={index}>
+                  <li
+                    className={styles['beer-page__ingredients-cat']}
+                    key={index}
+                  >
                     {element}
                     <p>{beer.ingredients[element]}</p>
                   </li>
@@ -153,14 +196,18 @@ function BeerDetailsPage() {
               </li>
               <li className={styles['beer-page__method-prop']}>
                 <span className={styles['beer-page__method-prop-title']}>Mash</span>
-                {beer.method.mash_temp.map((element, index) => (
+                {beer.method.mash_temp.map((
+                  element, index,
+                ) => (
                   <p key={index}>{`${element.duration} minutes at ${element.temp.value} °C`}</p>
                 ))}
               </li>
               <li className={styles['beer-page__method-prop']}>
                 <span className={styles['beer-page__method-prop-title']}>Twist</span>
                 <p>
-                  {(beer.method.twist) ? beer.method.twist : 'Without twist'}
+                  {(beer.method.twist)
+                    ? beer.method.twist
+                    : 'Without twist'}
                 </p>
               </li>
             </ul>
@@ -169,6 +216,7 @@ function BeerDetailsPage() {
       </div>
     );
   }
+
   return (<h1>loading</h1>);
 }
 

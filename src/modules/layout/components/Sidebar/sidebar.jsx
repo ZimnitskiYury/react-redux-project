@@ -10,16 +10,25 @@ import styles from './sidebar.css';
 
 function Sidebar({ isOpen }) {
   return (
-    <div className={isOpen ? `${styles.sidebar} ${styles.sidebar_open}` : styles.sidebar}>
+    <div className={isOpen
+      ? `${styles.sidebar} ${styles.sidebar_open}`
+      : styles.sidebar}
+    >
       <ul className={styles.sidebar__nav}>
         <li>
-          <Link className={styles['sidebar__nav-element']} to="/">
+          <Link
+            className={styles['sidebar__nav-element']}
+            to="/"
+          >
             <InboxIcon />
             <span>Home</span>
           </Link>
         </li>
         <li>
-          <Link className={styles['sidebar__nav-element']} to="/favorites">
+          <Link
+            className={styles['sidebar__nav-element']}
+            to="/favorites"
+          >
             <FavoriteIcon />
             <span>Favorites</span>
           </Link>

@@ -17,7 +17,10 @@ function Header({ sidebarHandler }) {
         <span className={styles.header__title}>Beer Catalog</span>
       </Link>
       <div className={styles.header__kebab}>
-        <img src={kebabIcon} alt="KebabIcon" />
+        <img
+          src={kebabIcon}
+          alt="KebabIcon"
+        />
       </div>
     </header>
   );

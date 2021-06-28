@@ -22,10 +22,16 @@ function FavoriteBeer({
           {description}
         </p>
         <div>
-          <ToggleFavoriteButton isFavorite handler={removeFavoriteHandler} />
+          <ToggleFavoriteButton
+            isFavorite
+            handler={removeFavoriteHandler}
+          />
         </div>
       </div>
-      <div className={styles['favorite-beer__photo']} style={{ backgroundImage: `url(${imageUrl})` }} />
+      <div
+        className={styles['favorite-beer__photo']}
+        style={{ backgroundImage: `url(${imageUrl})` }}
+      />
     </div>
   );
 }

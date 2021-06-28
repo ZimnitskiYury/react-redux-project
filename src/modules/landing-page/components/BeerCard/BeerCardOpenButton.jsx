@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './beerCardOpenButton.css';
 
 
@@ -16,3 +17,7 @@ function BeerCardOpenButton({ id }) {
 }
 
 export default BeerCardOpenButton;
+
+BeerCardOpenButton.propTypes = {
+  id: PropTypes.number.isRequired,
+};

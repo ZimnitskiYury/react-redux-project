@@ -12,7 +12,10 @@ function SearchResults() {
   const dispatch = useDispatch();
   const beers = useSelector((state) => state.searchResults.beers);
   const favorites = useSelector((state) => state.favoritesStore.favorites);
-  const [containerRef, page] = useInfiniteLoader({
+  const [
+    containerRef,
+    page,
+  ] = useInfiniteLoader({
     root: null,
     rootMargin: '-20px',
     threshold: 1.0,
@@ -22,13 +25,17 @@ function SearchResults() {
     if (favorites.filter((fav) => fav.id === beer.id).length) {
       return true;
     }
+
     return false;
   };
   const favHandler = (beer) => {
     if (isFavorite(beer)) {
       return () => (dispatch(removeFavorite(beer)));
-    } return () => (dispatch(addFavorite(beer)));
+    }
+
+    return () => (dispatch(addFavorite(beer)));
   };
+
   return (
     <>
       <div className={styles['search-results']}>

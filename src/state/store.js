@@ -9,32 +9,37 @@ import searchSagas from 'Modules/landing-page/sagas/searchBeersSagas';
 import favoriteSagas from 'Features/favorites/sagas/favoritesSagas';
 
 
-const rootReducer = combineReducers(
-  {
-    searchResults: searchResultsReducer,
-    favoritesStore: favoritesReducer,
-  },
-);
+const rootReducer = combineReducers({
+  searchResults: searchResultsReducer,
+  favoritesStore: favoritesReducer,
+});
 
 const favoritesFromLocal = JSON.parse(localStorage.getItem('favoriteBeers'));
 
 const initialState = {
   searchResults: {
-    beers: [],
+    beers: [
+    ],
   },
   favoritesStore: {
-    favorites: favoritesFromLocal || [],
+    favorites: favoritesFromLocal || [
+    ],
   },
 };
 
 const rootSagas = function* rootSagas() {
-  yield all(
-    [searchSagas(), favoriteSagas()],
-  );
+  yield all([
+    searchSagas(),
+    favoriteSagas(),
+  ]);
 };
 
 const saga = createSagaMiddleware();
-const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(saga)));
+const store = createStore(
+  rootReducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(saga)),
+);
 
 saga.run(rootSagas);
 

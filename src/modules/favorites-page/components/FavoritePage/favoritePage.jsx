@@ -13,6 +13,7 @@ function FavoritePage() {
   const removeFavoriteHandler = (beer) => {
     dispatch(removeFavorite(beer));
   };
+
   return (
     <>
       <h1 className={styles['favorite-page']}>Favorite Beer</h1>

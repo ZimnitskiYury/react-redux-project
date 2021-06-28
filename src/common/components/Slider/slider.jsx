@@ -13,12 +13,24 @@ export function Slider({
   sliderOnChange,
 }) {
   return (
-    <label htmlFor={tag} className={styles.slider}>
+    <label
+      htmlFor={tag}
+      className={styles.slider}
+    >
       <p className={styles.slider__title}>
         {`${tag}:`}
       </p>
       <p className={styles.slider__value}>{sliderValue}</p>
-      <input id={tag} type="range" name={name} min={min} max={max} value={sliderValue} onChange={sliderOnChange} step={step} />
+      <input
+        id={tag}
+        type="range"
+        name={name}
+        min={min}
+        max={max}
+        value={sliderValue}
+        onChange={sliderOnChange}
+        step={step}
+      />
     </label>
   );
 }

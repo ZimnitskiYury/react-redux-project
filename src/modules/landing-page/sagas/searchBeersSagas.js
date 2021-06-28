@@ -8,25 +8,44 @@ import { getDataByParams } from 'Services/punkService';
 
 
 export function* searchBeerWorker(action) {
-  const payload = yield call(getDataByParams, action.payload);
-  yield put({ type: REQUESTBEERS, payload });
+  const payload = yield call(
+    getDataByParams,
+    action.payload,
+  );
+  yield put({
+    type: REQUESTBEERS,
+    payload,
+  });
 }
 
 export function* searchBeerWatcher() {
-  yield takeEvery(SEARCHBEERS, searchBeerWorker);
+  yield takeEvery(
+    SEARCHBEERS,
+    searchBeerWorker,
+  );
 }
 
 export function* loadNextWorker(action) {
-  const payload = yield call(getDataByParams, action.payload);
-  yield put({ type: ADDBEERS, payload });
+  const payload = yield call(
+    getDataByParams,
+    action.payload,
+  );
+  yield put({
+    type: ADDBEERS,
+    payload,
+  });
 }
 
 export function* loadNextWatcher() {
-  yield takeEvery(LOADNEXT, loadNextWorker);
+  yield takeEvery(
+    LOADNEXT,
+    loadNextWorker,
+  );
 }
 
 export default function* searchSagas() {
-  yield all(
-    [searchBeerWatcher(), loadNextWatcher()],
-  );
+  yield all([
+    searchBeerWatcher(),
+    loadNextWatcher(),
+  ]);
 }

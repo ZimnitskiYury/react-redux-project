@@ -9,8 +9,14 @@ function BurgerMenu({ handler }) {
       handler();
     }
   };
+
   return (
-    <div onClick={handler} role="button" tabIndex={0} onKeyPress={handleKeyPress}>
+    <div
+      onClick={handler}
+      role="button"
+      tabIndex={0}
+      onKeyPress={handleKeyPress}
+    >
       <BurgerIcon />
     </div>
   );

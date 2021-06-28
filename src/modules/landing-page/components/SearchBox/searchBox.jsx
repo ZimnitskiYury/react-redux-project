@@ -14,7 +14,10 @@ function SearchBox() {
   const dispatch = useDispatch();
   const tag = 'searchBox';
 
-  const [IsShownFilters, setShowFilters] = useState(false);
+  const [
+    IsShownFilters,
+    setShowFilters,
+  ] = useState(false);
   const { value, reset, onChange } = useInput('');
 
   const { value: alcoValue, onChange: alcoHandler } = useSlider(14);
@@ -25,24 +28,52 @@ function SearchBox() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(searchBeers(value,
+    dispatch(searchBeers(
+      value,
       alcoValue,
       ibuValue,
-      ebcValue));
+      ebcValue,
+    ));
     reset();
   };
 
   const sliders = (
     <div className={styles['landing-page__sliders-box']}>
       <p className={styles['landing-page__sliders-box-header']}>Additional filters</p>
-      <Slider tag="ABV" name="Alcohol" min={2} max={14} sliderValue={alcoValue} sliderOnChange={alcoHandler} />
-      <Slider tag="IBU" name="IBU" min={0} max={120} sliderValue={ibuValue} sliderOnChange={ibuHandler} />
-      <Slider tag="EBC" name="ColorEBC" min={4} max={80} sliderValue={ebcValue} sliderOnChange={ebcHandler} />
+      <Slider
+        tag="ABV"
+        name="Alcohol"
+        min={2}
+        max={14}
+        sliderValue={alcoValue}
+        sliderOnChange={alcoHandler}
+      />
+      <Slider
+        tag="IBU"
+        name="IBU"
+        min={0}
+        max={120}
+        sliderValue={ibuValue}
+        sliderOnChange={ibuHandler}
+      />
+      <Slider
+        tag="EBC"
+        name="ColorEBC"
+        min={4}
+        max={80}
+        sliderValue={ebcValue}
+        sliderOnChange={ebcHandler}
+      />
     </div>
   );
 
   return (
-    <form action="/" method="get" className={styles['landing-page__search']} onSubmit={handleSubmit}>
+    <form
+      action="/"
+      method="get"
+      className={styles['landing-page__search']}
+      onSubmit={handleSubmit}
+    >
       <div className={styles['landing-page__search-box']}>
         <label htmlFor={tag}>
           <input
@@ -56,7 +87,10 @@ function SearchBox() {
             onFocus={() => setShowFilters(true)}
           />
         </label>
-        <button type="submit" className={styles['landing-page__search-button']}>
+        <button
+          type="submit"
+          className={styles['landing-page__search-button']}
+        >
           <SearchIcon className={styles['landing-page_search-icon']} />
           Search
         </button>

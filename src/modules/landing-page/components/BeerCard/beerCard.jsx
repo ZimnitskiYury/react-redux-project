@@ -12,7 +12,10 @@ function BeerCard({
 }) {
   return (
     <div className={styles['beer-card']}>
-      <div className={styles['beer-card__photo']} style={{ backgroundImage: `url(${imageUrl})` }} />
+      <div
+        className={styles['beer-card__photo']}
+        style={{ backgroundImage: `url(${imageUrl})` }}
+      />
       <h1 className={styles['beer-card__title']}>
         {name}
       </h1>
@@ -21,7 +24,10 @@ function BeerCard({
       </span>
       <div className={styles['beer-card__buttons']}>
         <BeerCardOpenButton id={id} />
-        <ToggleFavoriteButton isFavorite={isFavorite} handler={handler} />
+        <ToggleFavoriteButton
+          isFavorite={isFavorite}
+          handler={handler}
+        />
       </div>
     </div>
   );
@@ -30,6 +36,7 @@ function BeerCard({
 export default BeerCard;
 
 BeerCard.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   tagline: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,

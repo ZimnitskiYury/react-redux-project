@@ -2,7 +2,10 @@ import { useState } from 'react';
 
 
 export const useSlider = (initialValue) => {
-  const [value, setValue] = useState(initialValue);
+  const [
+    value,
+    setValue,
+  ] = useState(initialValue);
 
   return {
     value,
