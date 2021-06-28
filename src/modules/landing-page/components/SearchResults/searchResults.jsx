@@ -14,12 +14,14 @@ function SearchResults() {
   const favorites = useSelector((state) => state.favoritesStore.favorites);
   const [
     containerRef,
-    page,
-  ] = useInfiniteLoader({
-    root: null,
-    rootMargin: '-20px',
-    threshold: 1.0,
-  });
+  ] = useInfiniteLoader(
+    {
+      root: null,
+      rootMargin: '-50px',
+      threshold: 1.0,
+    },
+    beers,
+  );
 
   const isFavorite = function isFavorite(beer) {
     if (favorites.filter((fav) => fav.id === beer.id).length) {
@@ -52,7 +54,7 @@ function SearchResults() {
         ))}
       </div>
       <div ref={containerRef}>
-        {`Loading ${page}`}
+        Loading
       </div>
     </>
   );

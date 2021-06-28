@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import { loadNextBeers } from '../actions/searchBeersActions';
 
 
-export const useInfiniteLoader = (options) => {
+export const useInfiniteLoader = (
+  options, catalog,
+) => {
   const containerRef = useRef(null);
   const [
     page,
@@ -17,7 +19,7 @@ export const useInfiniteLoader = (options) => {
     ] = entries;
     if (entry.isIntersecting) {
       dispatch(loadNextBeers(page));
-      setPage((page) + 1);
+      setPage(page + 1);
     }
   };
 
@@ -30,17 +32,18 @@ export const useInfiniteLoader = (options) => {
       if (containerRef.current) observer.observe(containerRef.current);
 
       return () => {
-        if (containerRef.current) observer.unobserve(containerRef.current);
+        if (containerRef.current) {
+          observer.unobserve(containerRef.current);
+        }
       };
     },
     [
-      containerRef,
+      catalog,
     ],
   );
 
   return [
     containerRef,
-    page,
   ];
 };
 
