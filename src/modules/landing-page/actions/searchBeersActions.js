@@ -1,11 +1,5 @@
-import { INITIAL, LOADNEXT, SEARCHBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
+import { LOADNEXT, SEARCHBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
 
-
-export function initBeers() {
-  return {
-    type: INITIAL,
-  };
-}
 
 export function loadNextBeers(pageNumber) {
   const payload = new Map();
@@ -38,4 +32,4 @@ export function searchBeers(name, alcohol, ibu, ebc) {
   };
 }
 
-export default { initBeers, searchBeers };
+export default { searchBeers };

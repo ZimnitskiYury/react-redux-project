@@ -84,6 +84,7 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html',
+        favicon: './src/resources/images/beer-keg.png',
       }),
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',

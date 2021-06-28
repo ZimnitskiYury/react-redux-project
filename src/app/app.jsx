@@ -3,9 +3,9 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Header from 'Layout/header/components/Header/header';
+import Header from 'Modules/layout/components/Header/header';
 import LandingPage from 'Modules/landing-page/components/LandingPage/landingPage';
-import Sidebar from 'Layout/sidebar/components/Sidebar/sidebar';
+import Sidebar from 'Modules/layout/components/Sidebar/sidebar';
 import FavoritePage from 'Modules/favorites-page/components/FavoritePage/favoritePage';
 import BeerDetailsPage from 'Modules/beer-details-page/components/beerDetailsPage';
 

@@ -7,7 +7,6 @@
         "Modules/*": ["./src/modules/*"],
         "Features/*": ["./src/features/*"],
         "Resources/*": ["./src/resources/*"],
-        "Layout/*": ["./src/layout/*"],
         "Services/*": ["./src/services/*"],
         "State/*": ["./src/state/*"],
         "Styles/*": ["./src/styles/*"],

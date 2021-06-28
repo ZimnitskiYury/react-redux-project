@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { initBeers } from 'Modules/landing-page/actions/searchBeersActions';
 import BeerCard from 'Modules/landing-page/components/BeerCard/beerCard';
 import { addFavorite, removeFavorite } from 'Features/favorites/actions/favoritesActions';
 

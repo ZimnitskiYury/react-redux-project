@@ -11,7 +11,7 @@ function BurgerMenu({ handler }) {
   };
   return (
     <div onClick={handler} role="button" tabIndex={0} onKeyPress={handleKeyPress}>
-      <BurgerIcon fill="#FFFFFF" />
+      <BurgerIcon />
     </div>
   );
 }

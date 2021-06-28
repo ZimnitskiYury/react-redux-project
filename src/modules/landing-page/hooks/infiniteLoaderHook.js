@@ -23,7 +23,7 @@ export const useInfiniteLoader = (options) => {
     return () => {
       if (containerRef.current) observer.unobserve(containerRef.current);
     };
-  }, [containerRef, page]);
+  }, [containerRef]);
 
   return [containerRef, page];
 };

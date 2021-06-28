@@ -2,22 +2,13 @@ import {
   call, put, takeEvery, all,
 } from '@redux-saga/core/effects';
 import {
-  INITIAL, REQUESTBEERS, SEARCHBEERS, LOADNEXT, ADDBEERS,
+  REQUESTBEERS, SEARCHBEERS, LOADNEXT, ADDBEERS,
 } from 'Modules/landing-page/constants/searchBeersConstants';
-import { getData } from 'Services/connect';
+import { getDataByParams } from 'Services/punkService';
 
-
-export function* initBeerWorker() {
-  const payload = yield call(getData);
-  yield put({ type: REQUESTBEERS, payload });
-}
-
-export function* initBeerWatcher() {
-  yield takeEvery(INITIAL, initBeerWorker);
-}
 
 export function* searchBeerWorker(action) {
-  const payload = yield call(getData, action.payload);
+  const payload = yield call(getDataByParams, action.payload);
   yield put({ type: REQUESTBEERS, payload });
 }
 
@@ -26,7 +17,7 @@ export function* searchBeerWatcher() {
 }
 
 export function* loadNextWorker(action) {
-  const payload = yield call(getData, action.payload);
+  const payload = yield call(getDataByParams, action.payload);
   yield put({ type: ADDBEERS, payload });
 }
 
@@ -36,6 +27,6 @@ export function* loadNextWatcher() {
 
 export default function* searchSagas() {
   yield all(
-    [searchBeerWatcher(), initBeerWatcher(), loadNextWatcher()],
+    [searchBeerWatcher(), loadNextWatcher()],
   );
 }

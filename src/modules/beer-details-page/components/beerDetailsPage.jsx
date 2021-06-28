@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getDataById } from 'Services/connect';
+
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
 import { removeFavorite, addFavorite } from 'Features/favorites/actions/favoritesActions';
+import { getDataById } from 'Services/punkService';
+
 import styles from './beerDetailsPage.css';
 
 
