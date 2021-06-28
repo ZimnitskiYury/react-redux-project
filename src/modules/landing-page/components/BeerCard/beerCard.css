@@ -1,47 +1,41 @@
 .beer-card {
-    display: flex;
-    flex-direction: column;
-
-    width: 30%;
-    height: auto;
-    margin-bottom: 25px;
-    padding: 10px;
-
-    transition: all 0.2 ease-in-out;
-
-    box-shadow: 0 5px 10px rgba(94, 154, 252, 0.4);
-
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: auto;
+  margin-bottom: 25px;
+  padding: 10px;
+  transition: all 0.2 ease-in-out;
+  box-shadow: 0 5px 10px rgba(94, 154, 252, 0.4);
+  justify-content: space-between;
 }
+
 .beer-card:hover {
-    transform: scale(1.01);
-
-    box-shadow: 0 10px 15px rgba(226, 95, 58, 0.4);
+  transform: scale(1.01);
+  box-shadow: 0 10px 15px rgba(226, 95, 58, 0.4);
 }
+
 .beer-card__photo {
-    min-height: 250px;
-
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+  min-height: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
+
 .beer-card__title {
-    padding: 10px;
-
-    color: black;
-
-    font-size: 20px;
+  padding: 10px;
+  color: black;
+  font-size: 20px;
 }
+
 .beer-card__tags {
-    padding: 0 10px 10px;
-
-    color: black;
-
-    font-size: 16px;
+  padding: 0 10px 10px;
+  color: black;
+  font-size: 16px;
 }
-.beer-card__buttons {
-    display: flex;
 
-    column-gap: 10px;
-    justify-content: space-evenly;
+.beer-card__buttons {
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-evenly;
 }

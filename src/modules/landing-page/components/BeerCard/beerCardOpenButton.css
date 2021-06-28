@@ -1,28 +1,23 @@
 .open-button {
-    display: flex;
-
-    box-sizing: border-box;
-    width: auto;
-    height: auto;
-    padding: 5px 20px;
-
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-    text-transform: uppercase;
-
-    color: black;
-    border: 1px solid #ffb46a;
-    border-radius: 2px;
-    background-color: white;
-
-    font-size: 18px;
-
-    align-items: center;
-    column-gap: 10px;
-    justify-content: center;
+  display: flex;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  padding: 5px 20px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  border: 1px solid #ffb46a;
+  border-radius: 2px;
+  background-color: white;
+  font-size: 18px;
+  align-items: center;
+  column-gap: 10px;
+  justify-content: center;
 }
 
 .open-button:hover {
-    color: white;
-    background-color: #ffb46a ;
+  color: white;
+  background-color: #ffb46a;
 }

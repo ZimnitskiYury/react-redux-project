@@ -1,17 +1,27 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 
-module.exports = (env, argv) => {
+module.exports = (
+  env, argv,
+) => {
   let isDev = false;
   if (argv.mode === 'development') {
     isDev = true;
   }
+
   return {
-    entry: ['babel-regenerator-runtime', './src/app/app.jsx'],
+    entry: [
+      'babel-regenerator-runtime',
+      './src/app/app.jsx',
+    ],
     output: {
-      path: path.join(__dirname, 'dist'),
+      path: path.join(
+        __dirname,
+        'dist',
+      ),
       filename: 'bundle.js',
       publicPath: '/',
     },
@@ -21,7 +31,10 @@ module.exports = (env, argv) => {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           resolve: {
-            extensions: ['.js', '.jsx'],
+            extensions: [
+              '.js',
+              '.jsx',
+            ],
           },
           use: {
             loader: 'babel-loader',
@@ -42,12 +55,16 @@ module.exports = (env, argv) => {
         {
           test: /\.css$/,
           use: [
-            (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+            (isDev
+              ? 'style-loader'
+              : MiniCssExtractPlugin.loader),
             {
               loader: 'css-loader',
               options: {
                 modules: {
-                  localIdentName: isDev ? '[local]' : '[sha1:hash:hex:4]',
+                  localIdentName: isDev
+                    ? '[local]'
+                    : '[sha1:hash:hex:4]',
                 },
               },
             },
@@ -67,14 +84,38 @@ module.exports = (env, argv) => {
     },
     resolve: {
       alias: {
-        Common: path.resolve(__dirname, 'src/common/'),
-        Modules: path.resolve(__dirname, 'src/modules/'),
-        Features: path.resolve(__dirname, 'src/features/'),
-        Resources: path.resolve(__dirname, 'src/resources/'),
-        Layout: path.resolve(__dirname, 'src/layout/'),
-        State: path.resolve(__dirname, 'src/state/'),
-        Services: path.resolve(__dirname, 'src/services/'),
-        Styles: path.resolve(__dirname, 'src/styles/'),
+        Common: path.resolve(
+          __dirname,
+          'src/common/',
+        ),
+        Modules: path.resolve(
+          __dirname,
+          'src/modules/',
+        ),
+        Features: path.resolve(
+          __dirname,
+          'src/features/',
+        ),
+        Resources: path.resolve(
+          __dirname,
+          'src/resources/',
+        ),
+        Layout: path.resolve(
+          __dirname,
+          'src/layout/',
+        ),
+        State: path.resolve(
+          __dirname,
+          'src/state/',
+        ),
+        Services: path.resolve(
+          __dirname,
+          'src/services/',
+        ),
+        Styles: path.resolve(
+          __dirname,
+          'src/styles/',
+        ),
       },
     },
     devtool: 'inline-source-map',
@@ -89,6 +130,9 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
         chunkFilename: '[name].[contenthash].css',
+      }),
+      new StylelintPlugin({
+        fix: true,
       }),
     ],
   };

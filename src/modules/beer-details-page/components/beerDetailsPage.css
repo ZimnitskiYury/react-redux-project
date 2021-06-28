@@ -1,162 +1,158 @@
 .beer-page {
-    display: flex;
-    flex-direction: column;
-
-    padding: 20px 0;
-
-    color: black;
-
-    justify-content: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  color: black;
+  justify-content: stretch;
 }
+
 .beer-page__header {
-    display: flex;
+  display: flex;
 }
+
 .beer-page__header-info {
-    display: flex;
-    flex-direction: column;
-
-    width: 80%;
-
-    row-gap: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  row-gap: 15px;
 }
+
 .beer-page__header-title {
-    font-size: 40px;
+  font-size: 40px;
 }
+
 .beer-page__header-tags {
-    font-size: 20px;
+  font-size: 20px;
 }
+
 .beer-page__header-description {
-    width: 750px;
-
-    font-size: 28px;
-    line-height: 1.1;
+  width: 750px;
+  font-size: 28px;
+  line-height: 1.1;
 }
-.beer-page__header-photo {
-    width: 30%;
 
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+.beer-page__header-photo {
+  width: 30%;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .beer-page__container {
-    display: flex;
-
-    width: 750px;
-    padding-top: 20px;
-
-    justify-content: space-between;
+  display: flex;
+  width: 750px;
+  padding-top: 20px;
+  justify-content: space-between;
 }
+
 .beer-page__container-header {
-    padding: 0 10px;
-
-    font-size: 22px;
+  padding: 0 10px;
+  font-size: 22px;
 }
+
 .beer-page__container_half {
-    width: 45%;
+  width: 45%;
 }
+
 .beer-page__properties {
-    list-style: none;
+  list-style: none;
 }
+
 .beer-page__prop {
-    display: flex;
-
-    box-sizing: border-box;
-    width: 100%;
-    margin: 5px;
-    padding: 10px ;
-
-    border: 1px solid #a9560a;
-
-    justify-content: space-between;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #a9560a;
+  justify-content: space-between;
 }
+
 .beer-page__prop-title {
-    margin: 0 10px;
+  margin: 0 10px;
 }
+
 .beer-page__prop-value {
-    box-sizing: border-box;
-    width: 60px;
-    margin-left: auto;
-
-    text-align: center;
-
-    color: white;
-    border-radius: 10px;
-    background-color: #e0843c;
+  box-sizing: border-box;
+  width: 60px;
+  margin-left: auto;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  background-color: #e0843c;
 }
 
 .beer-page__food-pairing {
-    list-style: none;
+  list-style: none;
 }
 
 .beer-page__food {
-    box-sizing: border-box;
-    width: 100%;
-    margin: 5px;
-    padding: 10px ;
-
-    border: 1px solid #a9560a;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #a9560a;
 }
 
 .beer-page__brewing {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 30px 0;
-
-    font-size: 28px;
-    line-height: 1.1;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 0;
+  font-size: 28px;
+  line-height: 1.1;
 }
+
 .beer-page__ingredients {
-    list-style: none;
+  list-style: none;
 }
 
 .beer-page__ingredients-cat {
-    box-sizing: border-box;
-    width: 100%;
-    margin: 5px;
-    padding: 10px ;
-
-    border: 1px solid #a9560a;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #a9560a;
 }
+
 .beer-page__method {
-    list-style: none;
+  list-style: none;
 }
+
 .beer-page__method-prop {
-    box-sizing: border-box;
-    width: 100%;
-    margin: 5px;
-    padding: 10px ;
-
-    border: 1px solid #a9560a;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #a9560a;
 }
+
 .beer-page__method-prop-title {
-    padding: 0 10px;
-
-    font-size: 18px;
+  padding: 0 10px;
+  font-size: 18px;
 }
+
 .beer-page__prop-info-tooltip {
-    height: 24px;
+  height: 24px;
 }
+
 .beer-page__prop-info-tooltip p {
-    display: none;
-
-    box-sizing: border-box;
-    width: 200px;
-    padding: 5px 10px;
-
-    color: black;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0 8px 12px rgba(94, 154, 252, 0.6);
+  display: none;
+  box-sizing: border-box;
+  width: 200px;
+  padding: 5px 10px;
+  color: black;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 8px 12px rgba(94, 154, 252, 0.6);
 }
+
 .beer-page__prop-info-tooltip:hover p {
-    position: absolute;
-
-    display: block;
-
-    transform: translateY(-165px);
+  position: absolute;
+  display: block;
+  transform: translateY(-165px);
 }
+
 .beer-page__prop-info-tooltip:hover svg {
-    fill: #ffb46a;
+  fill: #ffb46a;
 }
