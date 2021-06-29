@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
 import { removeFavorite, addFavorite } from 'Features/favorites/actions/favoritesActions';
+import BeerProperties from 'Modules/beer-details-page/components/BeerProperties/beerProperties';
 import { getDataById } from 'Services/punkService';
 
 import styles from './beerDetailsPage.css';
@@ -75,53 +75,11 @@ function BeerDetailsPage() {
         </div>
         <div className={styles['beer-page__container']}>
           <div className={styles['beer-page__container_half']}>
-            <h2 className={styles['beer-page__container-header']}>Properties</h2>
-            <ul className={styles['beer-page__properties']}>
-              <li className={styles['beer-page__prop']}>
-                <span className={styles['beer-page__prop-title']}>ABV</span>
-                <div className={styles['beer-page__prop-info-tooltip']}>
-                  <InfoOutlinedIcon />
-                  <p>
-                    ABV, or alcohol by volume,
-                    is the standard measurement,
-                    used worldwide, to assess the
-                    strength of a particular beer.
-                  </p>
-                </div>
-                <span className={styles['beer-page__prop-value']}>
-                  {beer.abv}
-                </span>
-              </li>
-              <li className={styles['beer-page__prop']}>
-                <span className={styles['beer-page__prop-title']}>IBU</span>
-                <div className={styles['beer-page__prop-info-tooltip']}>
-                  <InfoOutlinedIcon />
-                  <p>
-                    IBU, or international bittering unit,
-                    measures the bitterness levels in beer
-                    (based on the amount of hops added).
-                  </p>
-                </div>
-                <span className={styles['beer-page__prop-value']}>
-                  {beer.ibu}
-                </span>
-              </li>
-              <li className={styles['beer-page__prop']}>
-                <span className={styles['beer-page__prop-title']}>EBC</span>
-                <div className={styles['beer-page__prop-info-tooltip']}>
-                  <InfoOutlinedIcon />
-                  <p>
-                    Color Units Ebc
-                    (European Brewery Convention)
-                    refer to the color of a beer measured
-                    in a technical manner.
-                  </p>
-                </div>
-                <span className={styles['beer-page__prop-value']}>
-                  {beer.ebc}
-                </span>
-              </li>
-            </ul>
+            <BeerProperties
+              abv={beer.abv}
+              ibu={beer.ibu}
+              ebc={beer.ebc}
+            />
           </div>
           <div className={styles['beer-page__container_half']}>
             <h2 className={styles['beer-page__container-header']}>Food Pairing</h2>

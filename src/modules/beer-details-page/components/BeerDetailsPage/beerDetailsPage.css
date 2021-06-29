@@ -46,41 +46,8 @@
   justify-content: space-between;
 }
 
-.beer-page__container-header {
-  padding: 0 10px;
-  font-size: 22px;
-}
-
 .beer-page__container_half {
   width: 45%;
-}
-
-.beer-page__properties {
-  list-style: none;
-}
-
-.beer-page__prop {
-  display: flex;
-  box-sizing: border-box;
-  width: 100%;
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid #a9560a;
-  justify-content: space-between;
-}
-
-.beer-page__prop-title {
-  margin: 0 10px;
-}
-
-.beer-page__prop-value {
-  box-sizing: border-box;
-  width: 60px;
-  margin-left: auto;
-  text-align: center;
-  color: white;
-  border-radius: 10px;
-  background-color: #e0843c;
 }
 
 .beer-page__food-pairing {
@@ -130,29 +97,4 @@
 .beer-page__method-prop-title {
   padding: 0 10px;
   font-size: 18px;
-}
-
-.beer-page__prop-info-tooltip {
-  height: 24px;
-}
-
-.beer-page__prop-info-tooltip p {
-  display: none;
-  box-sizing: border-box;
-  width: 200px;
-  padding: 5px 10px;
-  color: black;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 8px 12px rgba(94, 154, 252, 0.6);
-}
-
-.beer-page__prop-info-tooltip:hover p {
-  position: absolute;
-  display: block;
-  transform: translateY(-165px);
-}
-
-.beer-page__prop-info-tooltip:hover svg {
-  fill: #ffb46a;
 }
