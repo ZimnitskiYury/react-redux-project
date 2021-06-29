@@ -1,36 +1,10 @@
 import { all, takeEvery } from '@redux-saga/core/effects';
+import { addFavoriteToStorage, removeFavoriteFromStorage } from 'Services/storageService';
 import { ADD_FAVORITE, REMOVE_FAVORITE } from '../constants/favoritesConstants';
 
 
-const getLocalStorage = () => {
-  const data = localStorage.getItem('favoriteBeers');
-
-  return data
-    ? JSON.parse(data)
-    : [];
-};
-
-const addToLocalStorage = (beer) => {
-  const data = getLocalStorage();
-  localStorage.setItem(
-    'favoriteBeers',
-    JSON.stringify([
-      ...data,
-      beer,
-    ]),
-  );
-};
-
-const removeFromLocalStorage = (beer) => {
-  const data = getLocalStorage();
-  localStorage.setItem(
-    'favoriteBeers',
-    JSON.stringify(data.filter((item) => item.id !== beer.id)),
-  );
-};
-
 export function* addFavoriteWorker(action) {
-  yield addToLocalStorage(action.payload);
+  yield addFavoriteToStorage(action.payload);
 }
 
 export function* addFavoriteWatcher() {
@@ -41,7 +15,7 @@ export function* addFavoriteWatcher() {
 }
 
 export function* removeFavoriteWorker(action) {
-  yield removeFromLocalStorage(action.payload);
+  yield removeFavoriteFromStorage(action.payload);
 }
 
 export function* removeFavoriteWatcher() {

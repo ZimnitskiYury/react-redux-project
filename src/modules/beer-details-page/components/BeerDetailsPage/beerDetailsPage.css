@@ -8,6 +8,8 @@
 
 .beer-page__header {
   display: flex;
+  width: 100%;
+  column-gap: 80px;
 }
 
 .beer-page__header-info {
@@ -32,7 +34,8 @@
 }
 
 .beer-page__header-photo {
-  width: 15%;
+  overflow: hidden;
+  width: auto;
 }
 
 .beer-page__container {
