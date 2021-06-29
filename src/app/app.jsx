@@ -7,7 +7,7 @@ import Header from 'Modules/layout/components/Header/header';
 import LandingPage from 'Modules/landing-page/components/LandingPage/landingPage';
 import Sidebar from 'Modules/layout/components/Sidebar/sidebar';
 import FavoritePage from 'Modules/favorites-page/components/FavoritePage/favoritePage';
-import BeerDetailsPage from 'Modules/beer-details-page/components/beerDetailsPage';
+import BeerDetailsPage from 'Modules/beer-details-page/components/BeerDetailsPage/beerDetailsPage';
 
 import store from 'State/store';
 

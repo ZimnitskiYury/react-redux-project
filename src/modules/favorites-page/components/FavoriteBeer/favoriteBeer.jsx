@@ -36,8 +36,6 @@ function FavoriteBeer({
   );
 }
 
-export default FavoriteBeer;
-
 FavoriteBeer.propTypes = {
   name: PropTypes.string.isRequired,
   tagline: PropTypes.string.isRequired,
@@ -45,4 +43,6 @@ FavoriteBeer.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   removeFavoriteHandler: PropTypes.func.isRequired,
 };
+
+export default FavoriteBeer;
 

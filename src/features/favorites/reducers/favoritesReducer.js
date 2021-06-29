@@ -2,8 +2,7 @@ import { ADD_FAVORITE, REMOVE_FAVORITE } from 'Features/favorites/constants/favo
 
 
 const initialState = {
-  favorites: [
-  ],
+  favorites: [],
 };
 
 function favoritesReducer(

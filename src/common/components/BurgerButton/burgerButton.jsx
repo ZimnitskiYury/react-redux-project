@@ -22,8 +22,8 @@ function BurgerMenu({ handler }) {
   );
 }
 
-export default BurgerMenu;
-
 BurgerMenu.propTypes = {
   handler: PropTypes.func.isRequired,
 };
+
+export default BurgerMenu;

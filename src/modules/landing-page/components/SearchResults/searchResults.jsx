@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import BeerCard from 'Modules/landing-page/components/BeerCard/beerCard';
 import { addFavorite, removeFavorite } from 'Features/favorites/actions/favoritesActions';
@@ -8,19 +9,18 @@ import useInfiniteLoader from 'Modules/landing-page/hooks/infiniteLoaderHook';
 import styles from './searchResults.css';
 
 
-function SearchResults() {
+function SearchResults({ searchParameters }) {
   const dispatch = useDispatch();
   const beers = useSelector((state) => state.searchResults.beers);
   const favorites = useSelector((state) => state.favoritesStore.favorites);
-  const [
-    containerRef,
-  ] = useInfiniteLoader(
+  const [containerRef] = useInfiniteLoader(
     {
       root: null,
       rootMargin: '-50px',
       threshold: 1.0,
     },
     beers,
+    searchParameters,
   );
 
   const isFavorite = function isFavorite(beer) {
@@ -30,6 +30,7 @@ function SearchResults() {
 
     return false;
   };
+
   const favHandler = (beer) => {
     if (isFavorite(beer)) {
       return () => (dispatch(removeFavorite(beer)));
@@ -60,4 +61,16 @@ function SearchResults() {
   );
 }
 
+SearchResults.propTypes = {
+  searchParameters: PropTypes.shape({
+    value: PropTypes.string,
+    alcoValue: PropTypes.number,
+    ibuValue: PropTypes.number,
+    ebcValue: PropTypes.number,
+  }),
+};
+
+SearchResults.defaultProps = {
+  searchParameters: {},
+};
 export default SearchResults;

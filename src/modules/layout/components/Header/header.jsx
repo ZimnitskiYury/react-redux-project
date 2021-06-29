@@ -26,8 +26,8 @@ function Header({ sidebarHandler }) {
   );
 }
 
-export default Header;
-
 Header.propTypes = {
   sidebarHandler: PropTypes.func.isRequired,
 };
+
+export default Header;

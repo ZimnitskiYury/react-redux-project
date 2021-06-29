@@ -33,8 +33,6 @@ function BeerCard({
   );
 }
 
-export default BeerCard;
-
 BeerCard.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
@@ -43,3 +41,5 @@ BeerCard.propTypes = {
   isFavorite: PropTypes.bool.isRequired,
   handler: PropTypes.func.isRequired,
 };
+
+export default BeerCard;

@@ -16,8 +16,8 @@ function BeerCardOpenButton({ id }) {
   );
 }
 
-export default BeerCardOpenButton;
-
 BeerCardOpenButton.propTypes = {
   id: PropTypes.number.isRequired,
 };
+
+export default BeerCardOpenButton;

@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import SearchIcon from '@material-ui/icons/Search';
 import useInput from 'Modules/landing-page/hooks/searchInputHook';
-import { Slider } from 'Common/components/Slider/slider';
-import { searchBeers } from 'Modules/landing-page/actions/searchBeersActions';
+import Slider from 'Common/components/Slider/slider';
 import useSlider from 'Modules/landing-page/hooks/sliderHook';
+import { searchBeers } from 'Modules/landing-page/actions/searchBeersActions';
 
+import { useDispatch } from 'react-redux';
 import styles from './searchBox.css';
 
 
-function SearchBox() {
-  const dispatch = useDispatch();
+function SearchBox({ setSearchParameters }) {
   const tag = 'searchBox';
+  const dispatch = useDispatch();
 
   const [
-    IsShownFilters,
-    setShowFilters,
+    areFiltersShown,
+    setFiltersShown,
   ] = useState(false);
   const { value, reset, onChange } = useInput('');
 
@@ -26,8 +27,25 @@ function SearchBox() {
 
   const { value: ebcValue, onChange: ebcHandler } = useSlider(80);
 
+  useEffect(
+    () => {
+      setSearchParameters({
+        value,
+        alcoValue,
+        ibuValue,
+        ebcValue,
+      });
+    },
+    [],
+  );
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    setSearchParameters({
+      value,
+      alcoValue,
+      ibuValue,
+      ebcValue,
+    });
     dispatch(searchBeers(
       value,
       alcoValue,
@@ -84,7 +102,7 @@ function SearchBox() {
             placeholder="Search beers..."
             value={value}
             onChange={onChange}
-            onFocus={() => setShowFilters(true)}
+            onFocus={() => setFiltersShown(true)}
           />
         </label>
         <button
@@ -95,10 +113,14 @@ function SearchBox() {
           Search
         </button>
       </div>
-      {IsShownFilters && sliders}
+      {areFiltersShown && sliders}
 
     </form>
   );
 }
+
+SearchBox.propTypes = {
+  setSearchParameters: PropTypes.func.isRequired,
+};
 
 export default SearchBox;

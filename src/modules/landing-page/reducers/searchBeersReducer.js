@@ -2,8 +2,7 @@ import { ADDBEERS, REQUESTBEERS } from 'Modules/landing-page/constants/searchBee
 
 
 const initialState = {
-  beers: [
-  ],
+  beers: [],
 };
 
 function searchResultsReducer(

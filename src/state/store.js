@@ -18,12 +18,10 @@ const favoritesFromLocal = JSON.parse(localStorage.getItem('favoriteBeers'));
 
 const initialState = {
   searchResults: {
-    beers: [
-    ],
+    beers: [],
   },
   favoritesStore: {
-    favorites: favoritesFromLocal || [
-    ],
+    favorites: favoritesFromLocal || [],
   },
 };
 

@@ -29,8 +29,6 @@ function ToggleFavoriteButton({ isFavorite, handler }) {
   );
 }
 
-export default ToggleFavoriteButton;
-
 ToggleFavoriteButton.propTypes = {
   isFavorite: PropTypes.bool,
   handler: PropTypes.func.isRequired,
@@ -39,3 +37,5 @@ ToggleFavoriteButton.propTypes = {
 ToggleFavoriteButton.defaultProps = {
   isFavorite: false,
 };
+
+export default ToggleFavoriteButton;

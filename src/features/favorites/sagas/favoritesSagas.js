@@ -7,8 +7,7 @@ const getLocalStorage = () => {
 
   return data
     ? JSON.parse(data)
-    : [
-    ];
+    : [];
 };
 
 const addToLocalStorage = (beer) => {

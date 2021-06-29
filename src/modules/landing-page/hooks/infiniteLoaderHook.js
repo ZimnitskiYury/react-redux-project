@@ -4,22 +4,31 @@ import { loadNextBeers } from '../actions/searchBeersActions';
 
 
 export const useInfiniteLoader = (
-  options, catalog,
+  options, catalog, searchParameters,
 ) => {
   const containerRef = useRef(null);
   const [
     page,
     setPage,
   ] = useState(1);
+  const [
+    isLoading,
+    setLoading,
+  ] = useState(false);
   const dispatch = useDispatch();
 
   const callback = (entries) => {
-    const [
-      entry,
-    ] = entries;
-    if (entry.isIntersecting) {
-      dispatch(loadNextBeers(page));
+    const [entry] = entries;
+    if (entry.isIntersecting && !isLoading) {
+      dispatch(loadNextBeers(
+        searchParameters.value,
+        searchParameters.alcoValue,
+        searchParameters.ibuValue,
+        searchParameters.ebcValue,
+        page,
+      ));
       setPage(page + 1);
+      setLoading(true);
     }
   };
 
@@ -30,6 +39,7 @@ export const useInfiniteLoader = (
         options,
       );
       if (containerRef.current) observer.observe(containerRef.current);
+      setLoading(false);
 
       return () => {
         if (containerRef.current) {
@@ -37,14 +47,10 @@ export const useInfiniteLoader = (
         }
       };
     },
-    [
-      catalog,
-    ],
+    [catalog],
   );
 
-  return [
-    containerRef,
-  ];
+  return [containerRef];
 };
 
 export default useInfiniteLoader;

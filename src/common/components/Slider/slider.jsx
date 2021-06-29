@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './slider.css';
 
 
-export function Slider({
+function Slider({
   tag,
   name,
   min,
@@ -35,8 +35,6 @@ export function Slider({
   );
 }
 
-export default Slider;
-
 Slider.propTypes = {
   tag: PropTypes.string.isRequired,
   name: PropTypes.string,
@@ -54,3 +52,5 @@ Slider.defaultProps = {
   step: 0.1,
   sliderValue: 0,
 };
+
+export default Slider;

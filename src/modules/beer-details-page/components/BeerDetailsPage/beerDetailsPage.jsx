@@ -30,8 +30,7 @@ function BeerDetailsPage() {
 
       getData();
     },
-    [
-    ],
+    [],
   );
 
   const isFavorite = function isFavorite() {
