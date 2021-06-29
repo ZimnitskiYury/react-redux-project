@@ -13,7 +13,7 @@ function FoodPairing({ foodPairing }) {
         <FastfoodIcon />
         <span>Food Pairing</span>
       </header>
-      <ul className={styles['food-pairing']}>
+      <ul>
         {foodPairing.map((
           element, index,
         ) => (

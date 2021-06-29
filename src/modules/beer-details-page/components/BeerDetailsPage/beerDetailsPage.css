@@ -32,11 +32,7 @@
 }
 
 .beer-page__header-photo {
-  width: 30%;
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  width: 15%;
 }
 
 .beer-page__container {
@@ -48,21 +44,4 @@
 
 .beer-page__container_half {
   width: 45%;
-}
-
-.beer-page__method {
-  list-style: none;
-}
-
-.beer-page__method-prop {
-  box-sizing: border-box;
-  width: 100%;
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid #a9560a;
-}
-
-.beer-page__method-prop-title {
-  padding: 0 10px;
-  font-size: 18px;
 }

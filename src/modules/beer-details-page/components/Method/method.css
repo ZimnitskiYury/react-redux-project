@@ -1,4 +1,4 @@
-.ingredients__header {
+.method__header {
   display: flex;
   padding: 0 10px;
   text-transform: uppercase;
@@ -7,20 +7,20 @@
   column-gap: 10px;
 }
 
-.ingredients__category {
+.method__category {
   box-sizing: border-box;
   width: 100%;
   margin: 5px;
   border: 1px solid #a9560a;
 }
 
-.ingredients__category-title {
+.method__category-title {
   padding: 5px 15px;
   color: #fff;
   background-color: #e0843c;
   font-size: 18px;
 }
 
-.ingredients__category-values {
+.method__category-values {
   padding: 5px;
 }

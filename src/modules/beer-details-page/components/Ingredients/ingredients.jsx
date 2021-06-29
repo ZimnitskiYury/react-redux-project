@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ViewListIcon from '@material-ui/icons/ViewList';
+
 import styles from './ingredients.css';
 
 
 function Ingredients({ ingredients }) {
   return (
     <>
-      <header className={styles.ingredients__header}>Ingredients</header>
+      <header className={styles.ingredients__header}>
+        <ViewListIcon />
+        Ingredients
+      </header>
       <ul>
         <li className={styles.ingredients__category}>
           <p className={styles['ingredients__category-title']}>Malts</p>
