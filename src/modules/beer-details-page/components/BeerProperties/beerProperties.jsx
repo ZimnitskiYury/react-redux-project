@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
 import styles from './beerProperties.css';
 
 
@@ -14,7 +15,10 @@ const tooltip = {
 function BeerProperties({ abv, ibu, ebc }) {
   return (
     <>
-      <h2 className={styles.properties__header}>Properties</h2>
+      <header className={styles.properties__header}>
+        <LocalDrinkIcon />
+        Properties
+      </header>
       <ul className={styles.properties}>
         <BeerProperty
           title="ABV"
@@ -38,7 +42,10 @@ function BeerProperties({ abv, ibu, ebc }) {
 
 function BeerProperty({ title, tooltipValue, value }) {
   return (
-    <li className={styles.properties__prop}>
+    <li
+      className={styles.properties__prop}
+      key={title}
+    >
       <span className={styles['properties__prop-title']}>{title}</span>
       <div className={styles['properties__prop-info-tooltip']}>
         <InfoOutlinedIcon />

@@ -1,0 +1,19 @@
+.food-pairing {
+  list-style: none;
+}
+
+.food-pairing__header {
+  display: flex;
+  padding: 0 10px;
+  font-size: 22px;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.dish {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #a9560a;
+}

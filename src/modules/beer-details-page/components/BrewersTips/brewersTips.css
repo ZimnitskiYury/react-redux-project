@@ -1,0 +1,16 @@
+.brewing__tips-title {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 0;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.brewing__tips-title::before {
+  margin-right: 10px;
+  content: "Brewers Tips:";
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: #a9560a;
+  line-height: 1.1;
+}

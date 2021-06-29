@@ -6,6 +6,9 @@ import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteBu
 import { removeFavorite, addFavorite } from 'Features/favorites/actions/favoritesActions';
 import BeerProperties from 'Modules/beer-details-page/components/BeerProperties/beerProperties';
 import { getDataById } from 'Services/punkService';
+import FoodPairing from 'Modules/beer-details-page/components/FoodPairing/foodPairing';
+import BrewersTips from 'Modules/beer-details-page/components/BrewersTips/brewersTips';
+import Ingredients from 'Modules/beer-details-page/components/Ingredients/ingredients';
 
 import styles from './beerDetailsPage.css';
 
@@ -82,65 +85,13 @@ function BeerDetailsPage() {
             />
           </div>
           <div className={styles['beer-page__container_half']}>
-            <h2 className={styles['beer-page__container-header']}>Food Pairing</h2>
-            <ul className={styles['beer-page__food-pairing']}>
-              {beer.food_pairing.map((
-                element, index,
-              ) => (
-                <li
-                  className={styles['beer-page__food']}
-                  key={index}
-                >
-                  {element}
-                </li>
-              ))}
-            </ul>
+            <FoodPairing foodPairing={beer.food_pairing} />
           </div>
         </div>
-        <div className={styles['beer-page__brewing']}>
-          <p>{beer.brewers_tips}</p>
-        </div>
+        <BrewersTips brewersTips={beer.brewers_tips} />
         <div className={styles['beer-page__container']}>
           <div className={styles['beer-page__container_half']}>
-            <h2 className={styles['beer-page__container-header']}>Ingredients</h2>
-            <ul className={styles['beer-page__ingredients']}>
-              { Object.keys(beer.ingredients).map((
-                element, index,
-              ) => {
-                if (Array.isArray(beer.ingredients[element])) {
-                  return (
-                    <li
-                      className={styles['beer-page__ingredients-cat']}
-                      key={index}
-                    >
-                      <p>{element}</p>
-                      <ul>
-                        {beer.ingredients[element].map((
-                          ing, ind,
-                        ) => (
-                          <li
-                            className={styles['beer-page__ingredients-cat-item']}
-                            key={ind}
-                          >
-                            {`${ing.name} - ${ing.amount.value} ${ing.amount.unit}`}
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  );
-                }
-
-                return (
-                  <li
-                    className={styles['beer-page__ingredients-cat']}
-                    key={index}
-                  >
-                    {element}
-                    <p>{beer.ingredients[element]}</p>
-                  </li>
-                );
-              })}
-            </ul>
+            <Ingredients ingredients={beer.ingredients} />
           </div>
           <div className={styles['beer-page__container_half']}>
             <h2 className={styles['beer-page__container-header']}>Method</h2>
