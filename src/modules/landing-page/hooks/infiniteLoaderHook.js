@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadNextBeers } from '../actions/searchBeersActions';
 
@@ -7,39 +7,43 @@ export const useInfiniteLoader = (
   options, catalog, searchParameters,
 ) => {
   const containerRef = useRef(null);
-  const [
-    page,
-    setPage,
-  ] = useState(1);
-  const [
-    isLoading,
-    setLoading,
-  ] = useState(false);
+  const isLoading = useRef(false);
+  const hasMore = useRef(true);
+  const page = useRef(1);
   const dispatch = useDispatch();
 
   const callback = (entries) => {
     const [entry] = entries;
-    if (entry.isIntersecting && !isLoading) {
+
+    if (entry.isIntersecting && !isLoading.current && hasMore.current) {
+      isLoading.current = true;
+      hasMore.current = false;
       dispatch(loadNextBeers(
         searchParameters.value,
         searchParameters.alcoValue,
         searchParameters.ibuValue,
         searchParameters.ebcValue,
-        page,
+        page.current,
       ));
-      setPage(page + 1);
-      setLoading(true);
+      page.current += 1;
+    }
+
+    if (!entry.isIntersecting && hasMore.current) {
+      isLoading.current = false;
     }
   };
 
+  // prevents sending new requests, if previous return no new data
   useEffect(
     () => {
       const observer = new IntersectionObserver(
         callback,
         options,
       );
-      if (containerRef.current) observer.observe(containerRef.current);
-      setLoading(false);
+      if (containerRef.current) {
+        observer.observe(containerRef.current);
+      }
+      hasMore.current = true;
 
       return () => {
         if (containerRef.current) {
@@ -47,7 +51,17 @@ export const useInfiniteLoader = (
         }
       };
     },
-    [catalog],
+    [catalog.length],
+  );
+
+  // reset page count for search parameters
+  useEffect(
+    () => {
+      if (searchParameters.page) {
+        page.current = 2;
+      }
+    },
+    [searchParameters],
   );
 
   return [containerRef];

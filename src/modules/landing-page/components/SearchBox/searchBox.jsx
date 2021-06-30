@@ -45,6 +45,7 @@ function SearchBox({ setSearchParameters }) {
       alcoValue,
       ibuValue,
       ebcValue,
+      page: 1,
     });
     dispatch(searchBeers(
       value,

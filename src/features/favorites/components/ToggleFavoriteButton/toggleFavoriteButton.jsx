@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import './toggleFavoriteButton.css';
-
-
-const classNames = require('classnames');
 
 
 function ToggleFavoriteButton({ isFavorite, handler }) {

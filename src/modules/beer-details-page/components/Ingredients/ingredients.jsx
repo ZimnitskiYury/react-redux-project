@@ -54,8 +54,11 @@ function Malt({ malt }) {
 function HopsIngredients({ hops }) {
   return (
     <ul>
-      {hops.map((ing) => (
+      {hops.map((
+        ing, index,
+      ) => (
         <Hop
+          key={index}
           hop={ing}
         />
       ))}

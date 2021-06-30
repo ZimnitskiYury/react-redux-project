@@ -27,7 +27,7 @@ function App() {
       <Provider store={store}>
         <>
           <Sidebar isOpen={isOpen} />
-          <Header sidebarHandler={() => toggleSidebar((state) => !state)} />
+          <Header sidebarHandler={() => toggleSidebar(!isOpen)} />
           <div className={styles.container}>
             <Switch>
               <Route
