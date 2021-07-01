@@ -40,6 +40,7 @@ export const useInfiniteLoader = (
         callback,
         options,
       );
+
       if (containerRef.current) {
         observer.observe(containerRef.current);
       }

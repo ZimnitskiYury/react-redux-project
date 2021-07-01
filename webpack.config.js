@@ -8,6 +8,7 @@ module.exports = (
   env, argv,
 ) => {
   let isDev = false;
+
   if (argv.mode === 'development') {
     isDev = true;
   }

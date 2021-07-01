@@ -28,6 +28,7 @@ export async function getDataByParams(searchParams) {
     key,
     value,
   ));
+
   if (searchParams) {
     searchParams.forEach((
       value, key,

@@ -31,7 +31,8 @@
         "import/exports-last":"warn",
         "padding-line-between-statements": [
             "warn",
-            { "blankLine": "always", "prev": "*", "next": "return" }
+            { "blankLine": "always", "prev": "*", "next": "return" },
+            { "blankLine": "always", "prev": "*", "next": "if" }
         ],
         "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
         "react/jsx-max-props-per-line": [1, { "maximum": 1, "when": "always" }]
