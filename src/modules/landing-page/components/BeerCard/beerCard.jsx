@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
-import BeerCardOpenButton from './BeerCardOpenButton';
+import BeerCardOpenButton from 'Modules/landing-page/components/BeerCardOpenButton/BeerCardOpenButton';
 
 import styles from './beerCard.css';
 
@@ -12,9 +12,10 @@ function BeerCard({
 }) {
   return (
     <div className={styles['beer-card']}>
-      <div
+      <img
+        src={imageUrl}
+        alt="Beer Card"
         className={styles['beer-card__photo']}
-        style={{ backgroundImage: `url(${imageUrl})` }}
       />
       <h1 className={styles['beer-card__title']}>
         {name}

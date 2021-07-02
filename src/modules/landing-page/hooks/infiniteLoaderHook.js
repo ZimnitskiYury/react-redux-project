@@ -15,7 +15,9 @@ export const useInfiniteLoader = (
   const callback = (entries) => {
     const [entry] = entries;
 
-    if (entry.isIntersecting && !isLoading.current && hasMore.current) {
+    if (entry.isIntersecting
+        && !isLoading.current
+        && hasMore.current) {
       isLoading.current = true;
       hasMore.current = false;
       dispatch(loadNextBeers(

@@ -1,6 +1,7 @@
 .favorite-beer {
   display: flex;
   box-sizing: border-box;
+  width: 100%;
   padding: 20px 30px;
   transition: all 0.2 ease-in-out;
   border: black 1px;
@@ -25,12 +26,16 @@
   font-size: 18px;
 }
 
+.favorite-beer__photo-container {
+  display: flex;
+  width: 20%;
+  justify-content: center;
+}
+
 .favorite-beer__photo {
-  width: 30%;
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  width: auto;
+  height: 300px;
+  object-fit: contain;
 }
 
 .favorite-beer__description {

@@ -28,10 +28,13 @@ function FavoriteBeer({
           />
         </div>
       </div>
-      <div
-        className={styles['favorite-beer__photo']}
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      />
+      <div className={styles['favorite-beer__photo-container']}>
+        <img
+          src={imageUrl}
+          alt="Favorite Beer"
+          className={styles['favorite-beer__photo']}
+        />
+      </div>
     </div>
   );
 }

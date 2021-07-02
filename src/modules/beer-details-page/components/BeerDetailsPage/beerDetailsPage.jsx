@@ -53,57 +53,57 @@ function BeerDetailsPage() {
     return () => (dispatch(addFavorite(beer)));
   };
 
-  if (beer) {
-    return (
-      <div className={styles['beer-page']}>
-        <div className={styles['beer-page__header']}>
-          <div className={styles['beer-page__header-info']}>
-            <h1 className={styles['beer-page__header-title']}>
-              {beer.name}
-            </h1>
-            <span className={styles['beer-page__header-tags']}>
-              {beer.tagline}
-            </span>
-            <ToggleFavoriteButton
-              isFavorite={isFavorite()}
-              handler={favHandler()}
-            />
-            <p className={styles['beer-page__header-description']}>
-              {beer.description}
-            </p>
-            <div className={styles['beer-page__container']}>
-              <div className={styles['beer-page__container_half']}>
-                <BeerProperties
-                  abv={beer.abv}
-                  ibu={beer.ibu}
-                  ebc={beer.ebc}
-                />
-              </div>
-              <div className={styles['beer-page__container_half']}>
-                <FoodPairing foodPairing={beer.food_pairing} />
-              </div>
-            </div>
-          </div>
-          <img
-            className={styles['beer-page__header-photo']}
-            src={beer.image_url}
-            alt="Beer"
-          />
-        </div>
-        <BrewersTips brewersTips={beer.brewers_tips} />
-        <div className={styles['beer-page__container']}>
-          <div className={styles['beer-page__container_half']}>
-            <Ingredients ingredients={beer.ingredients} />
-          </div>
-          <div className={styles['beer-page__container_half']}>
-            <Method method={beer.method} />
-          </div>
-        </div>
-      </div>
-    );
+  if (!beer) {
+    return (<h1>loading</h1>);
   }
 
-  return (<h1>loading</h1>);
+  return (
+    <div className={styles['beer-page']}>
+      <div className={styles['beer-page__header']}>
+        <div className={styles['beer-page__header-info']}>
+          <h1 className={styles['beer-page__header-title']}>
+            {beer.name}
+          </h1>
+          <span className={styles['beer-page__header-tags']}>
+            {beer.tagline}
+          </span>
+          <ToggleFavoriteButton
+            isFavorite={isFavorite()}
+            handler={favHandler()}
+          />
+          <p className={styles['beer-page__header-description']}>
+            {beer.description}
+          </p>
+          <div className={styles['beer-page__container']}>
+            <div className={styles['beer-page__container_half']}>
+              <BeerProperties
+                abv={beer.abv}
+                ibu={beer.ibu}
+                ebc={beer.ebc}
+              />
+            </div>
+            <div className={styles['beer-page__container_half']}>
+              <FoodPairing foodPairing={beer.food_pairing} />
+            </div>
+          </div>
+        </div>
+        <img
+          className={styles['beer-page__header-photo']}
+          src={beer.image_url}
+          alt="Beer"
+        />
+      </div>
+      <BrewersTips brewersTips={beer.brewers_tips} />
+      <div className={styles['beer-page__container']}>
+        <div className={styles['beer-page__container_half']}>
+          <Ingredients ingredients={beer.ingredients} />
+        </div>
+        <div className={styles['beer-page__container_half']}>
+          <Method method={beer.method} />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default BeerDetailsPage;

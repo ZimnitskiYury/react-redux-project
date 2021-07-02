@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import InboxIcon from '@material-ui/icons/Inbox';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -10,9 +11,10 @@ import styles from './sidebar.css';
 
 function Sidebar({ isOpen }) {
   return (
-    <div className={isOpen
-      ? `${styles.sidebar} ${styles.sidebar_open}`
-      : styles.sidebar}
+    <div className={classNames(
+      'sidebar',
+      { sidebar_open: isOpen },
+    )}
     >
       <ul className={styles.sidebar__nav}>
         <li>

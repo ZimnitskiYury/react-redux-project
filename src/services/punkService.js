@@ -1,6 +1,7 @@
 import { getData } from './connect';
-import { URL_PUNKAPI } from './connectConstants';
 
+
+const URL_PUNKAPI = new URL('https://api.punkapi.com/v2/beers');
 
 const initial = new Map([
   [

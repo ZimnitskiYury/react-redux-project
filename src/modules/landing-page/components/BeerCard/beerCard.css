@@ -16,10 +16,8 @@
 }
 
 .beer-card__photo {
-  min-height: 250px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  height: 250px;
+  object-fit: contain;
 }
 
 .beer-card__title {
