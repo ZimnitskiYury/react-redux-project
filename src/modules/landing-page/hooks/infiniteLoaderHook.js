@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { loadNextBeers } from '../actions/searchBeersActions';
+import { loadMoreBeers } from '../actions/searchBeersActions';
 
 
 export const useInfiniteLoader = (
@@ -20,7 +20,7 @@ export const useInfiniteLoader = (
         && hasMore.current) {
       isLoading.current = true;
       hasMore.current = false;
-      dispatch(loadNextBeers(
+      dispatch(loadMoreBeers(
         searchParameters.value,
         searchParameters.alcoValue,
         searchParameters.ibuValue,

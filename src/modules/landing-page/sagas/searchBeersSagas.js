@@ -2,7 +2,7 @@ import {
   call, put, takeEvery, all,
 } from '@redux-saga/core/effects';
 import {
-  REQUESTBEERS, SEARCHBEERS, LOADNEXT, ADDBEERS,
+  REQUESTBEERS, SEARCHBEERS, ADDBEERS, LOADMORE,
 } from 'Modules/landing-page/constants/searchBeersConstants';
 import { getDataByParams } from 'Services/punkService';
 
@@ -38,7 +38,7 @@ export function* loadNextWorker(action) {
 
 export function* loadNextWatcher() {
   yield takeEvery(
-    LOADNEXT,
+    LOADMORE,
     loadNextWorker,
   );
 }

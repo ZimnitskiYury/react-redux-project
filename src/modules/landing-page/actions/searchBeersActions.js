@@ -1,7 +1,7 @@
-import { LOADNEXT, SEARCHBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
+import { LOADMORE, SEARCHBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
 
 
-export function loadNextBeers(
+export function loadMoreBeers(
   name, alcohol, ibu, ebc, pageNumber,
 ) {
   const payload = new Map();
@@ -42,7 +42,7 @@ export function loadNextBeers(
   }
 
   return {
-    type: LOADNEXT,
+    type: LOADMORE,
     payload,
   };
 }
@@ -88,5 +88,5 @@ export function searchBeers(
 
 export default {
   searchBeers,
-  loadNextBeers,
+  loadMoreBeers,
 };
