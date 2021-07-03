@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{f6a3c7d3-d304-4092-9ee7-786058330811}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>webpack.config.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">16.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <StartWebBrowser>True</StartWebBrowser>
+    <LaunchUrl>localhost:8080</LaunchUrl>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include=".eslintrc.json" />
+    <Content Include=".stylelintrc.json" />
+    <None Include="jsconfig.json" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="webpack.config.js" />
+    <Content Include="dist\index.html" />
+    <Content Include="dist\bundle.js" />
+    <Content Include="src\index.html" />
+    <Content Include="src\app\app.css" />
+    <Content Include="src\app\app.jsx" />
+    <Content Include="src\services\connect.js" />
+    <Content Include="src\services\punkService.js" />
+    <Content Include="src\services\storageService.js" />
+    <Content Include="src\state\store.js" />
+    <Content Include="src\styles\reset.css" />
+    <Content Include="src\styles\sliders.css" />
+    <Content Include="src\styles\colorsConstants.js" />
+    <Content Include="src\common\components\BurgerButton\burgerButton.css" />
+    <Content Include="src\common\components\BurgerButton\burgerButton.jsx" />
+    <Content Include="src\common\components\Slider\slider.css" />
+    <Content Include="src\common\components\Slider\slider.jsx" />
+    <Content Include="src\features\favorites\actions\favoritesActions.js" />
+    <Content Include="src\features\favorites\constants\favoritesConstants.js" />
+    <Content Include="src\features\favorites\reducers\favoritesReducer.js" />
+    <Content Include="src\features\favorites\sagas\favoritesSagas.js" />
+    <Content Include="src\features\favorites\components\ToggleFavoriteButton\toggleFavoriteButton.css" />
+    <Content Include="src\features\favorites\components\ToggleFavoriteButton\toggleFavoriteButton.jsx" />
+    <Content Include="src\modules\beer-details-page\components\BeerDetailsPage\beerDetailsPage.css" />
+    <Content Include="src\modules\beer-details-page\components\BeerDetailsPage\beerDetailsPage.jsx" />
+    <Content Include="src\modules\beer-details-page\components\BeerProperties\beerProperties.css" />
+    <Content Include="src\modules\beer-details-page\components\BeerProperties\beerProperties.jsx" />
+    <Content Include="src\modules\beer-details-page\components\BrewersTips\brewersTips.css" />
+    <Content Include="src\modules\beer-details-page\components\BrewersTips\brewersTips.jsx" />
+    <Content Include="src\modules\beer-details-page\components\FoodPairing\foodPairing.css" />
+    <Content Include="src\modules\beer-details-page\components\FoodPairing\foodPairing.jsx" />
+    <Content Include="src\modules\beer-details-page\components\Ingredients\ingredients.css" />
+    <Content Include="src\modules\beer-details-page\components\Ingredients\ingredients.jsx" />
+    <Content Include="src\modules\beer-details-page\components\Method\method.css" />
+    <Content Include="src\modules\beer-details-page\components\Method\method.jsx" />
+    <Content Include="src\modules\favorites-page\components\FavoriteBeer\favoriteBeer.css" />
+    <Content Include="src\modules\favorites-page\components\FavoriteBeer\favoriteBeer.jsx" />
+    <Content Include="src\modules\favorites-page\components\FavoritePage\favoritePage.css" />
+    <Content Include="src\modules\favorites-page\components\FavoritePage\favoritePage.jsx" />
+    <Content Include="src\modules\landing-page\actions\searchBeersActions.js" />
+    <Content Include="src\modules\landing-page\constants\searchBeersConstants.js" />
+    <Content Include="src\modules\landing-page\hooks\infiniteLoaderHook.js" />
+    <Content Include="src\modules\landing-page\hooks\searchInputHook.js" />
+    <Content Include="src\modules\landing-page\hooks\sliderHook.js" />
+    <Content Include="src\modules\landing-page\reducers\searchBeersReducer.js" />
+    <Content Include="src\modules\landing-page\sagas\searchBeersSagas.js" />
+    <Content Include="src\modules\landing-page\components\BeerCard\beerCard.css" />
+    <Content Include="src\modules\landing-page\components\BeerCard\beerCard.jsx" />
+    <Content Include="src\modules\landing-page\components\BeerCardOpenButton\beerCardOpenButton.css" />
+    <Content Include="src\modules\landing-page\components\BeerCardOpenButton\BeerCardOpenButton.jsx" />
+    <Content Include="src\modules\landing-page\components\LandingPage\landingPage.css" />
+    <Content Include="src\modules\landing-page\components\LandingPage\landingPage.jsx" />
+    <Content Include="src\modules\landing-page\components\SearchBox\searchBox.css" />
+    <Content Include="src\modules\landing-page\components\SearchBox\searchBox.jsx" />
+    <Content Include="src\modules\landing-page\components\SearchResults\searchResults.css" />
+    <Content Include="src\modules\landing-page\components\SearchResults\searchResults.jsx" />
+    <Content Include="src\modules\layout\components\Header\header.css" />
+    <Content Include="src\modules\layout\components\Header\header.jsx" />
+    <Content Include="src\modules\layout\components\Sidebar\sidebar.css" />
+    <Content Include="src\modules\layout\components\Sidebar\sidebar.jsx" />
+    <Content Include="src\resources\images\beer-keg.png" />
+    <Content Include="src\resources\svg\burgerMenuButton.svg" />
+    <Content Include="src\resources\svg\kebabMenuButton.svg" />
+    <Content Include="src\services\storage-services\localStorageService.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dist" />
+    <Folder Include="src" />
+    <Folder Include="src\app" />
+    <Folder Include="src\common" />
+    <Folder Include="src\common\components" />
+    <Folder Include="src\common\components\BurgerButton" />
+    <Folder Include="src\common\components\Slider" />
+    <Folder Include="src\features" />
+    <Folder Include="src\features\favorites" />
+    <Folder Include="src\features\favorites\actions" />
+    <Folder Include="src\features\favorites\components" />
+    <Folder Include="src\features\favorites\components\ToggleFavoriteButton" />
+    <Folder Include="src\features\favorites\constants" />
+    <Folder Include="src\features\favorites\reducers" />
+    <Folder Include="src\features\favorites\sagas" />
+    <Folder Include="src\modules" />
+    <Folder Include="src\modules\beer-details-page" />
+    <Folder Include="src\modules\beer-details-page\components" />
+    <Folder Include="src\modules\beer-details-page\components\BeerDetailsPage" />
+    <Folder Include="src\modules\beer-details-page\components\BeerProperties" />
+    <Folder Include="src\modules\beer-details-page\components\BrewersTips" />
+    <Folder Include="src\modules\beer-details-page\components\FoodPairing" />
+    <Folder Include="src\modules\beer-details-page\components\Ingredients" />
+    <Folder Include="src\modules\beer-details-page\components\Method" />
+    <Folder Include="src\modules\favorites-page" />
+    <Folder Include="src\modules\favorites-page\components" />
+    <Folder Include="src\modules\favorites-page\components\FavoriteBeer" />
+    <Folder Include="src\modules\favorites-page\components\FavoritePage" />
+    <Folder Include="src\modules\landing-page" />
+    <Folder Include="src\modules\landing-page\actions" />
+    <Folder Include="src\modules\landing-page\components" />
+    <Folder Include="src\modules\landing-page\components\BeerCard" />
+    <Folder Include="src\modules\landing-page\components\BeerCardOpenButton" />
+    <Folder Include="src\modules\landing-page\components\LandingPage" />
+    <Folder Include="src\modules\landing-page\components\SearchBox" />
+    <Folder Include="src\modules\landing-page\components\SearchResults" />
+    <Folder Include="src\modules\landing-page\constants" />
+    <Folder Include="src\modules\landing-page\hooks" />
+    <Folder Include="src\modules\landing-page\reducers" />
+    <Folder Include="src\modules\landing-page\sagas" />
+    <Folder Include="src\modules\layout" />
+    <Folder Include="src\modules\layout\actions" />
+    <Folder Include="src\modules\layout\components" />
+    <Folder Include="src\modules\layout\components\Header" />
+    <Folder Include="src\modules\layout\components\Sidebar" />
+    <Folder Include="src\modules\layout\constants" />
+    <Folder Include="src\modules\layout\reducers" />
+    <Folder Include="src\resources" />
+    <Folder Include="src\resources\fonts" />
+    <Folder Include="src\resources\images" />
+    <Folder Include="src\resources\svg" />
+    <Folder Include="src\services" />
+    <Folder Include="src\services\storage-services" />
+    <Folder Include="src\state" />
+    <Folder Include="src\styles" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
