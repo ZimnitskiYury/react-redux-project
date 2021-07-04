@@ -1,15 +1,17 @@
-const getFromLocalStorage = () => {
-  const data = localStorage.getItem('favoriteBeers');
+const getFromLocalStorage = (key) => {
+  const data = localStorage.getItem(key);
 
   return data
     ? JSON.parse(data)
     : [];
 };
 
-const addToLocalStorage = (beer) => {
+const addToLocalStorage = (
+  key, beer,
+) => {
   const data = getFromLocalStorage();
   localStorage.setItem(
-    'favoriteBeers',
+    key,
     JSON.stringify([
       ...data,
       beer,
@@ -17,10 +19,12 @@ const addToLocalStorage = (beer) => {
   );
 };
 
-const removeFromLocalStorage = (beer) => {
+const removeFromLocalStorage = (
+  key, beer,
+) => {
   const data = getFromLocalStorage();
   localStorage.setItem(
-    'favoriteBeers',
+    key,
     JSON.stringify(data.filter((item) => item.id !== beer.id)),
   );
 };

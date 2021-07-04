@@ -7,11 +7,14 @@ import searchResultsReducer from 'Modules/landing-page/reducers/searchBeersReduc
 import favoritesReducer from 'Features/favorites/reducers/favoritesReducer';
 import searchSagas from 'Modules/landing-page/sagas/searchBeersSagas';
 import favoriteSagas from 'Features/favorites/sagas/favoritesSagas';
+import authSagas from 'Features/authorization/sagas/authSagas';
+import authReducer from 'Features/authorization/reducers/authReducer';
 
 
 const rootReducer = combineReducers({
   searchResults: searchResultsReducer,
   favoritesStore: favoritesReducer,
+  auth: authReducer,
 });
 
 const favoritesFromLocal = JSON.parse(localStorage.getItem('favoriteBeers'));
@@ -29,6 +32,7 @@ const rootSagas = function* rootSagas() {
   yield all([
     searchSagas(),
     favoriteSagas(),
+    authSagas(),
   ]);
 };
 

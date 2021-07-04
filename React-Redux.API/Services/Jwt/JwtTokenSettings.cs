@@ -1,4 +1,4 @@
-﻿namespace UserApi.Services.Jwt
+﻿namespace React.Redux.API.Services.Jwt
 {
     public class JwtTokenSettings
     {

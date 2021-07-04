@@ -1,20 +1,26 @@
 import { getFromLocalStorage, addToLocalStorage, removeFromLocalStorage } from 'Services/storage-services/localStorageService';
 
 
-const getFavoritesFromStorage = () => {
-  getFromLocalStorage();
+const getFavorites = () => {
+  getFromLocalStorage('favoriteBeers');
 };
 
-const addFavoriteToStorage = (beer) => {
-  addToLocalStorage(beer);
+const addFavorite = (beer) => {
+  addToLocalStorage(
+    'favoriteBeers',
+    beer,
+  );
 };
 
-const removeFavoriteFromStorage = (beer) => {
-  removeFromLocalStorage(beer);
+const removeFavorite = (beer) => {
+  removeFromLocalStorage(
+    'favoriteBeers',
+    beer,
+  );
 };
 
 export {
-  getFavoritesFromStorage,
-  addFavoriteToStorage,
-  removeFavoriteFromStorage,
+  getFavorites,
+  addFavorite,
+  removeFavorite,
 };

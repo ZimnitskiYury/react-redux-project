@@ -1,9 +1,9 @@
-﻿using System;
+﻿using React.Redux.API.Entities;
+using React.Redux.API.Models;
+using System;
 using System.Linq;
-using UserApi.Entities;
-using UserApi.Models;
 
-namespace UserApi.Services.Favorites
+namespace React.Redux.API.Services.Favorites
 {
     public class FavoritesService
     {
@@ -40,12 +40,12 @@ namespace UserApi.Services.Favorites
             {
                 _userDb.SaveChanges();
             }
-            catch (Exception ex)
+            catch
             {
-                return new ResponseModel { Status = ResponseStatus.Error, Message = ex.Message };
+                return new ResponseModel { Status = ResponseStatus.Error };
             }
 
-            return new ResponseModel { Status = ResponseStatus.Success, Message = entity.Id.ToString() };
+            return new ResponseModel { Status = ResponseStatus.Success };
         }
 
         public ResponseModel RemoveFavorite(int favoriteId)

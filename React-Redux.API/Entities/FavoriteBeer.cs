@@ -1,4 +1,4 @@
-﻿namespace UserApi.Entities
+﻿namespace React.Redux.API.Entities
 {
     public class FavoriteBeer
     {

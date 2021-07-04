@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace UserApi.Entities
+namespace React.Redux.API.Entities
 {
     public class UserDbContext : IdentityDbContext<User>
     {

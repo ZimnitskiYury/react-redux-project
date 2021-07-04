@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using React.Redux.API.Entities;
+using React.Redux.API.Models;
+using React.Redux.API.Services.Jwt;
 using System.Threading.Tasks;
-using UserApi.Entities;
-using UserApi.Models;
-using UserApi.Services.Jwt;
 
-namespace UserApi.Controllers
+namespace React.Redux.API.Controllers
 {
     [Route("auth")]
     [ApiController]
@@ -29,14 +29,24 @@ namespace UserApi.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromForm] LoginModel model)
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
             if (result.Succeeded)
             {
                 var user = await _userManager.FindByNameAsync(model.Username);
                 var roles = await _userManager.GetRolesAsync(user);
-                return Ok(_jwtTokenService.GetToken(user, roles));
+                var token = _jwtTokenService.GetToken(user, roles);
+                var profile = new ProfileModel
+                {
+                    Username = user.UserName,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    BirthDate = user.BirthDate,
+                    Token = token,
+                };
+                return Ok(profile);
             }
 
             return Forbid();

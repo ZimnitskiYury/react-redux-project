@@ -8,13 +8,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using React.Redux.API.Entities;
+using React.Redux.API.Services.Favorites;
+using React.Redux.API.Services.Jwt;
 using System;
 using System.Text;
-using UserApi.Entities;
-using UserApi.Services.Favorites;
-using UserApi.Services.Jwt;
 
-namespace UserApi
+namespace React.Redux.API
 {
     public class Startup
     {
@@ -24,6 +24,7 @@ namespace UserApi
         }
 
         public IConfiguration Configuration { get; }
+        private readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -100,7 +101,10 @@ namespace UserApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UserApi v1"));
             }
-
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();

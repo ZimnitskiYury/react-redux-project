@@ -1,4 +1,4 @@
-﻿namespace UserApi.Models
+﻿namespace React.Redux.API.Models
 {
     public enum ResponseStatus
     {

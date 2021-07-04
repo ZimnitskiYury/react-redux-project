@@ -4,7 +4,7 @@ using Serilog;
 using Serilog.Events;
 using System;
 
-namespace UserApi
+namespace React.Redux.API
 {
     public class Program
     {

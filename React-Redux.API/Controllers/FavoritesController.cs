@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using React.Redux.API.Models;
+using React.Redux.API.Services.Favorites;
 using System.Security.Claims;
-using UserApi.Models;
-using UserApi.Services.Favorites;
 
-namespace UserApi.Controllers
+namespace React.Redux.API.Controllers
 {
     [Authorize]
     [Route("favorites")]

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 
-namespace UserApi.Entities
+namespace React.Redux.API.Entities
 {
     public class User : IdentityUser
     {

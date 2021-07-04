@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace UserApi.Models
+namespace React.Redux.API.Models
 {
     public class RegisterModel
     {

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
-namespace UserApi.Services.Jwt
+namespace React.Redux.API.Services.Jwt
 {
     public class JwtTokenService
     {

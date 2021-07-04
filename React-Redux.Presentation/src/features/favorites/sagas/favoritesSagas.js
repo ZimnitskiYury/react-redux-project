@@ -1,10 +1,10 @@
 import { all, takeEvery } from '@redux-saga/core/effects';
-import { addFavoriteToStorage, removeFavoriteFromStorage } from 'Services/storageService';
+import { addFavorite, removeFavorite } from 'Services/storageService';
 import { ADD_FAVORITE, REMOVE_FAVORITE } from '../constants/favoritesConstants';
 
 
 export function* addFavoriteWorker(action) {
-  yield addFavoriteToStorage(action.payload);
+  yield addFavorite(action.payload);
 }
 
 export function* addFavoriteWatcher() {
@@ -15,7 +15,7 @@ export function* addFavoriteWatcher() {
 }
 
 export function* removeFavoriteWorker(action) {
-  yield removeFavoriteFromStorage(action.payload);
+  yield removeFavorite(action.payload);
 }
 
 export function* removeFavoriteWatcher() {
