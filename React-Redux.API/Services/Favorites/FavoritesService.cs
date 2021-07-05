@@ -48,9 +48,9 @@ namespace React.Redux.API.Services.Favorites
             return new ResponseModel { Status = ResponseStatus.Success };
         }
 
-        public ResponseModel RemoveFavorite(int favoriteId)
+        public ResponseModel RemoveFavorite(string user, int favoriteId)
         {
-            FavoriteBeer entity = _userDb.FavoriteBeers.Find(favoriteId);
+            FavoriteBeer entity = _userDb.FavoriteBeers.First(x => x.BeerId == favoriteId && x.UserId == user);
 
             _userDb.FavoriteBeers.Remove(entity);
 

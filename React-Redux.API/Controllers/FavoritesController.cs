@@ -38,7 +38,7 @@ namespace React.Redux.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddFavorite([FromForm] int id)
+        public IActionResult AddFavorite([FromBody] int id)
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             ResponseModel response = _favoritesService.AddFavorite(userId, id);
@@ -47,9 +47,10 @@ namespace React.Redux.API.Controllers
         }
 
         [HttpDelete]
-        public IActionResult RemoveFavorite([FromForm] int id)
+        public IActionResult RemoveFavorite([FromBody] int id)
         {
-            ResponseModel response = _favoritesService.RemoveFavorite(id);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            ResponseModel response = _favoritesService.RemoveFavorite(userId, id);
             return Ok(response);
         }
     }

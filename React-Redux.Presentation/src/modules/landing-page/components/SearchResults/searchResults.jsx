@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import BeerCard from 'Modules/landing-page/components/BeerCard/beerCard';
-import { addFavorite, removeFavorite } from 'Features/favorites/actions/favoritesActions';
+import { addFavorite, initFavorites, removeFavorite } from 'Features/favorites/actions/favoritesActions';
 
 import useInfiniteLoader from 'Modules/landing-page/hooks/infiniteLoaderHook';
 import styles from './searchResults.css';
@@ -13,6 +13,12 @@ function SearchResults({ searchParameters }) {
   const dispatch = useDispatch();
   const beers = useSelector((state) => state.searchResults.beers);
   const favorites = useSelector((state) => state.favoritesStore.favorites);
+
+  useEffect(
+    () => dispatch(initFavorites()),
+    [],
+  );
+
   const [containerRef] = useInfiniteLoader(
     {
       root: null,

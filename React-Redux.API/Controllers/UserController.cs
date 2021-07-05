@@ -53,7 +53,7 @@ namespace React.Redux.API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromForm] RegisterModel model)
+        public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             var user = new User
             {
@@ -86,7 +86,17 @@ namespace React.Redux.API.Controllers
                 }
 
                 var roles = await _userManager.GetRolesAsync(user);
-                return Ok(_jwtTokenService.GetToken(user, roles));
+                var token = _jwtTokenService.GetToken(user, roles);
+                var profile = new ProfileModel
+                {
+                    Username = user.UserName,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    BirthDate = user.BirthDate,
+                    Token = token,
+                };
+                return Ok(profile);
             }
 
             return BadRequest(result.Errors);

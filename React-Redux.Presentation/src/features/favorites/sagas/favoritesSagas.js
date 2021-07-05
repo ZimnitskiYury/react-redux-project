@@ -1,25 +1,51 @@
-import { all, takeEvery } from '@redux-saga/core/effects';
+import { all, takeEvery, put } from '@redux-saga/core/effects';
 
-import { addFavorite, removeFavorite } from 'Services/favorites-service/favoritesService';
-import { ADD_FAVORITE, REMOVE_FAVORITE } from 'Features/favorites/constants/favoritesConstants';
+import {
+  ADD_FAVORITE, UPDATE_FAVORITES, REMOVE_FAVORITE, INIT_FAVORITES,
+} from 'Features/favorites/constants/favoritesConstants';
+import { addFavorite, getFavorites, removeFavorite } from 'Services/favorites-service/favoritesHelper';
 
 
-export function* addFavoriteWorker(action) {
-  yield addFavorite(action.payload);
+function* initFavoriteWorker() {
+  const payload = yield getFavorites();
+  yield put({
+    type: UPDATE_FAVORITES,
+    payload,
+  });
 }
 
-export function* addFavoriteWatcher() {
+function* initFavoriteWatcher() {
+  yield takeEvery(
+    INIT_FAVORITES,
+    initFavoriteWorker,
+  );
+}
+function* addFavoriteWorker(action) {
+  yield addFavorite(action.payload);
+  const payload = yield getFavorites();
+  yield put({
+    type: UPDATE_FAVORITES,
+    payload,
+  });
+}
+
+function* addFavoriteWatcher() {
   yield takeEvery(
     ADD_FAVORITE,
     addFavoriteWorker,
   );
 }
 
-export function* removeFavoriteWorker(action) {
+function* removeFavoriteWorker(action) {
   yield removeFavorite(action.payload);
+  const payload = yield getFavorites();
+  yield put({
+    type: UPDATE_FAVORITES,
+    payload,
+  });
 }
 
-export function* removeFavoriteWatcher() {
+function* removeFavoriteWatcher() {
   yield takeEvery(
     REMOVE_FAVORITE,
     removeFavoriteWorker,
@@ -28,6 +54,7 @@ export function* removeFavoriteWatcher() {
 
 export default function* favoriteSagas() {
   yield all([
+    initFavoriteWatcher(),
     addFavoriteWatcher(),
     removeFavoriteWatcher(),
   ]);

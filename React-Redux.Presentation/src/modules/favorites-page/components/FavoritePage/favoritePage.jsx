@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import FavoriteBeer from 'Modules/favorites-page/components/FavoriteBeer/favoriteBeer';
-import { removeFavorite } from 'Features/favorites/actions/favoritesActions';
+import { initFavorites, removeFavorite } from 'Features/favorites/actions/favoritesActions';
 
 import styles from './favoritePage.css';
 
@@ -10,6 +10,12 @@ import styles from './favoritePage.css';
 function FavoritePage() {
   const beers = useSelector((state) => state.favoritesStore.favorites);
   const dispatch = useDispatch();
+
+  useEffect(
+    () => dispatch(initFavorites()),
+    [],
+  );
+
   const removeFavoriteHandler = (beer) => {
     dispatch(removeFavorite(beer));
   };

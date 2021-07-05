@@ -1,21 +1,28 @@
-import { ADD_FAVORITE, REMOVE_FAVORITE } from 'Features/favorites/constants/favoritesConstants';
+import { ADD_FAVORITE, INIT_FAVORITES, REMOVE_FAVORITE } from 'Features/favorites/constants/favoritesConstants';
 
 
-export function addFavorite(beer) {
+function initFavorites() {
+  return {
+    type: INIT_FAVORITES,
+  };
+}
+
+function addFavorite(beer) {
   return {
     type: ADD_FAVORITE,
     payload: beer,
   };
 }
 
-export function removeFavorite(beer) {
+function removeFavorite(beer) {
   return {
     type: REMOVE_FAVORITE,
     payload: beer,
   };
 }
 
-export default {
+export {
+  initFavorites,
   addFavorite,
   removeFavorite,
 };

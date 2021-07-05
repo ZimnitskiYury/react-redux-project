@@ -43,8 +43,35 @@ async function ValidateToken(jwt) {
   return false;
 }
 
-function RegisterUser(
+async function RegisterUser(
   username, password, firstname, lastname, email, birthDate,
-) {}
+) {
+  const url = new URL(
+    'auth/register',
+    URL_AUTHAPI,
+  );
+
+  const response = await fetch(
+    url,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        username,
+        password,
+        firstname,
+        lastname,
+        email,
+        birthDate,
+      }),
+    },
+  );
+
+  const profile = await response.json();
+
+  return profile;
+}
 
 export { authUser, ValidateToken, RegisterUser };
