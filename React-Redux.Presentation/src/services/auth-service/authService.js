@@ -25,7 +25,7 @@ async function authUser(
   return profile;
 }
 
-async function ValidateToken(jwt) {
+async function validateToken(jwt) {
   const url = new URL(
     'auth/validate',
     URL_AUTHAPI,
@@ -43,7 +43,7 @@ async function ValidateToken(jwt) {
   return false;
 }
 
-async function RegisterUser(
+async function registerUser(
   username, password, firstname, lastname, email, birthDate,
 ) {
   const url = new URL(
@@ -74,4 +74,4 @@ async function RegisterUser(
   return profile;
 }
 
-export { authUser, ValidateToken, RegisterUser };
+export { authUser, validateToken, registerUser };
