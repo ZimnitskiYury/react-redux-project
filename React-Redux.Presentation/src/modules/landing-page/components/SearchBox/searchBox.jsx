@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 import SearchIcon from '@material-ui/icons/Search';
-import useInput from 'Modules/landing-page/hooks/searchInputHook';
+import useInput from 'Common/hooks/searchInputHook';
 import Slider from 'Common/components/Slider/slider';
 import useSlider from 'Modules/landing-page/hooks/sliderHook';
 import { searchBeers } from 'Modules/landing-page/actions/searchBeersActions';
 
-import { useDispatch } from 'react-redux';
 import styles from './searchBox.css';
 
 

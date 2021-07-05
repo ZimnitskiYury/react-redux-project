@@ -15,7 +15,7 @@ function Header({ sidebarHandler }) {
       <Link to="/">
         <span className={styles.header__title}>Beer Catalog</span>
       </Link>
-      <Authorization isLogged={false} />
+      <Authorization />
     </header>
   );
 }

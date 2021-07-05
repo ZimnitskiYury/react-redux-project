@@ -9,6 +9,8 @@ import searchSagas from 'Modules/landing-page/sagas/searchBeersSagas';
 import favoriteSagas from 'Features/favorites/sagas/favoritesSagas';
 import authSagas from 'Features/authorization/sagas/authSagas';
 import authReducer from 'Features/authorization/reducers/authReducer';
+import { getFavorites } from 'Services/favorites-service/favoritesService';
+import { getUser } from 'Services/auth-service/authHelper';
 
 
 const rootReducer = combineReducers({
@@ -17,14 +19,18 @@ const rootReducer = combineReducers({
   auth: authReducer,
 });
 
-const favoritesFromLocal = JSON.parse(localStorage.getItem('favoriteBeers'));
-
+const favoritesFromLocal = getFavorites();
+const authFromLocal = getUser();
 const initialState = {
   searchResults: {
     beers: [],
   },
   favoritesStore: {
     favorites: favoritesFromLocal || [],
+  },
+  auth: {
+    user: authFromLocal || undefined,
+    isLogged: !!authFromLocal || false,
   },
 };
 

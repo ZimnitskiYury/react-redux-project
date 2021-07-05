@@ -1,19 +1,28 @@
-import { login } from 'Features/authorization/actions/authActions';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import useInput from 'Common/hooks/searchInputHook';
+import { login } from 'Features/authorization/actions/authActions';
 
 import styles from './loginForm.css';
 
 
 function LoginForm() {
-  const auth = useSelector((state) => state.auth);
+  const { value: username, reset: resetUsername, onChange: onChangeUsername } = useInput('');
+  const { value: password, reset: resetPassword, onChange: onChangePassword } = useInput('');
   const dispatch = useDispatch();
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(login(
-      'urirae',
-      'Uri123.',
-    ));
+
+    if (username && password) {
+      dispatch(login(
+        username,
+        password,
+      ));
+    } else {
+      resetUsername();
+      resetPassword();
+    }
   };
 
   return (
@@ -23,6 +32,8 @@ function LoginForm() {
     >
       <input
         className={styles['login-form__input']}
+        value={username}
+        onChange={onChangeUsername}
         type="text"
         placeholder="Username"
         id="Username"
@@ -30,6 +41,8 @@ function LoginForm() {
       <input
         className={styles['login-form__input']}
         type="text"
+        value={password}
+        onChange={onChangePassword}
         placeholder="Password"
         id="Password"
       />

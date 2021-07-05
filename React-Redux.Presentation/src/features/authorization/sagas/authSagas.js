@@ -1,10 +1,11 @@
 import {
   call, put, takeEvery, all,
 } from '@redux-saga/core/effects';
-import { authUser } from 'Services/auth-services/auth-service';
+import { saveUser } from 'Services/auth-service/authHelper';
+import { authUser } from 'Services/auth-service/authService';
 import { register } from '../actions/authActions';
 import {
-  AUTH_SUCCESS, LOGIN, LOGOUT, REGISTER,
+  AUTH_SUCCESS, LOGIN, REGISTER,
 } from '../constants/authConstants';
 
 
@@ -31,6 +32,7 @@ export function* loginWorker(action) {
     authUser,
     ...action.payload,
   );
+  yield saveUser(user);
   yield put({
     type: AUTH_SUCCESS,
     user,

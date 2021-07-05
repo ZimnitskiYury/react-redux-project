@@ -2,7 +2,7 @@ import { AUTH_SUCCESS, LOGOUT } from '../constants/authConstants';
 
 
 const initialState = {
-  user: {},
+  user: undefined,
   isLogged: false,
 };
 
@@ -13,6 +13,7 @@ function authReducer(
     case AUTH_SUCCESS: return {
       ...state,
       user: action.user,
+      isLogged: true,
     };
 
     case LOGOUT: return {

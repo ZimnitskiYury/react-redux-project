@@ -25,7 +25,23 @@ async function authUser(
   return profile;
 }
 
-function ValidateToken(jwt) {}
+async function ValidateToken(jwt) {
+  const url = new URL(
+    'auth/validate',
+    URL_AUTHAPI,
+  );
+  url.searchParams.set(
+    'token',
+    jwt,
+  );
+  const response = await fetch(url);
+
+  if (response.status === 200) {
+    return true;
+  }
+
+  return false;
+}
 
 function RegisterUser(
   username, password, firstname, lastname, email, birthDate,

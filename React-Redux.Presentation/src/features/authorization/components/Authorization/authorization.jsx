@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import 'react-responsive-modal/styles.css';
 import Modal from 'react-responsive-modal';
+import { useSelector } from 'react-redux';
 
 import LoginForm from 'Features/authorization/components/LoginForm/loginForm';
 import RegisterForm from 'Features/authorization/components/RegisterForm/registerForm';
@@ -9,10 +10,12 @@ import RegisterForm from 'Features/authorization/components/RegisterForm/registe
 import styles from './authorization.css';
 
 
-function Authorization({ isLogged }) {
+function Authorization() {
+  const { user, isLogged } = useSelector((state) => state.auth);
+
   if (isLogged) {
     return (
-      <UserGreeting />
+      <UserGreeting username={user.username} />
     );
   }
 
@@ -21,10 +24,12 @@ function Authorization({ isLogged }) {
   );
 }
 
-function UserGreeting() {
+function UserGreeting({ username }) {
   return (
     <div>
-      <span> Hi, UserName</span>
+      <span>
+        {`Hi, ${username}`}
+      </span>
     </div>
   );
 }

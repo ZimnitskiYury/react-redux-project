@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
 import { removeFavorite, addFavorite } from 'Features/favorites/actions/favoritesActions';
 import BeerProperties from 'Modules/beer-details-page/components/BeerProperties/beerProperties';
-import { getDataById } from 'Services/punkService';
+import { getDataById } from 'Services/beer-service/punkService';
 import FoodPairing from 'Modules/beer-details-page/components/FoodPairing/foodPairing';
 import BrewersTips from 'Modules/beer-details-page/components/BrewersTips/brewersTips';
 import Ingredients from 'Modules/beer-details-page/components/Ingredients/ingredients';

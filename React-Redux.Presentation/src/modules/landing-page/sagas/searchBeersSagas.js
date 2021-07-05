@@ -4,7 +4,7 @@ import {
 import {
   REQUESTBEERS, SEARCHBEERS, ADDBEERS, LOADMORE,
 } from 'Modules/landing-page/constants/searchBeersConstants';
-import { getDataByParams } from 'Services/punkService';
+import { getDataByParams } from 'Services/beer-service/punkService';
 
 
 export function* searchBeerWorker(action) {

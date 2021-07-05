@@ -1,6 +1,7 @@
 import { all, takeEvery } from '@redux-saga/core/effects';
-import { addFavorite, removeFavorite } from 'Services/storageService';
-import { ADD_FAVORITE, REMOVE_FAVORITE } from '../constants/favoritesConstants';
+
+import { addFavorite, removeFavorite } from 'Services/favorites-service/favoritesService';
+import { ADD_FAVORITE, REMOVE_FAVORITE } from 'Features/favorites/constants/favoritesConstants';
 
 
 export function* addFavoriteWorker(action) {
