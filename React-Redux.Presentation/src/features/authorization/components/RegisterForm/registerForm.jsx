@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import { useDispatch } from 'react-redux';
 
 import { register } from 'Features/authorization/actions/authActions';
-import { useDispatch } from 'react-redux';
 import useInput from 'Common/hooks/searchInputHook';
+
+import 'react-datepicker/dist/react-datepicker.css';
 import styles from './registerForm.css';
 
 
@@ -12,7 +15,10 @@ function RegisterForm() {
   const { value: firstname, reset: resetFirstname, onChange: onChangeFirstname } = useInput('');
   const { value: lastname, reset: resetLastname, onChange: onChangeLastname } = useInput('');
   const { value: email, reset: resetEmail, onChange: onChangeEmail } = useInput('');
-  const { value: birthdate, reset: resetBirthdate, onChange: onChangeBirthdate } = useInput('');
+  const [
+    birthdate,
+    setBirthdate,
+  ] = useState(new Date());
   const dispatch = useDispatch();
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -34,7 +40,6 @@ function RegisterForm() {
     } else {
       resetUsername();
       resetPassword();
-      resetBirthdate();
       resetEmail();
       resetFirstname();
       resetLastname();
@@ -86,13 +91,9 @@ function RegisterForm() {
         value={lastname}
         onChange={onChangeLastname}
       />
-      <input
-        className={styles['register-form__input']}
-        type="text"
-        placeholder="BirthDate"
-        id="BirthDate"
-        value={birthdate}
-        onChange={onChangeBirthdate}
+      <DatePicker
+        selected={birthdate}
+        onChange={(date) => setBirthdate(date)}
       />
 
       <button
