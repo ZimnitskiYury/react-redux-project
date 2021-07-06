@@ -1,6 +1,3 @@
-import { getData } from './beerService';
-
-
 const URL_PUNKAPI = new URL('https://api.punkapi.com/v2/beers');
 
 const initial = new Map([
@@ -14,14 +11,21 @@ const initial = new Map([
   ],
 ]);
 
-export async function getDataById(id) {
+async function getData(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+
+  return data;
+}
+
+async function getDataById(id) {
   const url = new URL(`${URL_PUNKAPI}/${id}`);
   const data = await getData(url);
 
   return data;
 }
 
-export async function getDataByParams(searchParams) {
+async function getDataByParams(searchParams) {
   const url = new URL(URL_PUNKAPI);
   initial.forEach((
     value, key,
@@ -43,7 +47,33 @@ export async function getDataByParams(searchParams) {
   return data;
 }
 
-export default {
+async function getDataXML(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.responseType = 'json';
+
+  return new Promise((
+    resolve, reject,
+  ) => {
+    xhr.onreadystatechange = function getJsonData() {
+      if (xhr.readyState === 4) {
+        if (xhr.status >= 300) {
+          reject(xhr.responseText);
+        } else {
+          resolve(xhr.response);
+        }
+      }
+    };
+    xhr.open(
+      'get',
+      url,
+      true,
+    );
+    xhr.send();
+  });
+}
+export {
+  getData,
   getDataById,
   getDataByParams,
+  getDataXML,
 };

@@ -1,5 +1,6 @@
 import { getFromLocalStorage, addToLocalStorage, removeFromLocalStorage } from 'Services/storage-services/localStorageService';
 import { authHeader } from 'Services/auth-service/authHelper';
+import { getDataByParams } from 'Services/beer-service/punkService';
 
 
 const FAVORITES_STORAGE = 'favoriteBeers';
@@ -21,8 +22,23 @@ async function getFavoritesFromApi() {
         authHeader(),
     },
   );
+  let favoritesId = [];
 
-  const favorites = await response.json();
+  if (response.status === 200) {
+    const data = await response.json();
+    favoritesId = data.map((x) => x.beerId);
+  }
+
+  if (!favoritesId.length) {
+    return favoritesId;
+  }
+
+  const params = new Map();
+  params.set(
+    'ids',
+    favoritesId.join('|'),
+  );
+  const favorites = await getDataByParams(params);
 
   return favorites;
 }
