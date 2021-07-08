@@ -2,20 +2,30 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import 'react-responsive-modal/styles.css';
 import Modal from 'react-responsive-modal';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import LoginForm from 'Features/authorization/components/LoginForm/loginForm';
 import RegisterForm from 'Features/authorization/components/RegisterForm/registerForm';
+import { logout } from 'Features/authorization/actions/authActions';
 
 import styles from './authorization.css';
 
 
 function Authorization() {
   const { user, isLogged } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   if (isLogged) {
     return (
-      <UserGreeting username={user.username} />
+      <>
+        <UserGreeting username={user.username} />
+        <button
+          type="button"
+          onClick={() => dispatch(logout())}
+        >
+          Logout
+        </button>
+      </>
     );
   }
 
@@ -66,12 +76,8 @@ function Login() {
   );
 }
 
-Authorization.propTypes = {
-  isLogged: PropTypes.bool,
-};
-
-Authorization.defaultProps = {
-  isLogged: false,
+UserGreeting.propTypes = {
+  username: PropTypes.string.isRequired,
 };
 
 export default Authorization;

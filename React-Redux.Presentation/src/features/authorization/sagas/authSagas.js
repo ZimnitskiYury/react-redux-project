@@ -1,10 +1,10 @@
 import {
   call, put, takeEvery, all,
 } from '@redux-saga/core/effects';
-import { saveUser } from 'Services/auth-service/authHelper';
+import { removeUser, saveUser } from 'Services/auth-service/authHelper';
 import { authUser, registerUser } from 'Services/auth-service/authService';
 import {
-  AUTH_SUCCESS, LOGIN, REGISTER,
+  AUTH_SUCCESS, LOGIN, LOGOUT, REGISTER,
 } from '../constants/authConstants';
 
 
@@ -46,6 +46,16 @@ export function* loginWatcher() {
   );
 }
 
+export function* logoutWorker() {
+  yield removeUser();
+}
+
+export function* logoutWatcher() {
+  yield takeEvery(
+    LOGOUT,
+    loginWorker,
+  );
+}
 export default function* authSagas() {
   yield all([
     registerWatcher(),

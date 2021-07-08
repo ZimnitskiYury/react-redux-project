@@ -18,7 +18,7 @@ function authReducer(
 
     case LOGOUT: return {
       ...state,
-      user: {},
+      user: undefined,
       isLogged: false,
     };
     default: return state;
