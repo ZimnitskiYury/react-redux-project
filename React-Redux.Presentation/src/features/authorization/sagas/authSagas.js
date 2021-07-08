@@ -53,12 +53,13 @@ export function* logoutWorker() {
 export function* logoutWatcher() {
   yield takeEvery(
     LOGOUT,
-    loginWorker,
+    logoutWorker,
   );
 }
 export default function* authSagas() {
   yield all([
     registerWatcher(),
     loginWatcher(),
+    logoutWatcher(),
   ]);
 }
