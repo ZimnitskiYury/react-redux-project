@@ -8,6 +8,7 @@ import LandingPage from 'Modules/landing-page/components/LandingPage/landingPage
 import Sidebar from 'Modules/layout/components/Sidebar/sidebar';
 import FavoritePage from 'Modules/favorites-page/components/FavoritePage/favoritePage';
 import BeerDetailsPage from 'Modules/beer-details-page/components/BeerDetailsPage/beerDetailsPage';
+import ProfilePage from 'Modules/profile-page/components/ProfilePage/profilePage';
 
 import store from 'State/store';
 
@@ -42,6 +43,10 @@ function App() {
               <Route
                 path="/beer/:id"
                 component={BeerDetailsPage}
+              />
+              <Route
+                path="/profile"
+                component={ProfilePage}
               />
             </Switch>
           </div>

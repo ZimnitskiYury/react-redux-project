@@ -1,0 +1,7 @@
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 22px;
+  overflow-wrap: break-word;
+  row-gap: 20px;
+}

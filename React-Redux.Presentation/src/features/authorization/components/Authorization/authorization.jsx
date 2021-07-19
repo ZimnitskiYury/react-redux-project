@@ -18,7 +18,9 @@ function Authorization() {
   if (isLogged) {
     return (
       <>
-        <UserGreeting username={user.username} />
+        <UserGreeting
+          username={user.username}
+        />
         <button
           type="button"
           onClick={() => dispatch(logout())}
