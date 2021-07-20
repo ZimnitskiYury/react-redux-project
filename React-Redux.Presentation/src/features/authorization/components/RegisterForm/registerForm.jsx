@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import { useDispatch } from 'react-redux';
 
 import { register } from 'Features/authorization/actions/authActions';
-import useInput from 'Common/hooks/searchInputHook';
+import useInput from 'Common/hooks/InputHook';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './registerForm.css';

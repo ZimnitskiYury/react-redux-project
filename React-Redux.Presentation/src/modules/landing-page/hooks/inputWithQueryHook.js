@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 
-export const useSlider = (
+export const useQueryInput = (
   initialValue, searchParam,
 ) => {
   const [
@@ -15,7 +15,16 @@ export const useSlider = (
   return {
     value,
     setValue,
-    onChange(event) {
+    reset: () => {
+      setValue('');
+      const params = new URLSearchParams(location.search);
+      params.delete(searchParam);
+      history.replace({
+        pathname: location.pathname,
+        search: params.toString(),
+      });
+    },
+    onChange: (event) => {
       setValue(event.target.value);
       const params = new URLSearchParams(location.search);
 
@@ -39,4 +48,4 @@ export const useSlider = (
   };
 };
 
-export default useSlider;
+export default useQueryInput;

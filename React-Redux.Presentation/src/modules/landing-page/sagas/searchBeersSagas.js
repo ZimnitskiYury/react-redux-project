@@ -8,6 +8,10 @@ import { getDataByParams } from 'Services/beer-service/punkService';
 
 
 export function* searchBeerWorker(action) {
+  yield put({
+    type: REQUESTBEERS,
+    payload: [],
+  });
   const payload = yield call(
     getDataByParams,
     action.payload,

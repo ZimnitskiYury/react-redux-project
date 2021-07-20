@@ -91,6 +91,15 @@
     <Content Include="src\modules\profile-page\components\ProfilePage\profilePage.css"/>
     <Content Include="src\common\components\EditInput\editInput.jsx"/>
     <Content Include="src\common\components\EditInput\editInput.css"/>
+    <Content Include="src\common\hooks\InputHook.js"/>
+    <Content Include="src\modules\profile-page\components\ProfilePage\EditInput\editInput.css"/>
+    <Content Include="src\modules\profile-page\components\ProfilePage\EditInput\editInput.jsx"/>
+    <Content Include="src\modules\profile-page\components\EditInput\editInput.css"/>
+    <Content Include="src\modules\profile-page\components\EditInput\editInput.jsx"/>
+    <Content Include="src\resources\images\staff-placeholder-male.jpg"/>
+    <Content Include="src\modules\landing-page\hooks\useQuery.js"/>
+    <Content Include="src\modules\landing-page\hooks\queryHook.js"/>
+    <Content Include="src\modules\landing-page\hooks\inputWithQueryHook.js"/>
     <None Include="jsconfig.json"/>
   </ItemGroup>
   <ItemGroup>
@@ -1669,6 +1678,8 @@
     <Folder Include="node_modules\yocto-queue\"/>
     <Folder Include="node_modules\zwitch\"/>
     <Folder Include="src\common\components\EditInput\"/>
+    <Folder Include="src\modules\profile-page\components\ProfilePage\EditInput\"/>
+    <Folder Include="src\modules\profile-page\components\EditInput\"/>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets"/>

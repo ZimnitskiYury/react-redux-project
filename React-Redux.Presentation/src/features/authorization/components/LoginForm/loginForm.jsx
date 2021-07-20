@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import useInput from 'Common/hooks/searchInputHook';
+import useInput from 'Common/hooks/InputHook';
 import { login } from 'Features/authorization/actions/authActions';
 
 import styles from './loginForm.css';

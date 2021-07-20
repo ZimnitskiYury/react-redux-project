@@ -1,16 +1,19 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { loadMoreBeers } from '../actions/searchBeersActions';
+import { useLocation } from 'react-router-dom';
+import { loadMoreBeers, searchBeers } from '../actions/searchBeersActions';
 
 
 export const useInfiniteLoader = (
-  options, catalog, searchParameters,
+  options, catalog,
 ) => {
   const containerRef = useRef(null);
   const isLoading = useRef(false);
   const hasMore = useRef(true);
   const page = useRef(1);
   const dispatch = useDispatch();
+  const location = useLocation();
+  let query = new URLSearchParams(location.search);
 
   const callback = (entries) => {
     const [entry] = entries;
@@ -21,10 +24,10 @@ export const useInfiniteLoader = (
       isLoading.current = true;
       hasMore.current = false;
       dispatch(loadMoreBeers(
-        searchParameters.value,
-        searchParameters.alcoValue,
-        searchParameters.ibuValue,
-        searchParameters.ebcValue,
+        query.get('beer_name'),
+        query.get('abv_lt'),
+        query.get('ibu_lt'),
+        query.get('ebc_lt'),
         page.current,
       ));
       page.current += 1;
@@ -60,11 +63,16 @@ export const useInfiniteLoader = (
   // reset page count for search parameters
   useEffect(
     () => {
-      if (searchParameters.page) {
-        page.current = 2;
-      }
+      page.current = 2;
+      query = new URLSearchParams(location.search);
+      dispatch(searchBeers(
+        query.get('beer_name'),
+        query.get('abv_lt'),
+        query.get('ibu_lt'),
+        query.get('ebc_lt'),
+      ));
     },
-    [searchParameters],
+    [location.search],
   );
 
   return [containerRef];

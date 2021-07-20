@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import 'react-responsive-modal/styles.css';
 import Modal from 'react-responsive-modal';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LoginForm from 'Features/authorization/components/LoginForm/loginForm';
 import RegisterForm from 'Features/authorization/components/RegisterForm/registerForm';
 import { logout } from 'Features/authorization/actions/authActions';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 
 import styles from './authorization.css';
 
@@ -17,17 +20,17 @@ function Authorization() {
 
   if (isLogged) {
     return (
-      <>
+      <div className={styles.authorization}>
         <UserGreeting
           username={user.username}
         />
-        <button
+        <DirectionsWalkIcon
           type="button"
           onClick={() => dispatch(logout())}
         >
           Logout
-        </button>
-      </>
+        </DirectionsWalkIcon>
+      </div>
     );
   }
 
@@ -38,11 +41,11 @@ function Authorization() {
 
 function UserGreeting({ username }) {
   return (
-    <div>
-      <span>
+    <Link to="/profile">
+      <span className={styles.authorization__greetings}>
         {`Hi, ${username}`}
       </span>
-    </div>
+    </Link>
   );
 }
 
@@ -57,12 +60,12 @@ function Login() {
 
   return (
     <div>
-      <button
+      <ExitToAppIcon
         type="button"
         onClick={onOpenModal}
       >
         Login
-      </button>
+      </ExitToAppIcon>
       <Modal
         open={open}
         onClose={onCloseModal}

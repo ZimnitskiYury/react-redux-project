@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import BeerCard from 'Modules/landing-page/components/BeerCard/beerCard';
+import useInfiniteLoader from 'Modules/landing-page/hooks/infiniteLoaderHook';
 import { addFavorite, initFavorites, removeFavorite } from 'Features/favorites/actions/favoritesActions';
 
-import useInfiniteLoader from 'Modules/landing-page/hooks/infiniteLoaderHook';
 import styles from './searchResults.css';
 
 
-function SearchResults({ searchParameters }) {
+function SearchResults() {
   const dispatch = useDispatch();
   const beers = useSelector((state) => state.searchResults.beers);
   const favorites = useSelector((state) => state.favoritesStore.favorites);
@@ -26,7 +26,6 @@ function SearchResults({ searchParameters }) {
       threshold: 1.0,
     },
     beers,
-    searchParameters,
   );
 
   const isFavorite = function isFavorite(beer) {

@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import SearchIcon from '@material-ui/icons/Search';
-import useInput from 'Common/hooks/searchInputHook';
 import Slider from 'Common/components/Slider/slider';
 import useSlider from 'Modules/landing-page/hooks/sliderHook';
+import useQueryInput from 'Modules/landing-page/hooks/inputWithQueryHook';
 import { searchBeers } from 'Modules/landing-page/actions/searchBeersActions';
 
 import styles from './searchBox.css';
 
 
-function SearchBox({ setSearchParameters }) {
+function SearchBox() {
   const tag = 'searchBox';
   const dispatch = useDispatch();
 
@@ -19,34 +18,28 @@ function SearchBox({ setSearchParameters }) {
     areFiltersShown,
     setFiltersShown,
   ] = useState(false);
-  const { value, reset, onChange } = useInput('');
-
-  const { value: alcoValue, onChange: alcoHandler } = useSlider(14);
-
-  const { value: ibuValue, onChange: ibuHandler } = useSlider(120);
-
-  const { value: ebcValue, onChange: ebcHandler } = useSlider(80);
-
-  useEffect(
-    () => {
-      setSearchParameters({
-        value,
-        alcoValue,
-        ibuValue,
-        ebcValue,
-      });
-    },
-    [],
+  const { value, reset, onChange } = useQueryInput(
+    '',
+    'beer_name',
   );
+
+  const { value: alcoValue, onChange: alcoHandler } = useSlider(
+    14,
+    'abv_lt',
+  );
+
+  const { value: ibuValue, onChange: ibuHandler } = useSlider(
+    120,
+    'ibu_lt',
+  );
+
+  const { value: ebcValue, onChange: ebcHandler } = useSlider(
+    80,
+    'ebc_lt',
+  );
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    setSearchParameters({
-      value,
-      alcoValue,
-      ibuValue,
-      ebcValue,
-      page: 1,
-    });
     dispatch(searchBeers(
       value,
       alcoValue,
@@ -119,9 +112,5 @@ function SearchBox({ setSearchParameters }) {
     </form>
   );
 }
-
-SearchBox.propTypes = {
-  setSearchParameters: PropTypes.func.isRequired,
-};
 
 export default SearchBox;
