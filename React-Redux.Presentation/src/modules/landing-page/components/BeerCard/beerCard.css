@@ -15,9 +15,15 @@
   box-shadow: 0 10px 15px rgba(226, 95, 58, 0.4);
 }
 
-.beer-card__photo {
+.beer-card__photo-container {
   height: 250px;
-  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.beer-card__photo {
+  height: 100%;
 }
 
 .beer-card__title {

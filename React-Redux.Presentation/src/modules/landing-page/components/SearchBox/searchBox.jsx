@@ -23,17 +23,17 @@ function SearchBox() {
     'beer_name',
   );
 
-  const { value: alcoValue, onChange: alcoHandler } = useSlider(
+  const { value: alcoValue, onChange: alcoHandler, onMouseUp: alcoMouseUpHandler } = useSlider(
     14,
     'abv_lt',
   );
 
-  const { value: ibuValue, onChange: ibuHandler } = useSlider(
+  const { value: ibuValue, onChange: ibuHandler, onMouseUp: ibuMouseUpHandler } = useSlider(
     120,
     'ibu_lt',
   );
 
-  const { value: ebcValue, onChange: ebcHandler } = useSlider(
+  const { value: ebcValue, onChange: ebcHandler, onMouseUp: ebcMouseUpHandler } = useSlider(
     80,
     'ebc_lt',
   );
@@ -59,6 +59,7 @@ function SearchBox() {
         max={14}
         sliderValue={alcoValue}
         sliderOnChange={alcoHandler}
+        sliderOnMouseUp={alcoMouseUpHandler}
       />
       <Slider
         tag="IBU"
@@ -67,6 +68,7 @@ function SearchBox() {
         max={120}
         sliderValue={ibuValue}
         sliderOnChange={ibuHandler}
+        sliderOnMouseUp={ibuMouseUpHandler}
       />
       <Slider
         tag="EBC"
@@ -75,6 +77,7 @@ function SearchBox() {
         max={80}
         sliderValue={ebcValue}
         sliderOnChange={ebcHandler}
+        sliderOnMouseUp={ebcMouseUpHandler}
       />
     </div>
   );

@@ -11,6 +11,7 @@ function Slider({
   step,
   sliderValue,
   sliderOnChange,
+  sliderOnMouseUp,
 }) {
   return (
     <label
@@ -29,6 +30,7 @@ function Slider({
         max={max}
         value={sliderValue}
         onChange={sliderOnChange}
+        onMouseUp={sliderOnMouseUp}
         step={step}
       />
     </label>
@@ -41,8 +43,9 @@ Slider.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
-  sliderValue: PropTypes.number,
+  sliderValue: PropTypes.string,
   sliderOnChange: PropTypes.func.isRequired,
+  sliderOnMouseUp: PropTypes.func.isRequired,
 };
 
 Slider.defaultProps = {

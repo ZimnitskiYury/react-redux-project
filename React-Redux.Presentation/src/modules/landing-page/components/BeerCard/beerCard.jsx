@@ -12,11 +12,13 @@ function BeerCard({
 }) {
   return (
     <div className={styles['beer-card']}>
-      <img
-        src={imageUrl}
-        alt="Beer Card"
-        className={styles['beer-card__photo']}
-      />
+      <div className={styles['beer-card__photo-container']}>
+        <img
+          src={imageUrl}
+          alt="Beer Card"
+          className={styles['beer-card__photo']}
+        />
+      </div>
       <h1 className={styles['beer-card__title']}>
         {name}
       </h1>
@@ -38,9 +40,13 @@ BeerCard.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   tagline: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   isFavorite: PropTypes.bool.isRequired,
   handler: PropTypes.func.isRequired,
+};
+
+BeerCard.defaultProps = {
+  imageUrl: null,
 };
 
 export default BeerCard;
