@@ -20,4 +20,5 @@
 .authorization-modal {
   display: flex;
   column-gap: 50px;
+  overflow: auto;
 }

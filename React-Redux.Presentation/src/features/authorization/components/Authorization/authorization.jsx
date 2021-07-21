@@ -75,7 +75,6 @@ function Login() {
           <LoginForm />
           <RegisterForm />
         </div>
-
       </Modal>
     </div>
   );

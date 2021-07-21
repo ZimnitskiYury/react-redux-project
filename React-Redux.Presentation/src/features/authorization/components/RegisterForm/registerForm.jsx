@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import { useDispatch } from 'react-redux';
 
 import { register } from 'Features/authorization/actions/authActions';
 import useInput from 'Common/hooks/InputHook';
+import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import MomentUtils from '@date-io/moment';
 
-import 'react-datepicker/dist/react-datepicker.css';
 import styles from './registerForm.css';
 
 
@@ -47,62 +47,65 @@ function RegisterForm() {
   };
 
   return (
-    <form
-      className={styles['register-form']}
-      onSubmit={handleSubmit}
-    >
-      <input
-        className={styles['register-form__input']}
-        type="text"
-        placeholder="Username"
-        id="Username"
-        value={username}
-        onChange={onChangeUsername}
-      />
-      <input
-        className={styles['register-form__input']}
-        type="text"
-        placeholder="Password"
-        id="Password"
-        value={password}
-        onChange={onChangePassword}
-      />
-      <input
-        className={styles['register-form__input']}
-        type="text"
-        placeholder="Email"
-        id="Email"
-        value={email}
-        onChange={onChangeEmail}
-      />
-      <input
-        className={styles['register-form__input']}
-        type="text"
-        placeholder="Firstname"
-        id="Firstname"
-        value={firstname}
-        onChange={onChangeFirstname}
-      />
-      <input
-        className={styles['register-form__input']}
-        type="text"
-        placeholder="Lastname"
-        id="Lastname"
-        value={lastname}
-        onChange={onChangeLastname}
-      />
-      <DatePicker
-        selected={birthdate}
-        onChange={(date) => setBirthdate(date)}
-      />
-
-      <button
-        type="submit"
-        className={styles['register-form__button']}
+    <MuiPickersUtilsProvider utils={MomentUtils}>
+      <form
+        className={styles['register-form']}
+        onSubmit={handleSubmit}
       >
-        Register
-      </button>
-    </form>
+        <input
+          className={styles['register-form__input']}
+          type="text"
+          placeholder="Username"
+          id="Username"
+          value={username}
+          onChange={onChangeUsername}
+        />
+        <input
+          className={styles['register-form__input']}
+          type="text"
+          placeholder="Password"
+          id="Password"
+          value={password}
+          onChange={onChangePassword}
+        />
+        <input
+          className={styles['register-form__input']}
+          type="text"
+          placeholder="Email"
+          id="Email"
+          value={email}
+          onChange={onChangeEmail}
+        />
+        <input
+          className={styles['register-form__input']}
+          type="text"
+          placeholder="Firstname"
+          id="Firstname"
+          value={firstname}
+          onChange={onChangeFirstname}
+        />
+        <input
+          className={styles['register-form__input']}
+          type="text"
+          placeholder="Lastname"
+          id="Lastname"
+          value={lastname}
+          onChange={onChangeLastname}
+        />
+        <DatePicker
+          format="DD/MM/yyyy"
+          value={birthdate}
+          onChange={(date) => setBirthdate(date)}
+        />
+
+        <button
+          type="submit"
+          className={styles['register-form__button']}
+        >
+          Register
+        </button>
+      </form>
+    </MuiPickersUtilsProvider>
   );
 }
 

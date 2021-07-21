@@ -1,7 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+
 const StylelintPlugin = require('stylelint-webpack-plugin');
+// Webpack Analyzer
+const WebpackBundleAnalyzer = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 
 module.exports = (
@@ -23,7 +30,8 @@ module.exports = (
         __dirname,
         'dist',
       ),
-      filename: 'bundle.js',
+      filename: 'bundle.[chunkhash].js',
+      chunkFilename: '[name].[chunkhash].js',
       publicPath: '/',
     },
     module: {
@@ -63,9 +71,7 @@ module.exports = (
               loader: 'css-loader',
               options: {
                 modules: {
-                  localIdentName: isDev
-                    ? '[local]'
-                    : '[sha1:hash:hex:4]',
+                  localIdentName: '[local]',
                 },
               },
             },
@@ -82,6 +88,36 @@ module.exports = (
           },
         },
       ],
+    },
+    optimization: {
+      runtimeChunk: {
+        name: (entrypoint) => `runtimechunk~${entrypoint.name}`,
+      },
+      minimize: true,
+      minimizer: [new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+        parallel: true,
+      })],
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.css$/,
+            chunks: 'all',
+            enforce: true,
+          },
+          node_vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'node_vendors',
+            chunks: 'all',
+          },
+        },
+      },
     },
     resolve: {
       alias: {
@@ -119,7 +155,9 @@ module.exports = (
         ),
       },
     },
-    devtool: 'inline-source-map',
+    devtool: isDev
+      ? 'inline-source-map'
+      : false,
     devServer: {
       historyApiFallback: true,
     },
@@ -127,6 +165,14 @@ module.exports = (
       new HtmlWebpackPlugin({
         template: './src/index.html',
         favicon: './src/resources/images/beer-keg.png',
+        minify: {
+          collapseWhitespace: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          useShortDoctype: true,
+        },
       }),
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
@@ -134,6 +180,17 @@ module.exports = (
       }),
       new StylelintPlugin({
         fix: true,
+      }),
+      new WebpackBundleAnalyzer(),
+      new MomentLocalesPlugin({
+        localesToKeep: [
+          'es-us',
+          'ru',
+        ],
+      }),
+      new CompressionPlugin({
+        test: /\.js(\?.*)?$/i,
+        algorithm: 'gzip',
       }),
     ],
   };
