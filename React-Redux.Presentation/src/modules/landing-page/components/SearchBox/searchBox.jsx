@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import SearchIcon from '@material-ui/icons/Search';
 import Slider from 'Common/components/Slider/slider';
 import useSlider from 'Modules/landing-page/hooks/sliderHook';
 import useQueryInput from 'Modules/landing-page/hooks/inputWithQueryHook';
@@ -102,13 +101,6 @@ function SearchBox() {
             onFocus={() => setFiltersShown(true)}
           />
         </label>
-        <button
-          type="submit"
-          className={styles['landing-page__search-button']}
-        >
-          <SearchIcon className={styles['landing-page_search-icon']} />
-          Search
-        </button>
       </div>
       {areFiltersShown && sliders}
 

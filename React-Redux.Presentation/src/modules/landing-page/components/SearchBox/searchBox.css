@@ -10,8 +10,7 @@
 }
 
 .landing-page__search-input {
-  width: 350px;
-  margin-right: 7px;
+  width: 400px;
   transition: all 0.2s ease-in-out;
   border: 1px solid #e0843c;
   border-radius: 2px;

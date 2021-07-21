@@ -1,3 +1,4 @@
+import useDebounce from 'Common/hooks/debounceHook';
 import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
@@ -5,12 +6,40 @@ import { useHistory, useLocation } from 'react-router-dom';
 export const useQueryInput = (
   initialValue, searchParam,
 ) => {
+  const history = useHistory();
+  const location = useLocation();
   const [
     value,
     setValue,
-  ] = useState(initialValue);
-  const history = useHistory();
-  const location = useLocation();
+  ] = useState(new URLSearchParams(location.search).get(searchParam) || initialValue);
+
+  function updateQuery(newValue) {
+    const params = new URLSearchParams(location.search);
+
+    if (!newValue) {
+      params.delete(searchParam);
+    } else if (params.get(searchParam)) {
+      params.set(
+        searchParam,
+        newValue,
+      );
+    } else {
+      params.append(
+        searchParam,
+        newValue,
+      );
+    }
+
+    history.replace({
+      pathname: location.pathname,
+      search: params.toString(),
+    });
+  }
+
+  const debounce = useDebounce(
+    (newValue) => updateQuery(newValue),
+    1000,
+  );
 
   return {
     value,
@@ -26,26 +55,7 @@ export const useQueryInput = (
     },
     onChange: (event) => {
       setValue(event.target.value);
-      const params = new URLSearchParams(location.search);
-
-      if (!event.target.value) {
-        params.delete(searchParam);
-      } else if (params.get(searchParam)) {
-        params.set(
-          searchParam,
-          event.target.value,
-        );
-      } else {
-        params.append(
-          searchParam,
-          event.target.value,
-        );
-      }
-
-      history.replace({
-        pathname: location.pathname,
-        search: params.toString(),
-      });
+      debounce(event.target.value);
     },
   };
 };
