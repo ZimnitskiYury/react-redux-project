@@ -29,7 +29,7 @@
 .login-cover-open {
   background-color: white;
   transform: translateX(-100%);
-  transition: all 1s ease-in-out;
+  transition: all 0.8s ease-in-out;
 }
 
 .login-cover-close {
@@ -51,7 +51,6 @@
 
 .login-form__input {
   width: 150px;
-  margin-right: 7px;
   transition: all 0.2s ease-in-out;
   border: 1px solid #e0843c;
   border-radius: 2px;

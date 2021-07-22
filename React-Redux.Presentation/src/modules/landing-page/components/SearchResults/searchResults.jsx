@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 
 import BeerCard from 'modules/landing-page/components/BeerCard/beerCard';
 import useInfiniteLoader from 'modules/landing-page/hooks/infiniteLoaderHook';
-import { addFavorite, initFavorites, removeFavorite } from 'features/favorites/actions/favoritesActions';
+import {
+  addFavorite, clearFavorites, initFavorites, removeFavorite,
+} from 'features/favorites/actions/favoritesActions';
 import Loader from 'common/components/Loader/loader';
 
 import styles from './searchResults.css';
@@ -14,10 +16,15 @@ function SearchResults() {
   const dispatch = useDispatch();
   const beers = useSelector((state) => state.searchResults.beers);
   const favorites = useSelector((state) => state.favoritesStore.favorites);
-
+  const isLogged = useSelector((state) => state.auth.isLogged);
   useEffect(
-    () => dispatch(initFavorites()),
-    [],
+    () => {
+      if (isLogged) {
+        dispatch(initFavorites());
+      }
+      dispatch(clearFavorites());
+    },
+    [isLogged],
   );
 
   const [containerRef] = useInfiniteLoader(

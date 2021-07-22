@@ -172,7 +172,7 @@ function ProfilePage() {
       <EditableProps user={auth.user} />
       <img
         className={styles.profile__photo}
-        src="resources/images/staff-placeholder-male.jpg"
+        src="src/resources/images/staff-placeholder-male.jpg"
         alt="User"
       />
     </section>

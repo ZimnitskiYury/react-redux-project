@@ -1,4 +1,4 @@
-import { UPDATE_FAVORITES } from 'features/favorites/constants/favoritesConstants';
+import { CLEAR_FAVORITE, UPDATE_FAVORITES } from 'features/favorites/constants/favoritesConstants';
 
 
 const initialState = {
@@ -12,6 +12,10 @@ function favoritesReducer(
     case UPDATE_FAVORITES: return {
       ...state,
       favorites: action.payload,
+    };
+    case CLEAR_FAVORITE: return {
+      ...state,
+      favorites: [],
     };
     default: return state;
   }
