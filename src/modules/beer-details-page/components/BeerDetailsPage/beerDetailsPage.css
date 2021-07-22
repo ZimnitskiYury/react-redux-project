@@ -1,0 +1,50 @@
+.beer-page {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  color: black;
+  justify-content: stretch;
+}
+
+.beer-page__header {
+  display: flex;
+  width: 100%;
+  column-gap: 80px;
+}
+
+.beer-page__header-info {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  row-gap: 15px;
+}
+
+.beer-page__header-title {
+  font-size: 40px;
+}
+
+.beer-page__header-tags {
+  font-size: 20px;
+}
+
+.beer-page__header-description {
+  width: 750px;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.beer-page__header-photo {
+  overflow: hidden;
+  width: auto;
+}
+
+.beer-page__container {
+  display: flex;
+  width: 750px;
+  padding-top: 20px;
+  justify-content: space-between;
+}
+
+.beer-page__container_half {
+  width: 45%;
+}

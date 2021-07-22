@@ -1,13 +1,23 @@
-import React from 'react';
-import SearchResults from '../SearchResults/searchResults';
-import SearchBox from '../SearchBox/searchBox';
+import React, { useState } from 'react';
+
+import SearchResults from 'Modules/landing-page/components/SearchResults/searchResults';
+import SearchBox from 'Modules/landing-page/components/SearchBox/searchBox';
+
 import styles from './landingPage.css';
 
-const LandingPage = () => (
-  <div className={styles['landing-page']}>
-    <SearchBox />
-    <SearchResults />
-  </div>
-);
+
+function LandingPage() {
+  const [
+    searchParameters,
+    setSearchParameters,
+  ] = useState();
+
+  return (
+    <div className={styles['landing-page']}>
+      <SearchBox setSearchParameters={setSearchParameters} />
+      <SearchResults searchParameters={searchParameters} />
+    </div>
+  );
+}
 
 export default LandingPage;

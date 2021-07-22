@@ -1,12 +1,51 @@
-import { call, put, takeEvery } from '@redux-saga/core/effects';
-import getData from '../../../common/connects/connect';
-import { INITIAL, REQUESTBEERS } from '../constants/searchBeersConstants';
+import {
+  call, put, takeEvery, all,
+} from '@redux-saga/core/effects';
+import {
+  REQUESTBEERS, SEARCHBEERS, ADDBEERS, LOADMORE,
+} from 'Modules/landing-page/constants/searchBeersConstants';
+import { getDataByParams } from 'Services/punkService';
 
-function* sagaWorker() {
-  const payload = yield call(getData);
-  yield put({ type: INITIAL, payload });
+
+export function* searchBeerWorker(action) {
+  const payload = yield call(
+    getDataByParams,
+    action.payload,
+  );
+  yield put({
+    type: REQUESTBEERS,
+    payload,
+  });
 }
 
-export default function* sagaWatcher() {
-  yield takeEvery(REQUESTBEERS, sagaWorker);
+export function* searchBeerWatcher() {
+  yield takeEvery(
+    SEARCHBEERS,
+    searchBeerWorker,
+  );
+}
+
+export function* loadNextWorker(action) {
+  const payload = yield call(
+    getDataByParams,
+    action.payload,
+  );
+  yield put({
+    type: ADDBEERS,
+    payload,
+  });
+}
+
+export function* loadNextWatcher() {
+  yield takeEvery(
+    LOADMORE,
+    loadNextWorker,
+  );
+}
+
+export default function* searchSagas() {
+  yield all([
+    searchBeerWatcher(),
+    loadNextWatcher(),
+  ]);
 }

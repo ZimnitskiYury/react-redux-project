@@ -1,2 +1,11 @@
-export const INITIAL = 'BEERS/INITIAL';
+export const LOADMORE = 'BEERS/LOADMORE';
 export const REQUESTBEERS = 'BEERS/REQUESTBEERS';
+export const SEARCHBEERS = 'BEERS/SEARCHBEERS';
+export const ADDBEERS = 'BEERS/ADDBEERS';
+
+export default {
+  REQUESTBEERS,
+  SEARCHBEERS,
+  LOADMORE,
+  ADDBEERS,
+};

@@ -1,17 +1,40 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addFavorite, removeFavorite } from '/src/modules/favorites-page/actions/favoritesActions';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const ToggleFavoriteButton = ({ beer }) => {
-  const store = useSelector((state) => state.favoritesStore.favorites);
-  const dispatch = useDispatch();
-  const isFavorite = store.filter((favorite) => favorite.id === beer.id).length;
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
+import './toggleFavoriteButton.css';
+
+
+function ToggleFavoriteButton({ isFavorite, handler }) {
+  const className = classNames(
+    'favorite-button',
+    { 'favorite-button_remove': isFavorite },
+  );
+
   return (
-    <button type="button" onClick={() => (isFavorite ? dispatch(removeFavorite(beer)) : dispatch(addFavorite(beer)))}>
-      {isFavorite ? 'Remove ' : 'Add '}
-      Favorite
+    <button
+      className={className}
+      type="button"
+      onClick={handler}
+    >
+      {isFavorite
+        ? (<FavoriteIcon />)
+        : (<FavoriteBorderIcon />) }
+      <span>Favorite</span>
     </button>
   );
+}
+
+ToggleFavoriteButton.propTypes = {
+  isFavorite: PropTypes.bool,
+  handler: PropTypes.func.isRequired,
+};
+
+ToggleFavoriteButton.defaultProps = {
+  isFavorite: false,
 };
 
 export default ToggleFavoriteButton;
