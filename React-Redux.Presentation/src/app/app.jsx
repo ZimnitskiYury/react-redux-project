@@ -26,31 +26,29 @@ function App() {
   return (
     <BrowserRouter>
       <Provider store={store}>
-        <>
-          <Sidebar isOpen={isOpen} />
-          <Header sidebarHandler={() => toggleSidebar(!isOpen)} />
-          <div className={styles.container}>
-            <Switch>
-              <Route
-                exact
-                path="/"
-                component={LandingPage}
-              />
-              <Route
-                path="/favorites"
-                component={FavoritePage}
-              />
-              <Route
-                path="/beer/:id"
-                component={BeerDetailsPage}
-              />
-              <Route
-                path="/profile"
-                component={ProfilePage}
-              />
-            </Switch>
-          </div>
-        </>
+        <Sidebar isOpen={isOpen} />
+        <Header sidebarHandler={() => toggleSidebar(!isOpen)} />
+        <div className={styles.container}>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={LandingPage}
+            />
+            <Route
+              path="/favorites"
+              component={FavoritePage}
+            />
+            <Route
+              path="/beer/:id"
+              component={BeerDetailsPage}
+            />
+            <Route
+              path="/profile"
+              component={ProfilePage}
+            />
+          </Switch>
+        </div>
       </Provider>
     </BrowserRouter>
   );
