@@ -11,9 +11,71 @@ import { logout } from 'features/authorization/actions/authActions';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 
-import 'react-responsive-modal/styles.css';
+import 'styles/react-responsive-modal.css';
 import styles from './authorization.css';
 
+
+function UserGreeting({ username }) {
+  return (
+    <Link to="/profile">
+      <span className={styles.authorization__greetings}>
+        {`Hi, ${username}`}
+      </span>
+    </Link>
+  );
+}
+
+function Login() {
+  const [
+    open,
+    setOpen,
+  ] = useState(false);
+  const [
+    isLoginShown,
+    setIsLoginShown,
+  ] = useState(true);
+  const [
+    isRegisterShown,
+    setIsRegisterShown,
+  ] = useState(false);
+
+  const switchModes = (type) => {
+    switch (type) {
+      case 'login': { setIsLoginShown(true); setIsRegisterShown(false); break; }
+      case 'register': { setIsRegisterShown(true); setIsLoginShown(false); break; }
+      default: break;
+    }
+  };
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
+  return (
+    <div>
+      <ExitToAppIcon
+        type="button"
+        onClick={onOpenModal}
+      >
+        Login
+      </ExitToAppIcon>
+      <Modal
+        open={open}
+        onClose={onCloseModal}
+        center
+      >
+        <div className={styles['authorization-modal']}>
+          <LoginForm
+            isLoginShown={isLoginShown}
+            handler={switchModes}
+          />
+          <RegisterForm
+            isRegisterShown={isRegisterShown}
+            handler={switchModes}
+          />
+        </div>
+      </Modal>
+    </div>
+  );
+}
 
 function Authorization() {
   const { user, isLogged } = useSelector((state) => state.auth);
@@ -37,47 +99,6 @@ function Authorization() {
 
   return (
     <Login />
-  );
-}
-
-function UserGreeting({ username }) {
-  return (
-    <Link to="/profile">
-      <span className={styles.authorization__greetings}>
-        {`Hi, ${username}`}
-      </span>
-    </Link>
-  );
-}
-
-function Login() {
-  const [
-    open,
-    setOpen,
-  ] = useState(false);
-
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
-
-  return (
-    <div>
-      <ExitToAppIcon
-        type="button"
-        onClick={onOpenModal}
-      >
-        Login
-      </ExitToAppIcon>
-      <Modal
-        open={open}
-        onClose={onCloseModal}
-        center
-      >
-        <div className={styles['authorization-modal']}>
-          <LoginForm />
-          <RegisterForm />
-        </div>
-      </Modal>
-    </div>
   );
 }
 

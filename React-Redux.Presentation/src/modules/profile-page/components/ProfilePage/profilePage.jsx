@@ -11,6 +11,7 @@ import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
 import CakeOutlinedIcon from '@material-ui/icons/CakeOutlined';
 import VpnKeyOutlinedIcon from '@material-ui/icons/VpnKeyOutlined';
 
+import { Redirect } from 'react-router-dom';
 import styles from './profilePage.css';
 
 
@@ -22,12 +23,12 @@ function EditableProps({ user }) {
   function clickHandler() {
     setMode(!isEditMode);
   }
-  const date = moment(user.birthDate).format('DD MMM, YYYY');
+
   const { value: username, onChange: onChangeUsername } = useInput(user.username);
   const { value: email, onChange: onChangeEmail } = useInput(user.email);
   const { value: firstName, onChange: onChangeFirstName } = useInput(user.firstName);
   const { value: lastName, onChange: onChangeLastName } = useInput(user.lastName);
-  const { value: birthDate, onChange: onChangeBirthDate } = useInput(user.birthDate);
+  const { value: birthDate, onChange: onChangeBirthDate } = useInput(moment(user.birthDate).format('DD MMM, YYYY'));
 
   const submitHandler = (evt) => {
     evt.preventDefault();
@@ -116,9 +117,7 @@ function EditableProps({ user }) {
         </label>
         <input
           id="birthDate"
-          value={isEditMode
-            ? birthDate
-            : date}
+          value={birthDate}
           type="text"
           name={birthDate}
           onChange={onChangeBirthDate}
@@ -162,14 +161,18 @@ function EditableProps({ user }) {
 }
 
 function ProfilePage() {
-  const user = useSelector((state) => state.auth.user);
+  const auth = useSelector((state) => state.auth);
+
+  if (!auth.isLogged) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <section className={styles.profile}>
-      <EditableProps user={user} />
+      <EditableProps user={auth.user} />
       <img
         className={styles.profile__photo}
-        src="src/resources/images/staff-placeholder-male.jpg"
+        src="resources/images/staff-placeholder-male.jpg"
         alt="User"
       />
     </section>

@@ -1,12 +1,56 @@
 .register-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 50%;
   padding: 20px;
   row-gap: 10px;
 }
 
+.register-form__title {
+  font-size: 22px;
+  color: #a9560a;
+}
+
+.register-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #e0843c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  opacity: 1;
+}
+
+.register-cover-open {
+  background-color: #fff;
+  transform: translateX(100%);
+  transition: all 1s ease-in-out;
+}
+
+.register-cover-close {
+  transform: translateX(0%);
+  transition: all 1.5s ease-in-out;
+}
+
+.register-cover__button {
+  outline: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+.register-cover__button:hover {
+  color: black;
+  transition: all 1s ease-in-out;
+}
+
 .register-form__input {
-  width: 150px;
+  width: 100%;
   margin-right: 7px;
   transition: all 0.2s ease-in-out;
   border: 1px solid #e0843c;
