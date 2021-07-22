@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import 'react-responsive-modal/styles.css';
 import Modal from 'react-responsive-modal';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import LoginForm from 'Features/authorization/components/LoginForm/loginForm';
-import RegisterForm from 'Features/authorization/components/RegisterForm/registerForm';
-import { logout } from 'Features/authorization/actions/authActions';
+import LoginForm from 'features/authorization/components/LoginForm/loginForm';
+import RegisterForm from 'features/authorization/components/RegisterForm/registerForm';
+import { logout } from 'features/authorization/actions/authActions';
+
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 
+import 'react-responsive-modal/styles.css';
 import styles from './authorization.css';
 
 

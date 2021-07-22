@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, REGISTER } from '../constants/authConstants';
+import { LOGIN, LOGOUT, REGISTER } from 'features/authorization/constants/authConstants';
 
 
 function login(

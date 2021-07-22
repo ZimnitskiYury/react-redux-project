@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Slider from 'Common/components/Slider/slider';
-import useSlider from 'Modules/landing-page/hooks/sliderHook';
-import useQueryInput from 'Modules/landing-page/hooks/inputWithQueryHook';
-import { searchBeers } from 'Modules/landing-page/actions/searchBeersActions';
+import Slider from 'common/components/Slider/slider';
+import useSlider from 'modules/landing-page/hooks/sliderHook';
+import useQueryInput from 'modules/landing-page/hooks/inputWithQueryHook';
+import { searchBeers } from 'modules/landing-page/actions/searchBeersActions';
 
 import styles from './searchBox.css';
 

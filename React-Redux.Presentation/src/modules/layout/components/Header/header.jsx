@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import HeaderBurgerSwitcher from 'Common/components/BurgerButton/burgerButton';
-import Authorization from 'Features/authorization/components/Authorization/authorization';
+import HeaderBurgerSwitcher from 'common/components/BurgerButton/burgerButton';
+import Authorization from 'features/authorization/components/Authorization/authorization';
 
 import styles from './header.css';
 

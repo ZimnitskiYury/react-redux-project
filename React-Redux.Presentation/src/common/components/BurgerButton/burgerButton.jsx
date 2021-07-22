@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ReactComponent as BurgerIcon } from 'Resources/svg/burgerMenuButton.svg';
+
+import { ReactComponent as BurgerIcon } from 'resources/svg/burgerMenuButton.svg';
 
 
 function BurgerMenu({ handler }) {

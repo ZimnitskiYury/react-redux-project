@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
+
 import styles from './beerProperties.css';
 
 

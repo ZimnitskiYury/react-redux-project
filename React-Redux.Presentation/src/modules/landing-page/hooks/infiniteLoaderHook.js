@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { loadMoreBeers, searchBeers } from '../actions/searchBeersActions';
+import { loadMoreBeers, searchBeers } from 'modules/landing-page/actions/searchBeersActions';
 
 
 export const useInfiniteLoader = (

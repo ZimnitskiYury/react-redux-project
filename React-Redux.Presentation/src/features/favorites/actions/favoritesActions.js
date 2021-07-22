@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, INIT_FAVORITES, REMOVE_FAVORITE } from 'Features/favorites/constants/favoritesConstants';
+import { ADD_FAVORITE, INIT_FAVORITES, REMOVE_FAVORITE } from 'features/favorites/constants/favoritesConstants';
 
 
 function initFavorites() {

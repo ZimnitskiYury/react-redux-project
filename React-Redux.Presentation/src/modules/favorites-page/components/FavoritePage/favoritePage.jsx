@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import FavoriteBeer from 'Modules/favorites-page/components/FavoriteBeer/favoriteBeer';
-import { initFavorites, removeFavorite } from 'Features/favorites/actions/favoritesActions';
+import FavoriteBeer from 'modules/favorites-page/components/FavoriteBeer/favoriteBeer';
+import { initFavorites, removeFavorite } from 'features/favorites/actions/favoritesActions';
 
 import styles from './favoritePage.css';
 

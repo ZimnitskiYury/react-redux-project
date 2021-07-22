@@ -1,6 +1,6 @@
-import { getFromLocalStorage, addToLocalStorage, removeFromLocalStorage } from 'Services/storage-services/localStorageService';
-import { authHeader } from 'Services/auth-service/authHelper';
-import { getDataByParams } from 'Services/beer-service/punkService';
+import { getFromLocalStorage, addToLocalStorage, removeFromLocalStorage } from 'services/storage-services/localStorageService';
+import { authHeader } from 'services/auth-service/authHelper';
+import { getDataByParams } from 'services/beer-service/punkService';
 
 
 const FAVORITES_STORAGE = 'favoriteBeers';

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
-import { register } from 'Features/authorization/actions/authActions';
-import useInput from 'Common/hooks/inputHook';
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
+
+import { register } from 'features/authorization/actions/authActions';
+import useInput from 'common/hooks/inputHook';
 
 import styles from './registerForm.css';
 

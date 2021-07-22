@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import BeerCard from 'Modules/landing-page/components/BeerCard/beerCard';
-import useInfiniteLoader from 'Modules/landing-page/hooks/infiniteLoaderHook';
-import { addFavorite, initFavorites, removeFavorite } from 'Features/favorites/actions/favoritesActions';
-import Loader from 'Common/components/Loader/loader';
+import BeerCard from 'modules/landing-page/components/BeerCard/beerCard';
+import useInfiniteLoader from 'modules/landing-page/hooks/infiniteLoaderHook';
+import { addFavorite, initFavorites, removeFavorite } from 'features/favorites/actions/favoritesActions';
+import Loader from 'common/components/Loader/loader';
 
 import styles from './searchResults.css';
 

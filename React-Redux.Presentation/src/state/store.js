@@ -3,13 +3,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import { all } from '@redux-saga/core/effects';
 
-import searchResultsReducer from 'Modules/landing-page/reducers/searchBeersReducer';
-import favoritesReducer from 'Features/favorites/reducers/favoritesReducer';
-import searchSagas from 'Modules/landing-page/sagas/searchBeersSagas';
-import favoriteSagas from 'Features/favorites/sagas/favoritesSagas';
-import authSagas from 'Features/authorization/sagas/authSagas';
-import authReducer from 'Features/authorization/reducers/authReducer';
-import { getUser } from 'Services/auth-service/authHelper';
+import searchResultsReducer from 'modules/landing-page/reducers/searchBeersReducer';
+import searchSagas from 'modules/landing-page/sagas/searchBeersSagas';
+import favoritesReducer from 'features/favorites/reducers/favoritesReducer';
+import favoriteSagas from 'features/favorites/sagas/favoritesSagas';
+import authSagas from 'features/authorization/sagas/authSagas';
+import authReducer from 'features/authorization/reducers/authReducer';
+import { getUser } from 'services/auth-service/authHelper';
 
 
 const rootReducer = combineReducers({

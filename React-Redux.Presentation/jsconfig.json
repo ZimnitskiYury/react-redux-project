@@ -1,16 +1,8 @@
 {
   "compilerOptions": {
       "target":"es2020",
-      "baseUrl": ".",
-      "paths": {
-        "Common/*": ["./src/common/*"],
-        "Modules/*": ["./src/modules/*"],
-        "Features/*": ["./src/features/*"],
-        "Resources/*": ["./src/resources/*"],
-        "Services/*": ["./src/services/*"],
-        "State/*": ["./src/state/*"],
-        "Styles/*": ["./src/styles/*"],
-      }
+      "baseUrl": "src"
     },
+    "include": ["src"],
   "exclude": ["node_modules", "dist"],
 }

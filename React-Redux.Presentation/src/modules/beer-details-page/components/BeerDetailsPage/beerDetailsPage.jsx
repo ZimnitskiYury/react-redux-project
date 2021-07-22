@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
-import { removeFavorite, addFavorite } from 'Features/favorites/actions/favoritesActions';
-import BeerProperties from 'Modules/beer-details-page/components/BeerProperties/beerProperties';
-import { getDataById } from 'Services/beer-service/punkService';
-import FoodPairing from 'Modules/beer-details-page/components/FoodPairing/foodPairing';
-import BrewersTips from 'Modules/beer-details-page/components/BrewersTips/brewersTips';
-import Ingredients from 'Modules/beer-details-page/components/Ingredients/ingredients';
-import Method from 'Modules/beer-details-page/components/Method/method';
+import ToggleFavoriteButton from 'features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
+import { removeFavorite, addFavorite } from 'features/favorites/actions/favoritesActions';
+import BeerProperties from 'modules/beer-details-page/components/BeerProperties/beerProperties';
+import { getDataById } from 'services/beer-service/punkService';
+import FoodPairing from 'modules/beer-details-page/components/FoodPairing/foodPairing';
+import BrewersTips from 'modules/beer-details-page/components/BrewersTips/brewersTips';
+import Ingredients from 'modules/beer-details-page/components/Ingredients/ingredients';
+import Method from 'modules/beer-details-page/components/Method/method';
+import Loader from 'common/components/Loader/loader';
 
-import Loader from 'Common/components/Loader/loader';
 import styles from './beerDetailsPage.css';
 
 

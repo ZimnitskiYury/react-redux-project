@@ -1,4 +1,4 @@
-import { FAVORITES_STORAGE } from 'Services/favorites-service/favoritesService';
+import { FAVORITES_STORAGE } from 'services/favorites-service/favoritesService';
 
 
 const getFromLocalStorage = (key) => {

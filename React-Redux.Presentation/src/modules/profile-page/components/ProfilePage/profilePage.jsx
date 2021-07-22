@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import useInput from 'Common/hooks/inputHook';
 import moment from 'moment';
+
+import useInput from 'common/hooks/inputHook';
 
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
@@ -21,7 +22,7 @@ function EditableProps({ user }) {
   function clickHandler() {
     setMode(!isEditMode);
   }
-  const date = moment('2018-05-18T04:00:00.000Z').format('DD MMM, YYYY');
+  const date = moment(user.birthDate).format('DD MMM, YYYY');
   const { value: username, onChange: onChangeUsername } = useInput(user.username);
   const { value: email, onChange: onChangeEmail } = useInput(user.email);
   const { value: firstName, onChange: onChangeFirstName } = useInput(user.firstName);

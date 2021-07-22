@@ -1,4 +1,4 @@
-import { UPDATE_FAVORITES } from 'Features/favorites/constants/favoritesConstants';
+import { UPDATE_FAVORITES } from 'features/favorites/constants/favoritesConstants';
 
 
 const initialState = {

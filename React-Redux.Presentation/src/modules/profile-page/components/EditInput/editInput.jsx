@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import useInput from 'Common/hooks/inputHook';
+import useInput from 'common/hooks/inputHook';
 import styles from './editInput.css';
 
 

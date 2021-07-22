@@ -2,8 +2,8 @@ import { all, takeEvery, put } from '@redux-saga/core/effects';
 
 import {
   ADD_FAVORITE, UPDATE_FAVORITES, REMOVE_FAVORITE, INIT_FAVORITES,
-} from 'Features/favorites/constants/favoritesConstants';
-import { addFavorite, getFavorites, removeFavorite } from 'Services/favorites-service/favoritesHelper';
+} from 'features/favorites/constants/favoritesConstants';
+import { addFavorite, getFavorites, removeFavorite } from 'services/favorites-service/favoritesHelper';
 
 
 function* initFavoriteWorker() {

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
-import BeerCardOpenButton from 'Modules/landing-page/components/BeerCardOpenButton/BeerCardOpenButton';
+import ToggleFavoriteButton from 'features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
+import BeerCardOpenButton from 'modules/landing-page/components/BeerCardOpenButton/BeerCardOpenButton';
 
 import styles from './beerCard.css';
 

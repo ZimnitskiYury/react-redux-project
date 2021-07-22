@@ -1,4 +1,4 @@
-import { addToLocalStorage, getFromLocalStorage, removeFromLocalStorage } from 'Services/storage-services/localStorageService';
+import { addToLocalStorage, getFromLocalStorage, removeFromLocalStorage } from 'services/storage-services/localStorageService';
 
 
 const USER_STORAGE = 'user';

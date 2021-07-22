@@ -1,4 +1,4 @@
-import { AUTH_SUCCESS, LOGOUT } from '../constants/authConstants';
+import { AUTH_SUCCESS, LOGOUT } from 'features/authorization/constants/authConstants';
 
 
 const initialState = {

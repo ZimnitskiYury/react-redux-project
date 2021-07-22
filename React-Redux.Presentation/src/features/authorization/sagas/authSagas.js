@@ -1,11 +1,12 @@
 import {
   call, put, takeEvery, all,
 } from '@redux-saga/core/effects';
-import { removeUser, saveUser } from 'Services/auth-service/authHelper';
-import { authUser, registerUser } from 'Services/auth-service/authService';
+
+import { removeUser, saveUser } from 'services/auth-service/authHelper';
+import { authUser, registerUser } from 'services/auth-service/authService';
 import {
   AUTH_SUCCESS, LOGIN, LOGOUT, REGISTER,
-} from '../constants/authConstants';
+} from 'features/authorization/constants/authConstants';
 
 
 export function* registerWorker(action) {

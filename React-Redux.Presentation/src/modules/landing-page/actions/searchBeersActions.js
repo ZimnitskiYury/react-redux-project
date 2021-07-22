@@ -1,6 +1,4 @@
-
-
-import { LOADMORE, SEARCHBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
+import { LOADMORE, SEARCHBEERS } from 'modules/landing-page/constants/searchBeersConstants';
 
 
 export function loadMoreBeers(

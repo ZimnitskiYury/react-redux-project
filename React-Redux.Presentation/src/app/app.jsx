@@ -3,17 +3,17 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Header from 'Modules/layout/components/Header/header';
-import LandingPage from 'Modules/landing-page/components/LandingPage/landingPage';
-import Sidebar from 'Modules/layout/components/Sidebar/sidebar';
-import FavoritePage from 'Modules/favorites-page/components/FavoritePage/favoritePage';
-import BeerDetailsPage from 'Modules/beer-details-page/components/BeerDetailsPage/beerDetailsPage';
-import ProfilePage from 'Modules/profile-page/components/ProfilePage/profilePage';
+import Header from 'modules/layout/components/Header/header';
+import LandingPage from 'modules/landing-page/components/LandingPage/landingPage';
+import Sidebar from 'modules/layout/components/Sidebar/sidebar';
+import FavoritePage from 'modules/favorites-page/components/FavoritePage/favoritePage';
+import BeerDetailsPage from 'modules/beer-details-page/components/BeerDetailsPage/beerDetailsPage';
+import ProfilePage from 'modules/profile-page/components/ProfilePage/profilePage';
 
-import store from 'State/store';
+import store from 'state/store';
 
-import 'Styles/reset.css';
-import 'Styles/sliders.css';
+import 'styles/reset.css';
+import 'styles/sliders.css';
 import styles from './app.css';
 
 

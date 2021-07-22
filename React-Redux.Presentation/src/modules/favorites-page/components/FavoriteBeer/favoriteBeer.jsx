@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ToggleFavoriteButton from 'Features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
+import ToggleFavoriteButton from 'features/favorites/components/ToggleFavoriteButton/toggleFavoriteButton';
 
 import styles from './favoriteBeer.css';
 

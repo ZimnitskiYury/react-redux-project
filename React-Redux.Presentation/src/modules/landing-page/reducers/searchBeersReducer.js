@@ -1,4 +1,4 @@
-import { ADDBEERS, REQUESTBEERS } from 'Modules/landing-page/constants/searchBeersConstants';
+import { ADDBEERS, REQUESTBEERS } from 'modules/landing-page/constants/searchBeersConstants';
 
 
 const initialState = {

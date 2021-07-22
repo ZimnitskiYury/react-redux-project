@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import useInput from 'Common/hooks/inputHook';
-import { login } from 'Features/authorization/actions/authActions';
+import useInput from 'common/hooks/inputHook';
+import { login } from 'features/authorization/actions/authActions';
 
 import styles from './loginForm.css';
 
@@ -46,13 +46,6 @@ function LoginForm() {
         placeholder="Password"
         id="Password"
       />
-      <input
-        className={styles['login-form__input']}
-        type="checkbox"
-        name="remember-me"
-        id="remember-me"
-      />
-      <label htmlFor="remember-me">Remember Me?</label>
 
       <button
         type="submit"

@@ -1,10 +1,11 @@
 import {
   call, put, takeEvery, all,
 } from '@redux-saga/core/effects';
+
 import {
   REQUESTBEERS, SEARCHBEERS, ADDBEERS, LOADMORE,
-} from 'Modules/landing-page/constants/searchBeersConstants';
-import { getDataByParams } from 'Services/beer-service/punkService';
+} from 'modules/landing-page/constants/searchBeersConstants';
+import { getDataByParams } from 'services/beer-service/punkService';
 
 
 export function* searchBeerWorker(action) {
