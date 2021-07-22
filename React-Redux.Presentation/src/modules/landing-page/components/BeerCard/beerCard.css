@@ -10,6 +10,24 @@
   justify-content: space-between;
 }
 
+.beer-card-enter {
+  opacity: 0.01;
+}
+
+.beer-card-enter.beer-card-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.beer-card-leave {
+  opacity: 1;
+}
+
+.beer-card-leave.beer-card-enter-leave {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 .beer-card:hover {
   transform: scale(1.01);
   box-shadow: 0 10px 15px rgba(226, 95, 58, 0.4);

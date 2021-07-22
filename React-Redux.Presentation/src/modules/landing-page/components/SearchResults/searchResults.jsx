@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import BeerCard from 'Modules/landing-page/components/BeerCard/beerCard';
 import useInfiniteLoader from 'Modules/landing-page/hooks/infiniteLoaderHook';
 import { addFavorite, initFavorites, removeFavorite } from 'Features/favorites/actions/favoritesActions';
+import Loader from 'Common/components/Loader/loader';
 
 import styles from './searchResults.css';
 
@@ -46,7 +47,9 @@ function SearchResults() {
 
   return (
     <>
-      <div className={styles['search-results']}>
+      <div
+        className={styles['search-results']}
+      >
         { beers.map((beer) => (
           <BeerCard
             id={beer.id}
@@ -58,9 +61,10 @@ function SearchResults() {
             handler={favHandler(beer)}
           />
         ))}
+
       </div>
       <div ref={containerRef}>
-        Loading
+        <Loader />
       </div>
     </>
   );

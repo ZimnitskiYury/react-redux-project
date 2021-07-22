@@ -31,23 +31,26 @@ function Ingredients({ ingredients }) {
   );
 }
 
-function MaltIngredients({ malts }) {
-  return (
-    <ul>
-      {malts.map((ing) => (
-        <Malt
-          malt={ing}
-        />
-      ))}
-    </ul>
-  );
-}
-
 function Malt({ malt }) {
   return (
     <li className={styles['ingredients__category-values']}>
       {`${malt.name} - ${malt.amount.value} ${malt.amount.unit}`}
     </li>
+  );
+}
+
+function MaltIngredients({ malts }) {
+  return (
+    <ul>
+      {malts.map((
+        ing, index,
+      ) => (
+        <Malt
+          malt={ing}
+          key={index}
+        />
+      ))}
+    </ul>
   );
 }
 
@@ -76,33 +79,14 @@ function Hop({ hop }) {
 
 Ingredients.propTypes = {
   ingredients: PropTypes.shape({
-    malt: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string,
-      amount: PropTypes.shape({
-        value: PropTypes.number,
-        unit: PropTypes.string,
-      }),
-    })).isRequired,
-    hops: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string,
-      add: PropTypes.string,
-      amount: PropTypes.shape({
-        value: PropTypes.number,
-        unit: PropTypes.string,
-      }),
-    })).isRequired,
+    malt: MaltIngredients.isRequired,
+    hops: HopsIngredients.isRequired,
     yeast: PropTypes.string.isRequired,
   }).isRequired,
 };
 
 MaltIngredients.propTypes = {
-  malts: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    amount: PropTypes.shape({
-      value: PropTypes.number,
-      unit: PropTypes.string,
-    }),
-  })).isRequired,
+  malts: PropTypes.arrayOf(Malt).isRequired,
 };
 
 Malt.propTypes = {
@@ -116,14 +100,7 @@ Malt.propTypes = {
 };
 
 HopsIngredients.propTypes = {
-  hops: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    add: PropTypes.string,
-    amount: PropTypes.shape({
-      value: PropTypes.number,
-      unit: PropTypes.string,
-    }),
-  })).isRequired,
+  hops: PropTypes.arrayOf(Hop).isRequired,
 };
 
 Hop.propTypes = {

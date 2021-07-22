@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -9,54 +10,13 @@ import { getDataById } from 'Services/beer-service/punkService';
 import FoodPairing from 'Modules/beer-details-page/components/FoodPairing/foodPairing';
 import BrewersTips from 'Modules/beer-details-page/components/BrewersTips/brewersTips';
 import Ingredients from 'Modules/beer-details-page/components/Ingredients/ingredients';
+import Method from 'Modules/beer-details-page/components/Method/method';
 
+import Loader from 'Common/components/Loader/loader';
 import styles from './beerDetailsPage.css';
-import Method from '../Method/method';
 
 
-function BeerDetailsPage() {
-  const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favoritesStore.favorites);
-
-  const [
-    beer,
-    setBeer,
-  ] = useState();
-  const { id } = useParams();
-
-  useEffect(
-    () => {
-      const getData = async () => {
-        const result = await getDataById(id);
-
-        setBeer(...result);
-      };
-
-      getData();
-    },
-    [],
-  );
-
-  const isFavorite = function isFavorite() {
-    if (favorites.filter((fav) => fav.id === beer.id).length) {
-      return true;
-    }
-
-    return false;
-  };
-
-  const favHandler = () => {
-    if (isFavorite(beer)) {
-      return () => (dispatch(removeFavorite(beer)));
-    }
-
-    return () => (dispatch(addFavorite(beer)));
-  };
-
-  if (!beer) {
-    return (<h1>loading</h1>);
-  }
-
+function BeerDetailsPageLayout({ beer, favHandler, isFavorite = false }) {
   return (
     <div className={styles['beer-page']}>
       <div className={styles['beer-page__header']}>
@@ -68,7 +28,7 @@ function BeerDetailsPage() {
             {beer.tagline}
           </span>
           <ToggleFavoriteButton
-            isFavorite={isFavorite()}
+            isFavorite={isFavorite}
             handler={favHandler()}
           />
           <p className={styles['beer-page__header-description']}>
@@ -105,5 +65,76 @@ function BeerDetailsPage() {
     </div>
   );
 }
+
+function BeerDetailsPage() {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favoritesStore.favorites);
+
+  const [
+    beer,
+    setBeer,
+  ] = useState();
+
+  const { id } = useParams();
+
+  useEffect(
+    () => {
+      const getData = async () => {
+        const result = await getDataById(id);
+
+        setBeer(...result);
+      };
+
+      getData();
+    },
+    [],
+  );
+
+  const isFavorite = function isFavorite() {
+    if (favorites.filter((fav) => fav.id === beer.id).length) {
+      return true;
+    }
+
+    return false;
+  };
+
+  const favHandler = () => {
+    if (isFavorite(beer)) {
+      return () => (dispatch(removeFavorite(beer)));
+    }
+
+    return () => (dispatch(addFavorite(beer)));
+  };
+
+  if (!beer) {
+    return (<Loader />);
+  }
+
+  return (
+    <BeerDetailsPageLayout
+      beer={beer}
+      favHandler={favHandler}
+      isFavorite={isFavorite()}
+    />
+  );
+}
+
+BeerDetailsPageLayout.propTypes = {
+  beer: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    tagline: PropTypes.string.isRequired,
+    abv: PropTypes.number.isRequired,
+    ibu: PropTypes.number.isRequired,
+    ebc: PropTypes.number.isRequired,
+    brewers_tips: PropTypes.string.isRequired,
+    food_pairing: PropTypes.arrayOf(PropTypes.string).isRequired,
+    image_url: PropTypes.string,
+    method: PropTypes.shape(),
+    ingredients: PropTypes.shape(),
+  }).isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  favHandler: PropTypes.func.isRequired,
+};
 
 export default BeerDetailsPage;

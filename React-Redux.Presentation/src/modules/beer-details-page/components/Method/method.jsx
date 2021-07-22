@@ -37,8 +37,13 @@ function Mash({ mash }) {
   return (
     <li className={styles.method__category}>
       <p className={styles['method__category-title']}>Mash</p>
-      {mash.map((element) => (
-        <p className={styles['method__category-values']}>
+      {mash.map((
+        element, index,
+      ) => (
+        <p
+          className={styles['method__category-values']}
+          key={index}
+        >
           {`${element.duration} minutes at ${element.temp.value} °C`}
         </p>
       ))}
@@ -59,20 +64,9 @@ function Twist({ twist }) {
 
 Method.propTypes = {
   method: PropTypes.shape({
-    fermentation: PropTypes.shape({
-      temp: PropTypes.shape({
-        unit: PropTypes.string,
-        value: PropTypes.number,
-      }),
-    }),
-    mash_temp: PropTypes.arrayOf(PropTypes.shape({
-      duration: PropTypes.number,
-      temp: PropTypes.shape({
-        unit: PropTypes.string,
-        value: PropTypes.number,
-      }),
-    })),
-    twist: PropTypes.string,
+    fermentation: Fermentation.isRequired,
+    mash_temp: Mash.isRequired,
+    twist: Twist.isRequired,
   }).isRequired,
 };
 
@@ -96,7 +90,11 @@ Mash.propTypes = {
 };
 
 Twist.propTypes = {
-  twist: PropTypes.string.isRequired,
+  twist: PropTypes.string,
+};
+
+Twist.defaultProps = {
+  twist: null,
 };
 
 export default Method;

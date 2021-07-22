@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { register } from 'Features/authorization/actions/authActions';
-import useInput from 'Common/hooks/InputHook';
+import useInput from 'Common/hooks/inputHook';
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
 

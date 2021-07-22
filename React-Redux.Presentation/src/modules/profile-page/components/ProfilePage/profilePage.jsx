@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import useInput from 'Common/hooks/InputHook';
+import useInput from 'Common/hooks/inputHook';
 import moment from 'moment';
 
 import MailOutlineIcon from '@material-ui/icons/MailOutline';

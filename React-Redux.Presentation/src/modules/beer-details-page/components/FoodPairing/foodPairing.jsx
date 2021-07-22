@@ -19,7 +19,7 @@ function FoodPairing({ foodPairing }) {
         ) => (
           <Dish
             dish={element}
-            ind={index}
+            key={index}
           />
         ))}
       </ul>
@@ -27,11 +27,10 @@ function FoodPairing({ foodPairing }) {
   );
 }
 
-function Dish({ dish, ind }) {
+function Dish({ dish }) {
   return (
     <li
       className={styles.dish}
-      key={ind}
     >
       {dish}
     </li>
@@ -44,7 +43,6 @@ FoodPairing.propTypes = {
 
 Dish.propTypes = {
   dish: PropTypes.string.isRequired,
-  ind: PropTypes.number.isRequired,
 };
 
 export default FoodPairing;

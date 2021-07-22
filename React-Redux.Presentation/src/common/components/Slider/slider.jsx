@@ -43,7 +43,10 @@ Slider.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
-  sliderValue: PropTypes.string,
+  sliderValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   sliderOnChange: PropTypes.func.isRequired,
   sliderOnMouseUp: PropTypes.func.isRequired,
 };

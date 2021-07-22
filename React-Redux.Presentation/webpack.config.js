@@ -93,7 +93,7 @@ module.exports = (
       runtimeChunk: {
         name: (entrypoint) => `runtimechunk~${entrypoint.name}`,
       },
-      minimize: true,
+      minimize: !isDev,
       minimizer: [new TerserPlugin({
         terserOptions: {
           format: {
