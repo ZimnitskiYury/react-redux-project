@@ -28,5 +28,8 @@ namespace React.Redux.API.Models
         [Required]
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
+
+        [Required]
+        public string UrlPhoto { get; set; }
     }
 }

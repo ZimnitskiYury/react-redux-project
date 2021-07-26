@@ -13,6 +13,10 @@
   row-gap: 15px;
 }
 
+.profile__photo-container {
+  height: 600px;
+}
+
 .profile__photo {
   width: auto;
   height: 100%;

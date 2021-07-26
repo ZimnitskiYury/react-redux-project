@@ -44,7 +44,7 @@ async function validateToken(jwt) {
 }
 
 async function registerUser(
-  username, password, firstname, lastname, email, birthDate,
+  username, password, firstname, lastname, email, birthdate, urlphoto,
 ) {
   const url = new URL(
     'auth/register',
@@ -64,7 +64,8 @@ async function registerUser(
         firstname,
         lastname,
         email,
-        birthDate,
+        birthdate,
+        urlphoto,
       }),
     },
   );

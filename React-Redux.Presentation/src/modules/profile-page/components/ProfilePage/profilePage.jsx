@@ -170,11 +170,13 @@ function ProfilePage() {
   return (
     <section className={styles.profile}>
       <EditableProps user={auth.user} />
-      <img
-        className={styles.profile__photo}
-        src="src/resources/images/staff-placeholder-male.jpg"
-        alt="User"
-      />
+      <div className={styles['profile__photo-container']}>
+        <img
+          className={styles.profile__photo}
+          src={auth.user.urlPhoto || 'src/resources/images/staff-placeholder-male.jpg'}
+          alt="User"
+        />
+      </div>
     </section>
   );
 }

@@ -15,5 +15,7 @@ namespace React.Redux.API.Models
         public DateTime BirthDate { get; set; }
 
         public string Token { get; set; }
+
+        public string UrlPhoto { get; set; }
     }
 }

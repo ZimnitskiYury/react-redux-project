@@ -14,7 +14,7 @@ function login(
 }
 
 function register(
-  username, password, firstname, lastname, email, birthDate,
+  username, password, firstname, lastname, email, birthDate, url,
 ) {
   return {
     type: REGISTER,
@@ -25,6 +25,7 @@ function register(
       lastname,
       email,
       birthDate,
+      url,
     ],
   };
 }

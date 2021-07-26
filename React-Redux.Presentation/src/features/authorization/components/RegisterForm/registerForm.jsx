@@ -1,24 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import moment from 'moment';
 
 import { register } from 'features/authorization/actions/authActions';
+import useLoadImage from 'features/authorization/hooks/useLoadImage';
+import DoneIcon from '@material-ui/icons/Done';
 import useInput from 'common/hooks/inputHook';
 
 import styles from './registerForm.css';
 
 
 function RegisterForm({ isRegisterShown, handler }) {
+  const { url, onChange, onClick } = useLoadImage();
   const { value: username, reset: resetUsername, onChange: onChangeUsername } = useInput('');
   const { value: password, reset: resetPassword, onChange: onChangePassword } = useInput('');
   const { value: firstname, reset: resetFirstname, onChange: onChangeFirstname } = useInput('');
   const { value: lastname, reset: resetLastname, onChange: onChangeLastname } = useInput('');
   const { value: email, reset: resetEmail, onChange: onChangeEmail } = useInput('');
-  const [
-    birthdate,
-    setBirthdate,
-  ] = useState(moment(new Date()).format('DD/MM/YYYY'));
+  const {
+    value: birthdate,
+    onChange: onChangeBirthDate,
+  } = useInput(new Date().toJSON());
   const dispatch = useDispatch();
 
   const handleSubmit = (evt) => {
@@ -37,6 +40,7 @@ function RegisterForm({ isRegisterShown, handler }) {
         lastname,
         email,
         birthdate,
+        url,
       ));
     } else {
       resetUsername();
@@ -111,8 +115,22 @@ function RegisterForm({ isRegisterShown, handler }) {
         <input
           className={styles['register-form__input']}
           value={birthdate}
-          onChange={(date) => setBirthdate(date)}
+          onChange={onChangeBirthDate}
         />
+        <div className={styles['register-form__input-photo']}>
+
+          <input
+            type="file"
+            onChange={onChange}
+          />
+          <button
+            type="button"
+            onClick={onClick}
+          >
+            Upload Image
+          </button>
+
+        </div>
         <button
           type="submit"
           className={styles['register-form__button']}
@@ -123,5 +141,10 @@ function RegisterForm({ isRegisterShown, handler }) {
     </>
   );
 }
+
+RegisterForm.propTypes = {
+  isRegisterShown: PropTypes.bool.isRequired,
+  handler: PropTypes.func.isRequired,
+};
 
 export default RegisterForm;

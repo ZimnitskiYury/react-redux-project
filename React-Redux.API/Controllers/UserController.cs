@@ -45,6 +45,7 @@ namespace React.Redux.API.Controllers
                     LastName = user.LastName,
                     BirthDate = user.BirthDate,
                     Token = token,
+                    UrlPhoto = user.Url,
                 };
                 return Ok(profile);
             }
@@ -62,6 +63,7 @@ namespace React.Redux.API.Controllers
                 Email = model.Email,
                 UserName = model.Username,
                 BirthDate = model.BirthDate,
+                Url = model.UrlPhoto,
             };
 
             await CreateRoleIfNotExists("Admin");
@@ -95,6 +97,7 @@ namespace React.Redux.API.Controllers
                     LastName = user.LastName,
                     BirthDate = user.BirthDate,
                     Token = token,
+                    UrlPhoto = user.Url,
                 };
                 return Ok(profile);
             }
