@@ -45,7 +45,7 @@ function Login() {
     }),
     {
       isLoginShown: true,
-      IsRegisterShown: false,
+      isRegisterShown: false,
     },
   );
 

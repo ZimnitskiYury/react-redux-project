@@ -1,5 +1,3 @@
-import 'styles/fonts.css';
-
 import React, { useReducer } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -14,6 +12,7 @@ import ProfilePage from 'modules/profile-page/components/ProfilePage/profilePage
 
 import store from 'state/store';
 
+import 'styles/fonts.css';
 import 'styles/reset.css';
 import 'styles/sliders.css';
 import styles from './app.css';

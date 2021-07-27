@@ -17,6 +17,10 @@
   justify-content: center;
 }
 
+.favorite-button__text {
+  line-height: 1;
+}
+
 .favorite-button:hover {
   color: white;
   background-color: #ffb46a;

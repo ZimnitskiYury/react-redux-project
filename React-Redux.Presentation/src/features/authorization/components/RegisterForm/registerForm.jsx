@@ -5,7 +5,6 @@ import classNames from 'classnames';
 
 import { register } from 'features/authorization/actions/authActions';
 import useLoadImage from 'features/authorization/hooks/useLoadImage';
-import DoneIcon from '@material-ui/icons/Done';
 import useInput from 'common/hooks/inputHook';
 
 import styles from './registerForm.css';
@@ -62,7 +61,7 @@ function RegisterForm({ isRegisterShown, handler }) {
         <button
           type="button"
           className={styles['register-cover__button']}
-          onClick={() => handler('register')}
+          onClick={handler}
         >
           Register
         </button>

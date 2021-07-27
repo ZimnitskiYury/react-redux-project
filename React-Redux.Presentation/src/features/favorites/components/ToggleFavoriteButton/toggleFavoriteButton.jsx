@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
-import './toggleFavoriteButton.css';
+import styles from './toggleFavoriteButton.css';
 
 
 function ToggleFavoriteButton({ isFavorite, handler }) {
@@ -23,7 +23,7 @@ function ToggleFavoriteButton({ isFavorite, handler }) {
       {isFavorite
         ? (<FavoriteIcon />)
         : (<FavoriteBorderIcon />) }
-      <span>Favorite</span>
+      <span className={styles['favorite-button__text']}>Favorite</span>
     </button>
   );
 }

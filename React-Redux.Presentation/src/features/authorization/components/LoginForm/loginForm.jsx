@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
@@ -38,7 +39,7 @@ function LoginForm({ isLoginShown, handler }) {
         <button
           type="button"
           className={styles['login-cover__button']}
-          onClick={() => handler('login')}
+          onClick={handler}
         >
           Login
         </button>
@@ -75,5 +76,10 @@ function LoginForm({ isLoginShown, handler }) {
     </>
   );
 }
+
+LoginForm.propTypes = {
+  isLoginShown: PropTypes.bool.isRequired,
+  handler: PropTypes.func.isRequired,
+};
 
 export default LoginForm;
