@@ -1,8 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 // Webpack Analyzer
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer')
@@ -70,9 +71,16 @@ module.exports = (
             {
               loader: 'css-loader',
               options: {
+                importLoaders: 1,
                 modules: {
                   localIdentName: '[local]',
                 },
+              },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: { plugins: () => [postcssPresetEnv()] },
               },
             },
           ],
@@ -126,6 +134,7 @@ module.exports = (
       historyApiFallback: true,
     },
     plugins: [
+      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
         favicon: './src/resources/images/beer-keg.png',
