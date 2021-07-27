@@ -1,18 +1,23 @@
 .beer-page {
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
+  padding: 30px 0;
   color: black;
   justify-content: stretch;
 }
 
 .beer-page__header {
   display: flex;
+  flex-direction: column;
+}
+
+.beer-page__content {
+  display: flex;
   width: 100%;
   column-gap: 80px;
 }
 
-.beer-page__header-info {
+.beer-page__content-info {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -28,9 +33,9 @@
 }
 
 .beer-page__header-description {
+  padding: 20px 0;
   width: 750px;
   font-size: 28px;
-  line-height: 1.1;
 }
 
 .beer-page__header-photo {

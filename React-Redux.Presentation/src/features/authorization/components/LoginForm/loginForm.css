@@ -9,6 +9,7 @@
 }
 
 .login-form__title {
+  font-family: 'Poppins Regular', sans-serif;
   font-size: 22px;
   color: #a9560a;
 }

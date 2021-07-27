@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-responsive-modal';
 import { Link } from 'react-router-dom';
@@ -27,49 +27,49 @@ function UserGreeting({ username }) {
 
 function Login() {
   const [
-    open,
-    setOpen,
-  ] = useState(false);
-  const [
-    isLoginShown,
-    setIsLoginShown,
-  ] = useState(true);
-  const [
-    isRegisterShown,
-    setIsRegisterShown,
-  ] = useState(false);
+    isOpenModal,
+    toggleModal,
+  ] = useReducer(
+    (state) => !state,
+    false,
+  );
 
-  const switchModes = (type) => {
-    switch (type) {
-      case 'login': { setIsLoginShown(true); setIsRegisterShown(false); break; }
-      case 'register': { setIsRegisterShown(true); setIsLoginShown(false); break; }
-      default: break;
-    }
-  };
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+  const [
+    switcher,
+    toggleSwitcher,
+  ] = useReducer(
+    (state) => ({
+      ...state,
+      isLoginShown: !state.isLoginShown,
+      isRegisterShown: !state.isRegisterShown,
+    }),
+    {
+      isLoginShown: true,
+      IsRegisterShown: false,
+    },
+  );
 
   return (
     <div>
       <ExitToAppIcon
         type="button"
-        onClick={onOpenModal}
+        onClick={toggleModal}
       >
         Login
       </ExitToAppIcon>
       <Modal
-        open={open}
-        onClose={onCloseModal}
+        open={isOpenModal}
+        onClose={toggleModal}
         center
       >
         <div className={styles['authorization-modal']}>
           <LoginForm
-            isLoginShown={isLoginShown}
-            handler={switchModes}
+            isLoginShown={switcher.isLoginShown}
+            handler={toggleSwitcher}
           />
           <RegisterForm
-            isRegisterShown={isRegisterShown}
-            handler={switchModes}
+            isRegisterShown={switcher.isRegisterShown}
+            handler={toggleSwitcher}
           />
         </div>
       </Modal>

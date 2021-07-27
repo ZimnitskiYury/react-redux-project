@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import 'styles/fonts.css';
+
+import React, { useReducer } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -21,13 +23,16 @@ function App() {
   const [
     isOpen,
     toggleSidebar,
-  ] = useState(false);
+  ] = useReducer(
+    (state) => !state,
+    false,
+  );
 
   return (
     <BrowserRouter>
       <Provider store={store}>
         <Sidebar isOpen={isOpen} />
-        <Header sidebarHandler={() => toggleSidebar(!isOpen)} />
+        <Header sidebarHandler={toggleSidebar} />
         <div className={styles.container}>
           <Switch>
             <Route

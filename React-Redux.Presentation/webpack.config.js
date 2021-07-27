@@ -86,6 +86,18 @@ module.exports = (
           ],
         },
         {
+          test: /\.(woff(2)?|ttf|eot|otf)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [{
+            loader: 'file-loader',
+            options: {
+              outputPath: 'assets/images',
+              name() {
+                return '[name].[hash].[ext]';
+              },
+            },
+          }],
+        },
+        {
           test: /\.(?:ico|png|jpg|jpeg|gif)$/,
           loader: 'file-loader',
           options: {

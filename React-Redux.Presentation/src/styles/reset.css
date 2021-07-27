@@ -27,6 +27,7 @@ figcaption,
 blockquote,
 dl,
 dd {
+  font-family: 'poppinsregular', sans-serif;
   margin: 0;
 }
 

@@ -19,14 +19,16 @@ import styles from './beerDetailsPage.css';
 function BeerDetailsPageLayout({ beer, favHandler, isFavorite = false }) {
   return (
     <div className={styles['beer-page']}>
-      <div className={styles['beer-page__header']}>
-        <div className={styles['beer-page__header-info']}>
-          <h1 className={styles['beer-page__header-title']}>
-            {beer.name}
-          </h1>
-          <span className={styles['beer-page__header-tags']}>
-            {beer.tagline}
-          </span>
+      <div className={styles['beer-page__content']}>
+        <div className={styles['beer-page__content-info']}>
+          <header className={styles['beer-page__header']}>
+            <h1 className={styles['beer-page__header-title']}>
+              {beer.name}
+            </h1>
+            <span className={styles['beer-page__header-tags']}>
+              {beer.tagline}
+            </span>
+          </header>
           <ToggleFavoriteButton
             isFavorite={isFavorite}
             handler={favHandler()}
