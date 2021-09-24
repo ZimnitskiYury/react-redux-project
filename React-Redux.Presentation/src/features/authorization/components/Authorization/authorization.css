@@ -1,0 +1,25 @@
+.authorization {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.authorization__greetings {
+  text-transform: uppercase;
+}
+
+.authorization > a {
+  text-decoration: none;
+  color: black;
+}
+
+.authorization > a:hover {
+  color: white;
+}
+
+.authorization-modal {
+  display: flex;
+  width: auto;
+  overflow: auto;
+  align-items: center;
+}

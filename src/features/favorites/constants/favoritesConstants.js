@@ -1,7 +1,0 @@
-export const ADD_FAVORITE = 'FAVORITES/ADD';
-export const REMOVE_FAVORITE = 'FAVORITES/REMOVE';
-
-export default {
-  ADD_FAVORITE,
-  REMOVE_FAVORITE,
-};

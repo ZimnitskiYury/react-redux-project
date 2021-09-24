@@ -1,0 +1,36 @@
+.favorite-button {
+  font-family: 'poppinsmedium', sans-serif;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 250px;
+  height: auto;
+  padding: 5px 20px;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  color: black;
+  border: 1px solid #ffb46a;
+  border-radius: 2px;
+  background-color: white;
+  font-size: 18px;
+  align-items: center;
+  column-gap: 10px;
+  justify-content: center;
+}
+
+.favorite-button__text {
+  line-height: 1;
+}
+
+.favorite-button:hover {
+  color: white;
+  background-color: #ffb46a;
+}
+
+.favorite-button_remove {
+  color: white;
+  background-color: #e0843c;
+}
+
+.favorite-button_remove:hover {
+  background-color: #ffb46a;
+}
